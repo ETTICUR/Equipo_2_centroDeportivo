@@ -1,4 +1,4 @@
-## = Proyecto Equipo 2
+##  Proyecto Equipo 2
 ### Ascona - Ataides -  Curetti - Festa ###
 
 *Temática del Market Place:*
