@@ -7,5 +7,5 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 
 =*Web referenciales:*
     +[Smarfit](https://www.smartfit.com.ar/)
-    +[AlteaActive] (https://alteaactive.com/toronto/)
-    +[BestClub] (https://bestclub.com.ar/)
+    +[AlteaActive](https://alteaactive.com/toronto/)
+    +[BestClub](https://bestclub.com.ar/)
