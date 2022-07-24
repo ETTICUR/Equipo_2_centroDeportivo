@@ -1,4 +1,4 @@
-#  Proyecto Equipo 2
+#  Centro Deportivo
 ### Ascona - Ataides -  Curetti - Festa ###
 
 #### Temática del Market Place:
