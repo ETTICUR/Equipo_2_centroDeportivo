@@ -13,4 +13,8 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 - [MyGym](https://www.mygym.com.ar/) posee una estética impactante. Sus secciones nos van a ayudar con el diseño y la imagen del sitio.
 - El sitio web [InstaFit](https://instafit.com/) posee una armonía de diseño que nos gusto, con una sección de planes y suscripción cautivadora y sencilla que nos puede ayudar al diseño de la propia.
 
-
+### Integrantes del grupo:
+- ASCONA,Mateo:
+- ATAIDES,Nicolas:
+- CURETTI,Ayelén: Vivo en La Pampa, tengo 33 años. Soy naturalmente curiosa y me encanta aprender. Hace un tiempo decidi empezar a incursionar en la programación con cursos cortos y actualmente es mi desafio combinarlo con mis profesiones. Me interesa ampliar constantemente mis conocimientos e irlos integrando.
+- FESTA,Luciano:
