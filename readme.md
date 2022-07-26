@@ -7,7 +7,8 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 
 #### Integrantes del equipo:
 
-- Festa Luciano: Soy de la localidad de Morteros (Cba), tengo 30 años y hace 3 años descubrí el mundo de la programación y siempre me dije: "Ahí voy a estar". Desde ese momento trate de ser autodidacta y siempre busqué la posibilidad de aprender y buscar una oportunidad. Siento que me inclino mas por el Back y la funcionalidad que por el Front o el diseño, pero ambas me parecen super importantes e interesantes de aprender. Me gusta el fútbol y hacer actividad física y siento que estoy en el mejor grupo que me podría tocar ;).
+- CURETTI,Ayelén: Vivo en La Pampa, tengo 33 años. Soy naturalmente curiosa y me encanta aprender. Hace un tiempo decidi empezar a incursionar en la programación con cursos cortos y actualmente es mi desafio combinarlo con mis profesiones. Me interesa ampliar constantemente mis conocimientos e irlos integrando.
+- FESTA,Luciano: Soy de la localidad de Morteros (Cba), tengo 30 años y hace 3 años descubrí el mundo de la programación y siempre me dije: "Ahí voy a estar". Desde ese momento trate de ser autodidacta y siempre busqué la posibilidad de aprender y buscar una oportunidad. Siento que me inclino mas por el Back y la funcionalidad que por el Front o el diseño, pero ambas me parecen super importantes e interesantes de aprender. Me gusta el fútbol y hacer actividad física y siento que estoy en el mejor grupo que me podría tocar ;).
 
 #### Web referenciales:
 
@@ -17,7 +18,5 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 - [MyGym](https://www.mygym.com.ar/) posee una estética impactante. Sus secciones nos van a ayudar con el diseño y la imagen del sitio.
 - El sitio web [InstaFit](https://instafit.com/) posee una armonía de diseño que nos gusto, con una sección de planes y suscripción cautivadora y sencilla que nos puede ayudar al diseño de la propia.
 
-### Integrantes del grupo:
-- ASCONA,Mateo:
-- ATAIDES,Nicolas:
-- CURETTI,Ayelén: Vivo en La Pampa, tengo 33 años. Soy naturalmente curiosa y me encanta aprender. Hace un tiempo decidi empezar a incursionar en la programación con cursos cortos y actualmente es mi desafio combinarlo con mis profesiones. Me interesa ampliar constantemente mis conocimientos e irlos integrando.
+
+
