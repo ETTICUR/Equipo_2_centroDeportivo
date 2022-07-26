@@ -17,4 +17,3 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 - ASCONA,Mateo:
 - ATAIDES,Nicolas:
 - CURETTI,Ayelén: Vivo en La Pampa, tengo 33 años. Soy naturalmente curiosa y me encanta aprender. Hace un tiempo decidi empezar a incursionar en la programación con cursos cortos y actualmente es mi desafio combinarlo con mis profesiones. Me interesa ampliar constantemente mis conocimientos e irlos integrando.
-- FESTA,Luciano:
