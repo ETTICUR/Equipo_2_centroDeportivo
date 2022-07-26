@@ -2,7 +2,7 @@
 ### Ascona - Ataides -  Curetti - Festa ###
 
 #### Temática del Market Place:
-Administrador de cupos y disponibilidades para asistencia a clases en un centro deportivo. Gestionado a través de la compra de una suscripción para diferentes planes que incluyen diversas actividades como CrossFit, Funcional, Pesas y demás. Apunta a un público variado ya que el centro cuenta con profesionales especializados que elaboran los planes adecuandose a la edad, dificulpades físicas y objetivos personales de quienes contratan nuestros planes.
+Administrador de cupos y disponibilidades para asistencia a clases en un centro deportivo. Gestionado a través de la compra de una suscripción para diferentes planes que incluyen diversas actividades como CrossFit, Funcional, Pesas y demás. Apunta a un público variado ya que el centro cuenta con profesionales especializados que elaboran los planes adecuandose a la edad, dificultades físicas y objetivos personales de quienes contratan nuestros planes.
 Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a quien dicta la clase información de los asistentes a esa jornada.
 
 #### Integrantes del equipo:
