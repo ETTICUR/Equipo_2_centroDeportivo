@@ -26,7 +26,7 @@ body{
 
 .contenedorBanner{
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 20px;
@@ -47,25 +47,51 @@ body{
 .iconoBanner{
     color: white;
     position: absolute;
-    top: 85%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
 .iconoBanner i{
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 10px;
     color: #ffa841;
 }
 
 .seccionInfo{
-    background-color: #ffd181;
+    background-color: #fadba5;
     padding: 30px 10px;
 }
 
 .divInfo{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info{
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+.iconoInfo{
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: #ffa841;
+    padding: 10px;
+}
+
+.tituloInfo{
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.seccionPlanes h2{
+    text-align: center;
+    padding: 20px;
 }
 
 
@@ -76,5 +102,39 @@ body{
 /* Product Cart */
 
 /* Product Detail */
+
+
+
+@media(min-width: 768px){
+    /* Navbar */
+
+    /* Footer */
+
+    /* Home */
+
+    /* Login */
+
+    /* Register */
+
+    /* Product Cart */
+
+    /* Product Detail */
+}
+
+@media(min-width: 1279px){
+    /* Navbar */
+
+    /* Footer */
+
+    /* Home */
+
+    /* Login */
+
+    /* Register */
+
+    /* Product Cart */
+
+    /* Product Detail */
+}
 
 
