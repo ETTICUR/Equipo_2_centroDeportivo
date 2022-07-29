@@ -15,6 +15,16 @@ body{
 
 /* Home */
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
+h2{
+    text-align: center;
+    padding: 20px;
+}
+
 .bannerHome{
     position: relative;
     height: 60vh;
@@ -90,11 +100,6 @@ body{
     font-weight: 700;
 }
 
-.seccionPlanes h2{
-    text-align: center;
-    padding: 20px;
-}
-
 .divPlanes{
     display: flex;
     flex-wrap: wrap;
@@ -114,9 +119,10 @@ body{
     position: absolute;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     bottom: 0px;
     left: 0;
-    padding: 10px 10px;
+    padding: 10px 8px;
     background-color: #ffaa4152;
     width: 100%;
     color: white;
@@ -131,11 +137,51 @@ body{
     transition: all .5s ease-in-out;
 }
 
+.plan i{
+    color: #fa8a01;
+    padding-right: 3px;
+}
+
 .plan img:hover{
     filter: grayscale(1);
     transform: scale(1.1);
     cursor: pointer;
+    box-shadow: 10px 10px 10px rgb(170, 170, 170);
 }
+
+.btnPlan{
+    padding: 8px 15px;
+    background-color: #ffaa4152;
+    border: 2px solid #ffa841;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.btnPlan:hover{
+    border-color: #fa8a01;
+    box-shadow: inset 10em 0 0 0 #fa8a01;
+    transition: 0.7s;
+}
+
+.btnPlan i{
+    color: #fa8a01;
+    transition: 0.7s;
+}
+
+.btnPlan:hover i{
+    color: black;
+}
+
+.seccionMapa{
+    padding: 20px 0;
+}
+
+iframe{
+    width: 100%;
+}
+
 
 
 /* Login */
