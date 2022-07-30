@@ -201,6 +201,18 @@ iframe{
 
     /* Home */
 
+    .bannerHome{
+        height: 90vh;
+    }
+
+    .contenedorBanner{
+        top: 50%;
+    }
+
+    .plan i{
+        padding: 0 5px;
+    }
+
     /* Login */
 
     /* Register */
@@ -216,6 +228,13 @@ iframe{
     /* Footer */
 
     /* Home */
+
+    .divInfo{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: 350px;
+        align-items: center;
+    }
 
     /* Login */
 
