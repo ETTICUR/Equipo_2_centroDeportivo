@@ -145,7 +145,6 @@ h2{
 .plan img:hover{
     filter: grayscale(1);
     transform: scale(1.1);
-    cursor: pointer;
     box-shadow: 10px 10px 10px rgb(170, 170, 170);
 }
 
