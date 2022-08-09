@@ -1,5 +1,5 @@
 #  Centro Deportivo
-### Ascona - Ataides -  Curetti - Festa ###
+### Ascona - Ataides -  Curetti - Festa - Flax Marcó ###
 
 #### Temática del Market Place:
 Administrador de cupos y disponibilidades para asistencia a clases en un centro deportivo. Gestionado a través de la compra de una suscripción para diferentes planes que incluyen diversas actividades como CrossFit, Funcional, Pesas y demás. Apunta a un público variado ya que el centro cuenta con profesionales especializados que elaboran los planes adecuandose a la edad, dificultades físicas y objetivos personales de quienes contratan nuestros planes.
@@ -14,6 +14,8 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 - CURETTI, Ayelén: Vivo en La Pampa, tengo 33 años. Soy naturalmente curiosa y me encanta aprender. Hace un tiempo decidi empezar a incursionar en la programación con cursos cortos y actualmente es mi desafio combinarlo con mis profesiones. Me interesa ampliar constantemente mis conocimientos e  integrarlos entre sí.
 
 - FESTA, Luciano: Soy de la localidad de Morteros (Cba), tengo 30 años y hace 3 años descubrí el mundo de la programación y siempre me dije: "Ahí voy a estar". Desde ese momento trate de ser autodidacta y siempre busqué la posibilidad de aprender y buscar una oportunidad. Siento que me inclino mas por el Back y la funcionalidad que por el Front o el diseño, pero ambas me parecen super importantes e interesantes de aprender. Me gusta el fútbol y hacer actividad física y siento que estoy en el mejor grupo que me podría tocar ;).
+
+- FLAX MARCO, María Laura: mí nombre es María Laura,no Laura como algunos quieren decirme...incursione en este curso, como un modo de hacer un cambio rotundo en mí perfil profesional. Adentrándome así en un mundo cada vez más tecnológico y con mayor demanda de estos perfiles. Quiero ser parte del cambio sea en donde esté. Soy tenaz y perseverante. Y me gustaría mejorar la vida de las personas! 
 
 #### Web referenciales:
 
