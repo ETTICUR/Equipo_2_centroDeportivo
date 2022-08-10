@@ -149,7 +149,7 @@ h2{
 }
 
 .btnPlan{
-    padding: 8px 15px;
+    padding: 8px 20px;
     background-color: #ffaa4152;
     border: 2px solid #ffa841;
     cursor: pointer;
@@ -171,6 +171,7 @@ h2{
 
 .btnPlan:hover i{
     color: black;
+    animation: agrandar 1s infinite;
 }
 
 .seccionMapa{
@@ -179,6 +180,18 @@ h2{
 
 iframe{
     width: 100%;
+}
+
+@keyframes agrandar{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.4);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
 
