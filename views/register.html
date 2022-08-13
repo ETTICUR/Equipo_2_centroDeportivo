@@ -22,41 +22,44 @@
             <form action="">
                 <p>Para comenzar completa los campos:</p>
                 <div class="flex">
-                    <div class="inputForm">
+                    <div class="inputForm ancho ">
                         <label for="nombre">Nombre: </label><span class="asterisco">*</span>
                         <input type="text" name="nombre" id="nombre" placeholder="Tu nombre">
                     </div>
-                    <div class="inputForm">
+                    <div class="inputForm ancho" >
                         <label for="apellido">Apellido: </label><span class="asterisco">*</span>
                         <input type="text" name="apellido" id="apellido" placeholder="Tu apellido">
                     </div>
                 </div>
-                
-                <div class="inputForm">
+
+                <div class="flex espacio">
                     <div class="inputForm">
-                        <label for="genero">Género: </label><span class="asterisco">*</span>
-                        <select name="genero" id="genero" class="selectRegister">
+                        <div class="inputForm">
+                            <label for="genero">Género: </label><span class="asterisco">*</span>
+                            <select name="genero" id="genero" class="selectRegister">
+                                <option selected disabled>Elige una opción</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="inputForm">
+                        <label for="edad">Edad: </label><span class="asterisco">*</span>
+                        <input type="number" name="edad" id="edad" placeholder="Tu edad" >
+                    </div>
+                    <div class="inputForm">
+                        <label for="actividad">Actividad preferida: </label><span class="asterisco">*</span>
+                        <select name="actividad" id="actividad" class="selectRegister">
                             <option selected disabled>Elige una opción</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="otro">Otro</option>
+                            <option value="aerobico">Aeróbico</option>
+                            <option value="fuerza">Fuerza</option>
+                            <option value="relax">Relax</option>
+                            <option value="combinado">Combinado</option>
                         </select>
                     </div>
                 </div>
-                <div class="inputForm">
-                    <label for="edad">Edad: </label><span class="asterisco">*</span>
-                    <input type="number" name="edad" id="edad" placeholder="Tu edad" >
-                </div>
-                <div class="inputForm">
-                    <label for="actividad">Actividad preferida: </label><span class="asterisco">*</span>
-                    <select name="actividad" id="actividad" class="selectRegister">
-                        <option selected disabled>Elige una opción</option>
-                        <option value="aerobico">Aeróbico</option>
-                        <option value="fuerza">Fuerza</option>
-                        <option value="relax">Relax</option>
-                        <option value="combinado">Combinado</option>
-                    </select>
-                </div>
+             
                 <div class="inputForm">
                     <label for="email">Correo electrónico: </label><span class="asterisco">*</span>
                     <input type="email" name="email" id="email" placeholder="Tu email" >

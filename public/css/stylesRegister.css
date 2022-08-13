@@ -113,5 +113,30 @@ form p{
 }
 
 @media(min-width:769px){
+    .divImagen{
+        height: 400px;
+    } 
     
+    form{
+        margin: -120px auto 0 auto;
+    }
+
+    .flex{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .flex .inputForm{
+        margin: 0 4px;
+    }
+
+    .ancho{
+        width: 45%;
+    }
+
+    .espacio{
+        margin-top: 8px;
+    }
 }
+
