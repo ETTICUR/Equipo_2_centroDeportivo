@@ -1,5 +1,5 @@
 #  Centro Deportivo
-### Ascona - Ataides -  Curetti - Festa- Flax Marcó ###
+### Ascona - Ataides -  Curetti - Festa - Flax Marcó ###
 
 #### Temática del Market Place:
 Administrador de cupos y disponibilidades para asistencia a clases en un centro deportivo. Gestionado a través de la compra de una suscripción para diferentes planes que incluyen diversas actividades como CrossFit, Funcional, Pesas y demás. Apunta a un público variado ya que el centro cuenta con profesionales especializados que elaboran los planes adecuandose a la edad, dificulpades físicas y objetivos personales de quienes contratan nuestros planes.
@@ -25,5 +25,7 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 - [MyGym](https://www.mygym.com.ar/) posee una estética impactante. Sus secciones nos van a ayudar con el diseño y la imagen del sitio.
 - El sitio web [InstaFit](https://instafit.com/) posee una armonía de diseño que nos gusto, con una sección de planes y suscripción cautivadora y sencilla que nos puede ayudar al diseño de la propia.
 
+#### Link Trello:
 
+- https://trello.com/b/hckivyZn/equipo2centrodeportivo
 
