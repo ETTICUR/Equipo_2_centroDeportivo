@@ -1,10 +1,10 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
     background-color: #fff7e9;
 }
@@ -15,17 +15,17 @@ body{
 
 /* Home */
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
 
-h2{
+h2 {
     text-align: center;
     padding: 20px;
 }
 
-.bannerHome{
+.bannerHome {
     position: relative;
     height: 60vh;
     background-image: url(../images/banner.png);
@@ -35,7 +35,7 @@ h2{
     background-repeat: no-repeat;
 }
 
-.contenedorBanner{
+.contenedorBanner {
     position: absolute;
     top: 45%;
     left: 50%;
@@ -49,13 +49,13 @@ h2{
     border-radius: 10%;
 }
 
-.fraseBannerNegrita{
+.fraseBannerNegrita {
     font-weight: 900;
     margin-top: 20px;
     color: white;
 }
 
-.iconoBanner{
+.iconoBanner {
     color: white;
     position: absolute;
     top: 90%;
@@ -64,43 +64,43 @@ h2{
     text-align: center;
 }
 
-.iconoBanner i{
+.iconoBanner i {
     font-size: 20px;
     margin-bottom: 10px;
     color: #ffa841;
 }
 
-.seccionInfo{
+.seccionInfo {
     background-color: #fadba5;
     padding: 30px 10px;
 }
 
-.divInfo{
+.divInfo {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
 }
 
-.info{
+.info {
     text-align: center;
     margin: 10px;
     padding: 5px;
 }
 
-.iconoInfo{
+.iconoInfo {
     font-size: 50px;
     margin-bottom: 10px;
     color: #ffa841;
     padding: 10px;
 }
 
-.tituloInfo{
+.tituloInfo {
     margin-bottom: 10px;
     font-weight: 700;
 }
 
-.divPlanes{
+.divPlanes {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -108,14 +108,14 @@ h2{
     align-items: center;
 }
 
-.plan{
+.plan {
     position: relative;
     display: flex;
     flex-wrap: wrap;
     margin: 25px 30px;
 }
 
-.detallePlan{
+.detallePlan {
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -130,25 +130,25 @@ h2{
     border-radius: 2%;
 }
 
-.plan img{
+.plan img {
     position: relative;
     max-width: 100%;
     height: 100%;
     transition: all .5s ease-in-out;
 }
 
-.plan i{
+.plan i {
     color: #fa8a01;
     padding-right: 3px;
 }
 
-.plan img:hover{
+.plan img:hover {
     filter: grayscale(1);
     transform: scale(1.1);
     box-shadow: 10px 10px 10px rgb(170, 170, 170);
 }
 
-.btnPlan{
+.btnPlan {
     padding: 8px 20px;
     background-color: #ffaa4152;
     border: 2px solid #ffa841;
@@ -158,38 +158,40 @@ h2{
     border-radius: 10px;
 }
 
-.btnPlan:hover{
+.btnPlan:hover {
     border-color: #fa8a01;
     box-shadow: inset 10em 0 0 0 #fa8a01;
     transition: 0.7s;
 }
 
-.btnPlan i{
+.btnPlan i {
     color: #fa8a01;
     transition: 0.7s;
 }
 
-.btnPlan:hover i{
+.btnPlan:hover i {
     color: black;
     animation: agrandar 1s infinite;
 }
 
-.seccionMapa{
+.seccionMapa {
     padding: 20px 0;
 }
 
-iframe{
+iframe {
     width: 100%;
 }
 
-@keyframes agrandar{
-    0%{
+@keyframes agrandar {
+    0% {
         transform: scale(1);
     }
-    50%{
+
+    50% {
         transform: scale(1.4);
     }
-    100%{
+
+    100% {
         transform: scale(1);
     }
 }
@@ -205,23 +207,43 @@ iframe{
 /* Product Detail */
 
 
-
-@media(min-width: 768px){
+@media(min-width: 481px) {
     /* Navbar */
 
     /* Footer */
 
     /* Home */
 
-    .bannerHome{
+    /* Login */
+
+    /* Register */
+
+    /* Product Cart */
+
+    /* Product Detail */
+
+}
+
+
+
+
+
+@media(min-width: 768px) {
+    /* Navbar */
+
+    /* Footer */
+
+    /* Home */
+
+    .bannerHome {
         height: 90vh;
     }
 
-    .contenedorBanner{
+    .contenedorBanner {
         top: 50%;
     }
 
-    .plan i{
+    .plan i {
         padding: 0 5px;
     }
 
@@ -232,16 +254,18 @@ iframe{
     /* Product Cart */
 
     /* Product Detail */
+
+
 }
 
-@media(min-width: 1279px){
+@media(min-width: 1279px) {
     /* Navbar */
 
     /* Footer */
 
     /* Home */
 
-    .divInfo{
+    .divInfo {
         flex-direction: row;
         flex-wrap: nowrap;
         height: 350px;
@@ -255,6 +279,5 @@ iframe{
     /* Product Cart */
 
     /* Product Detail */
+
 }
-
-

@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bodyDetail{
+    font-family: 'Roboto', sans-serif;
+    background-color: #fadba5;
+}
+
+.mainDetail{
+    width: 80%;
+    margin: auto;
+    padding: 25px 0;
+}
+
+.divMainDetail{
+    width: 100%;
+}
+
+.tituloDetailTabletDesktop{
+    display: none;
+}
+
+.tituloDetail{
+    position: absolute;
+    top: -47px;
+    padding: 10px 5px;
+    background-color: #ffaa419c;
+    width: 100%;
+    color: white;
+}
+
+.imgDivDetail img{
+    height: 50vh;
+    width: 90%;
+}
+
+.detalleDetail{
+    background-color: #fadba581;
+    position: relative;
+}
+
+.detalleEntrenamiento{
+    padding: 20px;
+}
+
+.detalleEntrenamiento i{
+    color: #ff8c00;
+    font-size: 20px;
+}
+
+.precioDetail{
+    margin-bottom: 20px;
+    font-weight: 900;
+    font-size: 30px;
+    color: #ff8c00;
+}
+
+.descripcionDetail{
+    font-size: 15px;
+    text-align: justify;
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+.horariosDetail p{
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.horariosDetail li{
+    list-style: none;
+    padding: 5px;
+}
+
+.horariosDetail li span, .descripcionDetail span{
+    text-decoration: underline;
+}
+
+.agregarBoton{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.agregarDetail{
+    display: flex;
+    align-items: center;
+    border: 2px solid #ff8c00;
+    background-color: #ffaa4152;
+}
+
+.numeroDetail{
+    border-right: 2px solid #ff8c00;
+    padding: 4px 15px;
+}
+
+.numeroDetail p{
+    font-size: 25px;
+}
+
+.masMenosDetail{
+    display: flex;
+    flex-direction: column;
+}
+
+.masMenosDetail button{
+    padding: 10px 20px;
+    border: none;
+    background-color: #ffaa4100;
+    font-size: 15px;
+    transition: all .5s ease-in-out;
+}
+
+.masMenosDetail button:hover{
+    color: #ff8c00;
+    cursor: pointer;
+}
+
+.botonDetail button{
+    padding: 15px;
+    background-color: #ffaa4152;
+    border: 2px solid #ffa841;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.botonDetail button:hover{
+    border-color: #fa8a01;
+    box-shadow: inset 14em 0 0 0 #fa8a01;
+    transition: 0.7s;
+
+}
+
+.botonDetail i{
+    color: #fa8a01;
+    transition: 0.7s;
+    padding-right: 5px;
+}
+
+.botonDetail:hover i{
+    color: black;
+    animation: rotarCesto 1s infinite;
+}
+
+@keyframes rotarCesto{
+    0%{
+        transform: rotate(15deg);
+    }
+    50%{
+        transform: rotate(-15deg);
+    }
+    100%{
+        transform: rotate(15deg);
+    }
+}
+
+@media(min-width: 481px){
+
+    .imgDivDetail img{
+        height: 60vh;
+        width: 100%;
+    }
+
+}
+
+@media(min-width: 769px){
+
+    .mainDetail{
+        width: 98%;
+    }
+
+    .imgDivDetail{
+        width: 50%;
+    }
+
+    .tituloDetail{
+        display: none;
+    }
+
+    .tituloDetailTabletDesktop{
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+        padding: 10px 5px;
+        background-color: #ffaa419c;
+        width: 100%;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .imgDivDetail img{
+        height: 80vh;
+    }
+
+    .detalleDivDetail{
+        width: 50%;
+    }
+
+    .divMainDetail{
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+}
