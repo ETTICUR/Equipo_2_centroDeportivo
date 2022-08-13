@@ -1,0 +1,84 @@
+*{
+    color: rgb(100, 100, 100);
+}
+
+.cartTitle{
+    margin: 5vh 0 -5vh 2vw;
+}
+
+.cartTableContainer {
+    width: 90vw;
+    margin: 10vh auto;
+    background-color: rgba(255, 255, 255, 0.90);
+    border-radius: 5%;
+  }
+  
+  .cartTable {
+    width: 100%;
+    padding: 3%;
+  }
+  
+  .cartTableHeader{
+    
+    
+  }
+  
+  .cartTableBody{
+    
+  }
+  
+  .cartElement{
+    text-align: center;
+    padding: .5%;
+  }
+  
+  .cartElement img{
+    width: 90px;
+    height: 90px;
+  }
+  
+  .deleteBtnCart{
+    text-align: center;
+  }
+  
+  .deleteBtnCart button{
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fa8a01;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.01);
+    text-align: center;
+    color: #fa8a01;
+    font-weight: 600;
+    transition: .5s;
+  }
+  
+  .deleteBtnCart button:hover{
+    border: 2px solid #fadba5;
+    background-color: #fa8a01;
+    color: #fadba5;
+  }
+
+  .totalTitle, .totalPrice{
+    font-size: 1rem;
+    font-weight: bold;
+    padding-top: 3%;
+  }
+
+  .finishButton{
+    padding: 5px;
+    border: 2px solid #fa8a01;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fa8a01;
+
+  }
+
+  .finishButton:hover {
+    border-color: #fa8a01;
+    box-shadow: inset 10em 0 0 0 #fa8a01;
+    transition: 0.7s;
+    color: white;
+  }

@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
     <header></header>
 
     <main>
+      <h1 class="cartTitle">Tu carrito</h1>
         <div class="cartTableContainer">
           
-            <table class="cartTable">
+            <table class="cartTable desktopCart">
 
               <thead class="cartTableHeader">
                 <th class="deleteBtnTableHeader"></th>
@@ -52,13 +54,51 @@
                   <td class="cartElement">5 clases</td>
                   <td class="cartElement">$5000</td>
                 </tr>
+
+                <tr>
+                  <td> </td>
+                  <td class="cartElement totalTitle">Total</td>
+                  <td> </td>
+                  <td> </td>
+                  <td class="cartElement totalPrice">$25000</td>
+                </tr>
+
+                <tr>
+                  <td> </td>
+                  <td></td>
+                  <td> </td>
+                  <td> </td>
+                  <td class="cartElement totalPrice"><button class="finishButton">Terminar compra</button></td>
+                </tr>
                 
                
               </tbody>
 
             </table>
 
-            <div class="totalPriceCart"></div>
+            <table class="cartTable">
+              <tbody>
+                <tr>
+                  <td class="deleteBtnCart"><button>x</button></td>
+                </tr>
+                <tr>
+                  <td class="cartElement">Image</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="cartElement">Producto</td>
+                  <td class="cartElement">Yoga</td>
+                </tr>
+                <tr>
+                  <td class="cartElement">Cantidad</td>
+                  <td class="cartElement">5</td>
+                </tr>
+                <tr>
+                  <td class="cartElement">Precio</td>
+                  <td class="cartElement">5000</td>
+                </tr>
+              </tbody>
+            </table>
 
         </div>
 
