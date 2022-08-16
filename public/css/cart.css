@@ -18,11 +18,11 @@
   padding: 3%;
 }
 
-.cartTableHeader {
+/* .cartTableHeader {
 }
 
 .cartTableBody {
-}
+} */
 
 .cartElement {
   text-align: center;
@@ -76,6 +76,7 @@
   color: #fa8a01;
   margin-top: 3%;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .finishButton:focus {

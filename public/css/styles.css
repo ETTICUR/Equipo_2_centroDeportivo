@@ -9,12 +9,6 @@ body {
   background-color: #fff7e9;
 }
 
-/* Navbar */
-
-/* Footer */
-
-/* Home */
-
 a {
   text-decoration: none;
   color: black;
@@ -182,21 +176,7 @@ iframe  {
   width: 100%;
 }
 
-/* Login */
-
-    /* Register */
-
-    /* Product Cart */
-
-
-/* Product Detail */
-
 @media (min-width: 768px) {
-  /* Navbar */
-
-  /* Footer */
-
-  /* Home */
 
   .bannerHome  {
     height: 90vh;
@@ -210,23 +190,9 @@ iframe  {
     padding: 0 5px;
   }
 
-  /* Login */
-
-  /* Register */
-
-  /* Product Cart */
-
-  /* Product Detail */
-
-
 }
 
 @media (min-width: 1279px) {
-  /* Navbar */
-
-  /* Footer */
-
-  /* Home */
 
   .divInfo {
     flex-direction: row;
@@ -235,11 +201,4 @@ iframe  {
     align-items: center;
   }
 
-  /* Login */
-
-  /* Register */
-
-  /* Product Cart */
-
-  /* Product Detail */
 }
