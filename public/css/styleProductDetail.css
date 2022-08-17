@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.h1Detail{
+    font-size: 30px;
+    padding: 20px 20px 0 20px;
+}
+
 .bodyDetail{
     font-family: 'Roboto', sans-serif;
     background-color: #fadba5;
