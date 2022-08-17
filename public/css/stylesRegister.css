@@ -2,7 +2,9 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    list-style: none;
 }
+
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -138,5 +140,104 @@ form p{
     .espacio{
         margin-top: 8px;
     }
+
+
 }
+
+/* FOOTER */
+
+.contenedorFoot{
+    max-width: 1170px;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap:wrap;
+    display: flex;
+
+}
+.footer{
+    align-items: flex-end;
+    background-color:  #ffaa41b6;
+    padding: 20px 0;
+    box-shadow: 0 0 15px #fa8a01; 
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    
+    
+   
+}
+.rowFoot{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.columnaFoot{
+    
+    padding: 0 15px;
+    /* position: relative; */
+    right: 0px;
+}
+.columnaFoot h4{
+    font-size: 18px;
+    color: black;
+    text-transform: capitalize;
+
+    margin-bottom: 35px;
+    font-weight: 600;
+    /* position: relative; */
+    right: 150px;
+}
+
+.columnaFoot ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.columnaFoot ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+    font-weight: 300;
+    /* position: relative; */
+    right: 150px;
+    display: block;
+    transition: all 0.3s ease;
+}
+.columnaFoot ul li a:hover{
+    /* position: relative; */
+    right: 200px;
+    color: #ffffff;
+    
+}
+.columnaFoot .link-redes a{
+    /* position: relative; */
+    right: 200px;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2) ;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+.columnaFoot .link-redes a:hover{
+
+    color: #ffaa41b6;
+    background-color: #fa8a01; 
+}
+
+
+
+
+
+
+
+
+
+
 
