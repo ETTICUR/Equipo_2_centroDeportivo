@@ -70,6 +70,7 @@
   color: #fa8a01;
   margin-top: 3%;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .finishButton:focus {
