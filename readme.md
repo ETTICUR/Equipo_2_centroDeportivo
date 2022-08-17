@@ -1,5 +1,5 @@
 #  Centro Deportivo
-### Ascona - Ataides -  Curetti - Festa ###
+### Ascona - Ataides -  Curetti - Festa - Flax Marcó ###
 
 #### Temática del Market Place:
 Administrador de cupos y disponibilidades para asistencia a clases en un centro deportivo. Gestionado a través de la compra de una suscripción para diferentes planes que incluyen diversas actividades como CrossFit, Funcional, Pesas y demás. Apunta a un público variado ya que el centro cuenta con profesionales especializados que elaboran los planes adecuandose a la edad, dificultades físicas y objetivos personales de quienes contratan nuestros planes.
@@ -15,6 +15,8 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 
 - FESTA, Luciano: Soy de la localidad de Morteros (Cba), tengo 30 años y hace 3 años descubrí el mundo de la programación y siempre me dije: "Ahí voy a estar". Desde ese momento trate de ser autodidacta y siempre busqué la posibilidad de aprender y buscar una oportunidad. Siento que me inclino mas por el Back y la funcionalidad que por el Front o el diseño, pero ambas me parecen super importantes e interesantes de aprender. Me gusta el fútbol y hacer actividad física y siento que estoy en el mejor grupo que me podría tocar ;).
 
+- FLAX MARCO, María Laura: mí nombre es María Laura,no Laura como algunos quieren decirme...incursione en este curso, como un modo de hacer un cambio rotundo en mí perfil profesional. Adentrándome así en un mundo cada vez más tecnológico y con mayor demanda de estos perfiles. Quiero ser parte del cambio sea en donde esté. Soy tenaz y perseverante. Y me gustaría mejorar la vida de las personas! 
+
 #### Web referenciales:
 
 - La web de [Smarfit](https://www.smartfit.com.ar/) posee una interesante combinación de colores y una diseño de tarjetas que consideramos posible replicar para aplicar en nuestro proyecto.
@@ -23,5 +25,7 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 - [MyGym](https://www.mygym.com.ar/) posee una estética impactante. Sus secciones nos van a ayudar con el diseño y la imagen del sitio.
 - El sitio web [InstaFit](https://instafit.com/) posee una armonía de diseño que nos gusto, con una sección de planes y suscripción cautivadora y sencilla que nos puede ayudar al diseño de la propia.
 
+#### Link Trello:
 
+- https://trello.com/b/hckivyZn/equipo2centrodeportivo
 
