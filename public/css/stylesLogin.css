@@ -94,6 +94,11 @@
         margin: auto;
     }
 
+    .recuerdameRecupero{
+        display: flex;
+        justify-content: space-around;
+    }
+
 }
 
 @media(min-width: 769px){
@@ -174,4 +179,20 @@ body{
     border-color: white;
     box-shadow: inset 10em 0 0 0 #fa8a01;
     transition: 0.7s;
+}
+
+.recuerdameRecupero{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.recuperar a{
+    text-decoration: underline;
+    transition: all .5s ease;
+}
+
+.recuperar a:hover{
+    color: white;
+    font-weight: bold;
 }
