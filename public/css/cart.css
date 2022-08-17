@@ -1,12 +1,14 @@
-* {
-  color: rgb(100, 100, 100);
-}
-
 body{
   background-color: #fadba5;
 }
+
+h4{
+  color: black;
+}
+
 .cartTitle {
   margin: 5vh 0 -5vh 2vw;
+  color: black;
 }
 
 .cartTableContainer {
