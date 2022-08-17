@@ -77,35 +77,7 @@
     font-weight: bold;
 }
 
-@media(min-width: 481px){
-
-    .burgerMenu{
-        display: none;
-    }
-
-    .menu{
-        display: block;
-    }
-
-    .mainLogin{
-        width: 70%;
-        margin: auto;
-    }
-
-    .recuerdameRecupero{
-        display: flex;
-        justify-content: space-around;
-    }
-
-}
-
-@media(min-width: 769px){
-
-    .navbar{
-        padding: 5px 20px;
-    }
-
-}
+/* LOGIN */
 
 body{
     font-family: 'Roboto', sans-serif;
@@ -193,4 +165,29 @@ body{
 .recuperar a:hover{
     color: white;
     font-weight: bold;
+}
+
+@media(min-width: 481px){
+
+    .burgerMenu{
+        display: none;
+    }
+
+    .menu{
+        display: block;
+    }
+
+    .mainLogin{
+        width: 70%;
+        margin: auto;
+    }
+
+}
+
+@media(min-width: 769px){
+
+    .navbar{
+        padding: 5px 20px;
+    }
+
 }

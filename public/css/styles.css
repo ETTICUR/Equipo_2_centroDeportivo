@@ -215,9 +215,9 @@ iframe {
 
 .columnaFoot ul li a {
   font-size: 1rem;
-  color: black;
+  color: white;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: bold;
   transition: all 0.3s ease;
 }
 
@@ -226,13 +226,12 @@ iframe {
 }
 
 .columnaFoot ul li a:hover {
-  color: #ffffff;
+  color: #fc910fb6;
 }
-.columnaFoot .link-redes a {
+
+.columnaFoot .link-redes i {
   display: inline-block;
-  height: 40px;
-  width: 40px;
-  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 25px;
   margin: 0 10px 10px 0;
   text-align: center;
   line-height: 40px;
@@ -240,9 +239,8 @@ iframe {
   transition: all 0.2s ease;
 }
 
-.columnaFoot .link-redes a:hover {
-  color: #ffaa41b6;
-  background-color: #fa8a01;
+.columnaFoot .link-redes i:hover {
+  color: #fc910fb6;
 }
 
 .copyright{
@@ -324,19 +322,27 @@ iframe {
   font-weight: bold;
 }
 
-@media (min-width: 550px) {
+@media (min-width: 481px) {
   .burgerMenu {
-    display: none;
+    display: block;
   }
 
   .menu {
-    display: block;
+    display: none;
   }
 }
 
 @media (min-width: 768px) {
   .bannerHome {
     height: 90vh;
+  }
+
+  .burgerMenu {
+    display: none;
+  }
+
+  .menu {
+    display: block;
   }
 
   .navbar {
