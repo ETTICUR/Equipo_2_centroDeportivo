@@ -9,9 +9,7 @@
         integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/stylesLogin.css">
     <title>Login</title>
@@ -32,31 +30,29 @@
 
             <div class="menu">
                 <ul>
-                    <li> <a href="#">INICIO</a></li>
+                    <li> <a href="/">INICIO</a></li>
                     <li> <a href="#">SERVICIOS</a></li>
-                    <li> <a href="#">REGISTRARSE</a></li>
-                    <li> <a href="#"> <i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-                    <li> <a href="#"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+                    <li> <a href="/register">REGISTRARSE</a></li>
+                    <li> <a href="/login"> <i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                    <li> <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
                 </ul>
             </div>
-
     </header>
-    
-    <h1 class="tituloLogin">Ingresá a tu cuenta</h1>
+            <main>
+            
 
-    <main class="mainLogin">
+            <div class="loginBox">
+            <div class="imagenLogin"><img class="imagenlogo" src="/images/Logo Centro Deportivo Blanco.png" width="100" height="100" alt="logo para login"></div>
+            <div class="titulo"><h1>Login</h1></div>
+            <div class="formLogin">
+            <form>
+                <!-- USUARIO -->
+                <label for="usuario" class="formInput">Usuario</label>
+                <input type="text" placeholder="Ingresar Username" id="completarlogin" >
 
-
-        <div class="loginBox">
-            <div class="imagenLogin">
-                <img src="/images/Logo Centro Deportivo Blanco.png" alt="Logo Centro Deportivo">
-            </div>
-
-            <form class="formLogin">
-                <div class="formInput">
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" placeholder="Ingresar Usuario" id="usuario" name="usuario">
-                </div>
+                <!-- PASSWORD -->
+                <label for="contraseña" class="formInput">Contraseña</label>
+                <input type="contraseña" placeholder="Ingresar Contraseña" id="completarlogin">
 
                 <div class="formInput">
                     <label for="contraseña">Contraseña:</label>
@@ -79,46 +75,37 @@
                 </div>
 
             </form>
+        </div>
+        <br>
+        <br>
+        <br>
+        
+        </main>
+        <footer class="footer">
+        
+            <div class="rowFoot">
+                              
+                <div class="columnaFoot">
+                    <h4>Contactanos</h4>
+                    <ul>
+                        <li> <a href="muucs@gmail.com">centro-deportivo@gmail.com</a></li>
+                        <li> <a href="+543415683519">+54 3562670039</a></li>
+                        <li> <a href="https://goo.gl/maps/SnAAU7cTwvi8vd5D6">Morteros Cordoba</a></li>
+                    </ul>
+                </div>
 
-    </main>
+                <div class="columnaFoot">
+                    <h4>Redes sociales</h4>
+                    <div class="link-redes">
 
-    <footer class="footer">
-
-        <div class="rowFoot">
-            <div class="columnaFoot">
-                <h4>Gimnasio</h4>
-                <ul>
-                    <li> <a href="#">Sobre nosotros</a></li>
-                    <li> <a href="#">Socios</a></li>
-                    <li> <a href="#">Preguntas frecuentes</a></li>
-                    <li> <a href="#">Opciones de pago</a></li>
-
-                </ul>
-            </div>
-
-
-            <div class="columnaFoot">
-                <h4>Contactanos</h4>
-                <ul>
-                    <li> <a href="muucs@gmail.com">CentroDeportivo@gmail.com</a></li>
-                    <li> <a href="+543415683519">+54 3562670039</a></li>
-                    <li> <a href="https://goo.gl/maps/SnAAU7cTwvi8vd5D6">Morteros Cordoba</a></li>
-                </ul>
-            </div>
-            <div class="columnaFoot">
-                <h4>Redes sociales</h4>
-                <div class="link-redes">
-
-                    <a href="#">
-                        <iF class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <iF class="fab fa-instagram"></i>
-                    </a>
+                        <a href="#"><iF class="fab fa-twitter"></i></a>
+                        <a href="#"><iF class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <p class="copyright">Copyright © 2018-2022 Centro Deportivo</p>
+        
     </footer>
 
 
