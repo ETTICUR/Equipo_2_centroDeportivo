@@ -4,7 +4,9 @@
   "description": "Administrador de cupos y disponibilidades para asistencia a clases en un centro deportivo. Gestionado a través de la compra de una suscripción para diferentes planes que incluyen diversas actividades como CrossFit, Funcional, Pesas y demás. Apunta a un público variado ya que el centro cuenta con profesionales especializados que elaboran los planes adecuandose a la edad, dificulpades físicas y objetivos personales de quienes contratan nuestros planes.\r Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a quien dicta la clase información de los asistentes a esa jornada.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "dev": "npx nodemon app"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/ETTICUR/Equipo_2_centroDeportivo#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
     "path": "^0.12.7"
   }
