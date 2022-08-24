@@ -20,7 +20,6 @@ h2 {
   padding: 20px;
 }
 
-
 /* NAVBAR */
 
 .navbar {
@@ -95,9 +94,7 @@ h2 {
   font-weight: bold;
 }
 
-
 /* HOME */
-
 
 .bannerHome {
   position: relative;
@@ -256,6 +253,449 @@ iframe {
   width: 100%;
 }
 
+/* PRODUCT DETAIL */
+
+.h1Detail {
+  font-size: 30px;
+  padding: 20px 20px 0 20px;
+}
+
+.mainDetail {
+  width: 80%;
+  margin: auto;
+  padding: 25px 0;
+}
+
+.divMainDetail {
+  width: 100%;
+}
+
+.tituloDetailTabletDesktop {
+  display: none;
+}
+
+.tituloDetail {
+  position: absolute;
+  top: -47px;
+  padding: 10px 5px;
+  background-color: #ffaa419c;
+  width: 100%;
+  color: white;
+}
+
+.imgDivDetail img {
+  height: 50vh;
+  width: 100%;
+}
+
+.detalleDetail {
+  background-color: #fadba581;
+  position: relative;
+}
+
+.detalleEntrenamiento {
+  padding: 20px;
+}
+
+.detalleEntrenamiento i {
+  color: #ff8c00;
+  font-size: 20px;
+}
+
+.precioDetail {
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-size: 30px;
+  color: #ff8c00;
+}
+
+.descripcionDetail {
+  font-size: 15px;
+  text-align: justify;
+  margin-bottom: 20px;
+  line-height: 30px;
+}
+
+.horariosDetail p {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+
+.horariosDetail li {
+  list-style: none;
+  padding: 5px;
+}
+
+.horariosDetail li span,
+.descripcionDetail span {
+  text-decoration: underline;
+}
+
+.agregarBoton {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.agregarDetail {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ff8c00;
+  background-color: #ffaa4152;
+}
+
+.numeroDetail {
+  border-right: 2px solid #ff8c00;
+  padding: 4px 15px;
+}
+
+.numeroDetail p {
+  font-size: 25px;
+}
+
+.masMenosDetail {
+  display: flex;
+  flex-direction: column;
+}
+
+.masMenosDetail button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ffaa4100;
+  font-size: 15px;
+  transition: all 0.5s ease-in-out;
+}
+
+.masMenosDetail button:hover {
+  color: #ff8c00;
+  cursor: pointer;
+}
+
+.botonDetail button {
+  padding: 15px;
+  background-color: #ffaa4152;
+  border: 2px solid #ffa841;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.botonDetail button:hover {
+  border-color: #fa8a01;
+  box-shadow: inset 14em 0 0 0 #fa8a01;
+  transition: 0.7s;
+  border: 2px solid white;
+}
+
+.botonDetail i {
+  color: #fa8a01;
+  transition: 0.7s;
+  padding-right: 5px;
+}
+
+.botonDetail:hover i {
+  color: black;
+  animation: rotarCesto 1s infinite;
+}
+
+@keyframes rotarCesto {
+  0% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
+/* LOGIN */
+
+.bodyLogin {
+  font-family: "Roboto", sans-serif;
+  background-color: #fadba5;
+}
+
+.mainLogin {
+  background-color: #fadba5;
+}
+
+.tituloLogin {
+  font-size: 30px;
+  padding: 20px;
+}
+
+.loginBox {
+  width: 80%;
+  margin: 0 auto 30px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffaa41b6;
+  border-radius: 10px;
+}
+
+.imagenLogin img {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.formLogin {
+  width: 100%;
+}
+
+.inputForm {
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.asterisco {
+  color: red;
+  font-weight: 700;
+}
+
+.inputForm input,
+textarea,
+.selectRegister {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  background-color: #fadba5;
+  border: none;
+  border-radius: 5px;
+}
+
+.divBoton {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 10px 17px;
+  background-color: #fadba5;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.btn:hover {
+  border-color: white;
+  box-shadow: inset 10em 0 0 0 #fa8a01;
+  transition: 0.7s;
+}
+
+.btn i {
+  color: #fa8a01;
+}
+
+.btn:hover i {
+  color: #fadba5;
+  transition: 0.7s;
+}
+
+.recuerdameRecupero {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+}
+
+.recuperar a {
+  text-decoration: underline;
+  transition: all 0.5s ease;
+}
+
+.recuperar a:hover {
+  color: white;
+  font-weight: bold;
+}
+
+/* REGISTER */
+
+.body {
+  background-color: #fadba5;
+}
+
+.body h1 {
+  padding: 20px;
+}
+
+.divImagen {
+  background-image: url(../images/registrarse.png);
+  width: 100%;
+  height: 350px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+.mainRegister {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.divRegistro {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.divRegistro form {
+  background-color: #ffaa41b6;
+  padding: 10px;
+  width: 80%;
+  border-radius: 10px;
+  margin: -180px auto 0 auto;
+}
+
+form p {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+  color: white;
+}
+
+.terminos {
+  margin: 15px 0;
+  font-size: 15px;
+}
+
+/* CREATE/EDIT */
+
+.mainCreateEdit {
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.divCreateEdit {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
+
+.formCreateEdit {
+  background-color: #ffaa41b6;
+  padding: 10px;
+  width: 80%;
+  border-radius: 10px;
+  margin: 0;
+}
+
+textarea {
+  height: 15vh;
+}
+
+/* CARRITO */
+
+.cartTitle {
+  margin: 5vh 0 -5vh 2vw;
+  color: black;
+}
+
+.cartTableContainer {
+  width: 90vw;
+  margin: 10vh auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5%;
+}
+
+.cartTable {
+  width: 100%;
+  padding: 3%;
+}
+
+.cartElement {
+  text-align: center;
+  padding: 0.5%;
+}
+
+.cartElement img {
+  width: 90px;
+  height: 90px;
+}
+
+.deleteBtnCart button {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fa8a01;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.01);
+  text-align: center;
+  color: #fa8a01;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.deleteBtnCart button:hover {
+  border: 2px solid #fadba5;
+  background-color: #fa8a01;
+  color: #fadba5;
+}
+
+.totalTitle,
+.totalPrice,
+.mobileCartTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  padding-top: 3%;
+}
+
+.finishButtonRow {
+  text-align: center;
+  border-top: 1px solid #fadba5;
+}
+
+.finishButton {
+  width: 90%;
+  padding: 15px;
+  border: 2px solid #fa8a01;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fa8a01;
+  margin-top: 3%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.finishButton:focus {
+  background-color: #fa8a01;
+  color: white;
+  border: #fadba5;
+}
+
+.itemCountMobile {
+  width: 10%;
+  border: 1px solid #fadba5;
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+.desktopCart {
+  display: none;
+}
+
+.itemsCount {
+  display: flex;
+  justify-content: center;
+  margin: 15% auto;
+}
 
 /* FOOTER */
 
@@ -301,7 +741,7 @@ iframe {
   transition: all 0.3s ease;
 }
 
-.columnaFoot ul li{
+.columnaFoot ul li {
   margin: 4px;
 }
 
@@ -323,24 +763,36 @@ iframe {
   color: #fc910fb6;
 }
 
-.copyright{
+.copyright {
   color: #666666a9;
-  font-size: .7rem;
+  font-size: 0.7rem;
 }
-
-
 
 @media (min-width: 481px) {
   .burgerMenu {
-    display: block;
+    display: none;
   }
 
   .menu {
-    display: none;
+    display: block;
+  }
+
+  /* LOGIN */
+
+  .mainLogin {
+    width: 70%;
+    margin: auto;
+  }
+
+  /* PRODUCT DETAIL*/
+
+  .imgDivDetail img {
+    height: 60vh;
+    width: 100%;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .bannerHome {
     height: 90vh;
   }
@@ -365,10 +817,113 @@ iframe {
     padding: 0 5px;
   }
 
-  .rowFoot{
+  .rowFoot {
     flex-direction: row;
     justify-content: space-between;
+  }
 
+  /* REGISTER */
+
+  .divImagen {
+    height: 400px;
+  }
+
+  form {
+    margin: -120px auto 0 auto;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .flex .inputForm {
+    margin: 0 4px;
+  }
+
+  .ancho {
+    width: 45%;
+  }
+
+  .espacio {
+    margin-top: 8px;
+  }
+
+  /* PRODUCT DETAIL */
+
+  .mainDetail {
+    width: 98%;
+  }
+
+  .imgDivDetail {
+    width: 50%;
+  }
+
+  .tituloDetail {
+    display: none;
+  }
+
+  .tituloDetailTabletDesktop {
+    display: block;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 10px 5px;
+    background-color: #ffaa419c;
+    width: 100%;
+    color: white;
+    border-radius: 10px;
+  }
+
+  .imgDivDetail img {
+    height: 60vh;
+  }
+
+  .detalleDivDetail {
+    width: 60%;
+  }
+
+  .divMainDetail {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  /* LOGIN */
+
+  .imagenLogin img {
+    margin-bottom: 120px;
+  }
+
+  /* CARRITO */
+
+  .desktopCart {
+    display: table;
+  }
+
+  .mobileCart {
+    display: none;
+  }
+
+  .finishButton {
+    position: static;
+    width: 40%;
+  }
+
+  .finishButtonRow {
+    position: static;
+    padding-bottom: 0;
+  }
+
+  .finishButton:hover {
+    border-color: #fa8a01;
+    box-shadow: inset 10em 0 0 0 #fa8a01;
+    transition: 0.7s;
+    color: white;
+  }
+
+  .deleteBtnCart {
+    text-align: center;
   }
 }
 
