@@ -21,10 +21,22 @@ h1{
     padding: 20px 0;
 }
 
+.mainCreateEdit{
+    justify-content: center;
+    padding: 20px 0;
+}
+
 .divRegistro{
     display: flex;
     flex-direction: column;
     width: 90%;
+}
+
+.divCreateEdit{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
 }
 
 .divImagen{
@@ -44,6 +56,14 @@ form{
     width: 80%;
     border-radius: 10px;
     margin: -180px auto 0 auto;
+}
+
+.formCreateEdit{
+    background-color: #ffaa41b6;
+    padding: 10px;
+    width: 80%;
+    border-radius: 10px;
+    margin: 0;
 }
 
 form p{
@@ -66,13 +86,17 @@ form p{
     font-weight: 700;
 }
 
-.inputForm input, .selectRegister{
+.inputForm input, textarea, .selectRegister{
     width: 100%;
     padding: 8px;
     margin: 5px 0;
     background-color: #fadba5;
     border: none;
     border-radius: 5px;
+}
+
+textarea{
+    height: 15vh;
 }
 
 .terminos{
