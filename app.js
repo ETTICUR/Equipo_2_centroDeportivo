@@ -19,7 +19,7 @@ app.use(express.static('public'));
 
 app.use(mainRoutes);
 
-app.use(productRoutes);
+app.use('/producto', productRoutes);
 
 app.use(usersRoutes);
 

@@ -740,6 +740,7 @@ textarea {
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
+  margin-top: 50px;
 }
 .rowFoot {
   display: flex;
