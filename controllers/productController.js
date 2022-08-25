@@ -1,4 +1,4 @@
-const path = require('path');
+let actividades = require("../actividades.json")
 
 let controller = {
    cart: (req, res) => {
@@ -6,7 +6,13 @@ let controller = {
   },
 
   detail: (req, res) => {
-    res.render('productDetail', {title: 'Detalle Actividad'});
+    let idSeleccionado = Number(req.params.id)
+    let actividadSeleccionada = actividades.find(e => e.id == idSeleccionado )  
+      
+    res.render('productDetail', {
+      title: 'Detalle Actividad',
+      actividad: actividadSeleccionada
+    });
   },
 
   create: (req, res) => {

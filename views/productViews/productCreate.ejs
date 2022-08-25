@@ -1,147 +1,124 @@
 <%- include('../partials/head') %>
 
-    <body class="body">
-        <header>
+<body class="body">
+  <%- include('../partials/navbar') %>
 
-            <div class="navbar">
-                <div class="logo">
-                    <img src="\images\Logo Centro Deportivo.png" alt="">
-                </div>
+  <h1>Crear Actividad</h1>
+  <main class="mainCreateEdit">
+    <div class="divCreateEdit">
+      <form class="formCreateEdit" action="">
+        <p>Completar los campos de la Actividad:</p>
+        <div class="flex">
+          <div class="inputForm ancho">
+            <label for="name">Nombre de la Actividad: </label
+            ><span class="asterisco">*</span>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Nombre de Actividad"
+            />
+          </div>
 
-                <div class="burgerMenu">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
+          <div class="inputForm ancho">
+            <label for="image">Imágen: </label><span class="asterisco">*</span>
+            <input type="file" id="image" name="image" />
+          </div>
+        </div>
 
-                <div class="menu">
-                    <ul>
-                        <li> <a href="/">Inicio</a></li>
-                        <li> <a href="#">Servicios</a></li>
-                        <li> <a href="/register"><i class="fa-solid fa-id-card"></i> Registrarme</a></li>
-                        <li> <a href="/login"> <i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-                        <li> <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
-                    </ul>
-                </div>
-        </header>
+        <div class="flex">
+          <div class="inputForm ancho">
+            <label for="price">Precio: </label><span class="asterisco">*</span>
+            <input
+              type="text"
+              name="price"
+              id="price"
+              placeholder="Precio Producto"
+            />
+          </div>
 
-        <h1>Crear Actividad</h1>
-        <main class="mainCreateEdit">
-            <div class="divCreateEdit">
-                <form class="formCreateEdit" action="">
-                    <p>Completar los campos de la Actividad:</p>
-                    <div class="flex">
-                        <div class="inputForm ancho">
-                            <label for="name">Nombre de la Actividad: </label><span class="asterisco">*</span>
-                            <input type="text" name="name" id="name" placeholder="Nombre de Actividad">
-                        </div>
+          <div class="inputForm ancho">
+            <label for="category">Categoria: </label
+            ><span class="asterisco">*</span>
+            <select name="category" id="category" class="selectRegister">
+              <option selected disabled>Elige una opción</option>
+              <option value="aerobico">Aeróbico</option>
+              <option value="fuerza">Fuerza</option>
+              <option value="relax">Relax</option>
+              <option value="recuperacion">Recuperación</option>
+            </select>
+          </div>
+        </div>
 
-                        <div class="inputForm ancho">
-                            <label for="image">Imágen: </label><span class="asterisco">*</span>
-                            <input type="file" id="image" name="image">
-                        </div>
-                    </div>
+        <div class="flex">
+          <div class="inputForm ancho">
+            <label for="morningShift">Horario Mañana: </label
+            ><span class="asterisco">*</span>
+            <select
+              name="morningShift"
+              id="morningShift"
+              class="selectRegister"
+            >
+              <option selected disabled>Elige una opción</option>
+              <option value="8-9">de 08:00Hs a 09:00Hs</option>
+              <option value="9-10">de 09:00Hs a 10:00Hs</option>
+              <option value="10-11">de 10:00Hs a 11:00Hs</option>
+              <option value="11-12">de 11:00Hs a 12:00Hs</option>
+              <option value="8-12">de 08:00Hs a 12:00Hs</option>
+              <option value="sinTurno">Sin turnos por la mañanana</option>
+            </select>
+          </div>
 
-                    <div class="flex">
-                        <div class="inputForm ancho">
-                            <label for="price">Precio: </label><span class="asterisco">*</span>
-                            <input type="text" name="price" id="price" placeholder="Precio Producto">
-                        </div>
+          <div class="inputForm ancho">
+            <label for="afternoonShift">Horario Tarde: </label
+            ><span class="asterisco">*</span>
+            <select
+              name="afternoonShift"
+              id="afternoonShift"
+              class="selectRegister"
+            >
+              <option selected disabled>Elige una opción</option>
+              <option value="14-15">de 14:00Hs a 15:00Hs</option>
+              <option value="15-16">de 15:00Hs a 16:00Hs</option>
+              <option value="16-17">de 16:00Hs a 17:00Hs</option>
+              <option value="17-18">de 17:00Hs a 18:00Hs</option>
+              <option value="14-18">de 14:00Hs a 18:00Hs</option>
+              <option value="sinTurno">Sin turnos por la tarde</option>
+            </select>
+          </div>
 
-                        <div class="inputForm ancho">
-                            <label for="category">Categoria: </label><span class="asterisco">*</span>
-                            <select name="category" id="category" class="selectRegister">
-                                <option selected disabled>Elige una opción</option>
-                                <option value="aerobico">Aeróbico</option>
-                                <option value="fuerza">Fuerza</option>
-                                <option value="relax">Relax</option>
-                                <option value="recuperacion">Recuperación</option>
-                            </select>
-                        </div>
-                    </div>
+          <div class="inputForm ancho">
+            <label for="nightShift">Horario Noche: </label
+            ><span class="asterisco">*</span>
+            <select name="nightShift" id="nightShift" class="selectRegister">
+              <option selected disabled>Elige una opción</option>
+              <option value="18-19">de 18:00Hs a 19:00Hs</option>
+              <option value="19-20">de 19:00Hs a 20:00Hs</option>
+              <option value="20-21">de 20:00Hs a 21:00Hs</option>
+              <option value="21-22">de 21:00Hs a 22:00Hs</option>
+              <option value="sinTurno">Sin turnos por la noche</option>
+            </select>
+          </div>
+        </div>
 
+        <div class="inputForm">
+          <label for="description">Descripción: </label
+          ><span class="asterisco">*</span>
+          <textarea
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Descripción Actividad"
+          ></textarea>
+        </div>
 
-                    <div class="flex">
-                        <div class="inputForm ancho">
-                            <label for="morningShift">Horario Mañana: </label><span class="asterisco">*</span>
-                            <select name="morningShift" id="morningShift" class="selectRegister">
-                                <option selected disabled>Elige una opción</option>
-                                <option value="8-9">de 08:00Hs a 09:00Hs</option>
-                                <option value="9-10">de 09:00Hs a 10:00Hs</option>
-                                <option value="10-11">de 10:00Hs a 11:00Hs</option>
-                                <option value="11-12">de 11:00Hs a 12:00Hs</option>
-                                <option value="8-12">de 08:00Hs a 12:00Hs</option>
-                                <option value="sinTurno">Sin turnos por la mañanana</option>
-                            </select>
-                        </div>
+        <div class="divBoton">
+          <button class="btn" type="submit">
+            <i class="fas fa-check"></i> Crear
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
 
-                        <div class="inputForm ancho">
-                            <label for="afternoonShift">Horario Tarde: </label><span class="asterisco">*</span>
-                            <select name="afternoonShift" id="afternoonShift" class="selectRegister">
-                                <option selected disabled>Elige una opción</option>
-                                <option value="14-15">de 14:00Hs a 15:00Hs</option>
-                                <option value="15-16">de 15:00Hs a 16:00Hs</option>
-                                <option value="16-17">de 16:00Hs a 17:00Hs</option>
-                                <option value="17-18">de 17:00Hs a 18:00Hs</option>
-                                <option value="14-18">de 14:00Hs a 18:00Hs</option>
-                                <option value="sinTurno">Sin turnos por la tarde</option>
-                            </select>
-                        </div>
-
-                        <div class="inputForm ancho">
-                            <label for="nightShift">Horario Noche: </label><span class="asterisco">*</span>
-                            <select name="nightShift" id="nightShift" class="selectRegister">
-                                <option selected disabled>Elige una opción</option>
-                                <option value="18-19">de 18:00Hs a 19:00Hs</option>
-                                <option value="19-20">de 19:00Hs a 20:00Hs</option>
-                                <option value="20-21">de 20:00Hs a 21:00Hs</option>
-                                <option value="21-22">de 21:00Hs a 22:00Hs</option>
-                                <option value="sinTurno">Sin turnos por la noche</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="inputForm">
-                        <label for="description">Descripción: </label><span class="asterisco">*</span>
-                        <textarea type="text" name="description" id="description"
-                            placeholder="Descripción Actividad"></textarea>
-                    </div>
-
-                    <div class="divBoton">
-                        <button class="btn" type="submit"><i class="fas fa-check"></i> Crear</button>
-                    </div>
-                </form>
-            </div>
-
-        </main>
-
-        <footer class="footer">
-
-            <div class="rowFoot">
-
-                <div class="columnaFoot">
-                    <h4>Contactanos</h4>
-                    <ul>
-                        <li> <a href="muucs@gmail.com"><i class="fa-solid fa-envelope-open-text"></i>
-                                centro-deportivo@gmail.com</a></li>
-                        <li> <a href="+543415683519"><i class="fa-solid fa-phone"></i> +54 3562670039</a></li>
-                        <li> <a href="https://goo.gl/maps/SnAAU7cTwvi8vd5D6"><i
-                                    class="fa-solid fa-map-location-dot"></i> Morteros, Córdoba</a></li>
-                    </ul>
-                </div>
-
-                <div class="columnaFoot">
-                    <h4>Redes sociales</h4>
-                    <div class="link-redes">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <p class="copyright">Copyright © 2018-2022 Centro Deportivo</p>
-
-        </footer>
-
-
-    </body>
-
-    </html>
+  <%- include('../partials/footer') %>

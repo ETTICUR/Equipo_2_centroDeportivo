@@ -2,27 +2,7 @@
 
 <body class="bodyLogin">
 
-    <header>
-
-        <div class="navbar">
-            <div class="logo">
-                <img src="\images\Logo Centro Deportivo.png" alt="">
-            </div>
-
-            <div class="burgerMenu">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-
-            <div class="menu">
-                <ul>
-                    <li> <a href="/">Inicio</a></li>
-                    <li> <a href="#">Servicios</a></li>
-                    <li> <a href="/register"><i class="fa-solid fa-id-card"></i> Registrarme</a></li>
-                    <li> <a href="/login"> <i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-                    <li> <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
-                </ul>
-            </div>
-    </header>
+    <%- include('../partials/navbar') %> 
 
     <main class="mainLogin">
         <h1 class="tituloLogin">Ingresá a tu cuenta</h1>
@@ -60,39 +40,4 @@
             </form>
     </main>
 
-        <footer class="footer">
-        
-            <div class="rowFoot">
-                              
-                <div class="columnaFoot">
-                    <h4>Contactanos</h4>
-                    <ul>
-                        <li> <a href="muucs@gmail.com"><i class="fa-solid fa-envelope-open-text"></i> centro-deportivo@gmail.com</a></li>
-                        <li> <a href="+543415683519"><i class="fa-solid fa-phone"></i> +54 3562670039</a></li>
-                        <li> <a href="https://goo.gl/maps/SnAAU7cTwvi8vd5D6"><i class="fa-solid fa-map-location-dot"></i> Morteros, Córdoba</a></li>
-                    </ul>
-                </div>
-
-                <div class="columnaFoot">
-                    <h4>Redes sociales</h4>
-                    <div class="link-redes">
-
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <p class="copyright">Copyright © 2018-2022 Centro Deportivo</p>
-        
-    </footer>
-
-
-
-
-
-
-</body>
-
-
-</html>
+    <%- include('../partials/footer') %>

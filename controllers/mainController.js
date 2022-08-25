@@ -1,9 +1,12 @@
-const { render } = require('ejs');
-const path = require('path');
+let actividades = require("../actividades.json")
+
 
 let controller = {
     index: (req, res) => {
-        res.render('index');
+        res.render('index', {
+            title: "Home",
+            actividades
+        })
     }
 }
 
