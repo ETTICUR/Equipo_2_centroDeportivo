@@ -1,0 +1,43 @@
+<%- include('../partials/head') %> 
+
+<body class="bodyLogin">
+
+    <%- include('../partials/navbar') %> 
+
+    <main class="mainLogin">
+        <h1 class="tituloLogin">Ingresá a tu cuenta</h1>
+        <div class="loginBox">
+            <div class="imagenLogin">
+                <img src="/images/Logo Centro Deportivo Blanco.png" alt="Logo Centro Deportivo">
+            </div>
+
+            <form class="formLogin">
+                <div class="inputForm">
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" placeholder="Ingresar Usuario" id="usuario" name="usuario">
+                </div>
+
+                <div class="inputForm">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" placeholder="Ingresar Contraseña" id="contraseña" name="contraseña">
+                </div>
+
+                <div class="divBoton">
+                    <button class="btn" type="submit"><i class="fas fa-right-to-bracket"></i> Ingresar</button>
+                </div>
+
+                <div class="recuerdameRecupero">
+                    <div class="recuerdame">
+                        <input type="checkbox" name="recuerdame" id="recuerdame">
+                        <label for="recuerdame">Recuérdame</label>
+                    </div>
+    
+                    <div class="recuperar">
+                        <a href="#">Recuperar Contraseña</a>
+                    </div>
+                </div>
+
+            </form>
+    </main>
+
+    <%- include('../partials/footer') %>

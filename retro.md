@@ -1,22 +1,19 @@
 ## ** RETROEXPECTIVA DE ESTRELLA
 
 ###### * * Start Doing: 
-Iniciar a realizar metodología cruzada para evaluación de códigos. Proponemos gestionar una
-correción previa a la subida a github de este modo, para verificación de códificación y aprendizaje a 
-través de la explicación entre pares de buenas prácticas y mejoras.
+Establecer fechas de commit y push en Github intermedios para poder optimizar las correciones cruzadas de códigos. Generar plazos de daily más frecuentes.
 
 ###### * * More of: 
-Deberíamos refinar el uso de TRELLO y sus notificaciones, asignando fechas limites, generando movimientos 
-de las cards a tiempo y delimitando las tareas más que en el SPRINT 1.
+Realizar metodología cruzada para evaluación de códigos. Proponemos gestionar una
+correción previa a la subida a github de este modo, para verificación de códificación y aprendizaje a 
+través de la explicación entre pares para buenas prácticas y mejoras.
 
 ###### * * Keep Doing : 
-Sostener las reuniones iniciales para establecer acuerdos operativos, la aleteridad de la división de tareas
-y la dayli meeting final antes del cierre del Sprint.
+Sostener las reuniones iniciales para establecer acuerdos operativos, la aleatoriedad de la división de tareas y la daily meeting final antes del cierre del Sprint.
+Mantener la comunicación y planteo de dudas en el grupo de whatsapp para llegar a las daily con la actividad que nos comprometimos resuelta, generando el espacio de consulta previo si lo necesitamos.
 
 ###### * * Less of: 
-Meet sincronizados entre reunión inicial y final, no se verifica necesidad de estas reuniones si utilizamos 
-estrategimante Trello y whatsapp.
+Evitar interpretar y asumir acuerdos que no fueron planteados en las reuniones grupales.
 
 ###### * * Stop Doing: 
-Verificar la utilización de sorteos para la asignación de código a realizar cada uno. Posibilidad de coordinar
-voluntariamente en lugar de usar el azar.
+Incumplir acuerdos horarios o no comunicar los contratiempos al momento de las daily o pushear.

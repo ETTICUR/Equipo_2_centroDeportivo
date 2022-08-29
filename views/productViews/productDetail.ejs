@@ -1,0 +1,53 @@
+<%- include('../partials/head') %> 
+
+<body class="body">
+    
+    <%- include('../partials/navbar') %> 
+
+    <main class="mainDetail">
+        <div class="divMainDetail">
+            <div class="imgDivDetail">
+                <img src="<%= actividad.image %> " alt="<%= actividad.name %>">
+            </div>
+            <div class="detalleDivDetail">
+                <div class="detalleDetail">
+                    <div class="tituloDetail">
+                        <h3><%= actividad.name %></h3>
+                    </div>
+                    <div class="detalleEntrenamiento">
+                        <h3 class="tituloDetailTabletDesktop"><%= actividad.name %></h3>
+                        <p class="precioDetail"><%= actividad.price %></p>
+                        <p class="descripcionDetail"><i class="fa-solid fa-file-lines"></i>
+                            <%= actividad.description %>
+                        </p>
+                        <ul class="horariosDetail">
+                            <p><i class="fa-solid fa-clock"></i> Horarios:</p>
+                            <li><span>Turno Mañana:</span> - <%= actividad.morningShift %> -</li>
+                            <li><span>Turno Tarde:</span> - <%= actividad.afternoonShift %> -</li>
+                            <li><span>Turno Noche:</span> - <%= actividad.nightShift %> -</li>
+                        </ul>
+                    </div>
+                    <div class="agregarBoton">
+                        <div>
+                            <div class="agregarDetail">
+                                <div class="numeroDetail">
+                                    <p>1</p>
+                                </div>
+                                <div class="masMenosDetail">
+                                    <button><i class="fa-solid fa-arrow-up"></i></button>
+                                    <button><i class="fa-solid fa-arrow-down-long"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="botonDetail">
+                            <button><i class="fa-solid fa-basket-shopping"></i>AÑADIR AL CARRITO</button>
+                            <button></i><a href="/producto/crear">Crear</a></button>
+                            <button></i><a href="/producto/editar">Editar</a></button>
+                        </div>
+                    </div>
+                </div>
+         </div>
+    </main>
+    
+    <%- include('../partials/footer') %>
