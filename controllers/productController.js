@@ -1,4 +1,4 @@
-let actividades = require("../actividades.json")
+let actividades = require("../data/actividades.json")
 
 let controller = {
    cart: (req, res) => {
