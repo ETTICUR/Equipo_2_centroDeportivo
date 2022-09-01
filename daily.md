@@ -1,16 +1,13 @@
-## ** Daily 23-08 
+## ** Daily 01/09 
 
 ###### * * Tareas: 
-★ Aplicación Node.js+Express+EJS con:
-○ Archivos parciales (head, header, footer, etc.)
-○ Formulario de carga y edición de productos
-○ Implementar el motor de templates
-○ Separar las vistas en carpetas (Opcional)
-○ Separar los componentes repetidos en archivos parciales
+○ Actualizar retro
+○ Modificar CSS del mapa
+○ Actualizar daily.md
+○ Realizar CRUD
 
 ###### * * Implementadas: 
-*Retrospectiva.
-*Actualización de tablero de trabajo.
+*Creación de JSON usuario
 
 ###### * * Soluciones propuestas:
-Reunión para implementar grupalmente express (objetivo generarlo colaborativamente para aprender entre todos).
+Reunión para crar JSON con Mockaroo y distribución de tareas.
