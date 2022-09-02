@@ -350,6 +350,14 @@ iframe {
   justify-content: space-around;
 }
 
+.recoverBoton {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 20%;
+}
+
+
 .agregarDetail {
   display: flex;
   align-items: center;
@@ -393,6 +401,7 @@ iframe {
   font-weight: bold;
   border-radius: 10px;
 }
+
 
 .botonDetail button:hover {
   border-color: #fa8a01;
