@@ -7,7 +7,8 @@ router.get("/carrito", productController.cart);
 router.get("/detalle/:id", productController.detail);
 
 router.get("/crear", productController.create);
+router.post("/crear", productController.processCreate);
 
-router.get("/editar", productController.edit);
+router.get("/:id/editar", productController.edit);
 
 module.exports = router;

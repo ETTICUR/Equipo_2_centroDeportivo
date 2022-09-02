@@ -19,8 +19,19 @@ let controller = {
     res.render('productCreate', {title: 'Crear Actividad'});
   },
 
-  edit: (req, res) => {
-    res.render('productEdit', {title: 'Editar Actividad'});
+  processCreate: (req, res) => {
+    //res.send({body: req.body});
+    res.redirect('/');
+  },
+
+  edit: (req,res) => {
+    let idActividad = Number(req.params.id);
+    let actividadSeleccionada = actividades.find(actividadActual => actividadActual.id == idActividad);
+
+    res.render('productEdit', {
+      title: 'Editar Actividad',
+      actividad: actividadSeleccionada
+    });
   }
 
 }
