@@ -470,6 +470,10 @@ iframe {
   font-weight: 700;
 }
 
+.inputForm img{
+  padding-left: 5px;
+}
+
 .asterisco {
   color: red;
   font-weight: 700;
