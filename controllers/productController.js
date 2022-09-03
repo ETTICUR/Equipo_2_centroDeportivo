@@ -1,5 +1,6 @@
 const fs = require("fs")
 const path = require("path")
+const { setTimeout } = require("timers/promises")
 let actividades = require("../data/actividades.json")
 let actividadesBorradas = require("../data/actividadesBorradas.json")
 
@@ -28,7 +29,7 @@ let controller = {
     res.redirect('/');
   },
 
-  edit: (req,res) => {
+  editView: (req,res) => {
     let idActividad = Number(req.params.id);
     let actividadSeleccionada = actividades.find(actividadActual => actividadActual.id == idActividad);
 
@@ -37,6 +38,40 @@ let controller = {
       actividad: actividadSeleccionada
     });
   },
+
+  editProduct: (req, res) => {
+    let idSeleccionado = Number(req.params.id)
+
+    let data = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/actividades.json")))
+
+    let actividadesRestantes = data.filter(e => e.id != idSeleccionado )
+    let actividadAEditar = data.find(e => e.id == idSeleccionado )
+
+    let actividadEditada = {
+      id: idSeleccionado,
+      name: req.body.name,
+      category: req.body.category,
+      price: req.body.price,
+      image: actividadAEditar.image,
+      description: req.body.description,
+      morningShift: req.body.morningShift,
+      afternoonShift: req.body.afternoonShift,
+      nightShift: req.body.nightShift
+    }
+
+
+
+    actividadesRestantes.push(actividadEditada)
+
+    console.log(actividadesRestantes);
+
+    let actividadesRestantesJSON = JSON.stringify(actividadesRestantes)
+
+    fs.writeFileSync(path.join(__dirname, "../data/actividades.json"), actividadesRestantesJSON)
+
+    res.redirect(`/producto/detalle/${actividadAEditar.id}`)
+  },
+
 
   delete: (req, res) => {
     let idSeleccionado = Number(req.params.id)

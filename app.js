@@ -1,28 +1,31 @@
 const express = require("express");
 const path = require("path");
-const dotenv = require('dotenv').config();
-const mainRoutes = require('./router/mainRoutes');
-const productRoutes = require('./router/productRoutes');
-const usersRoutes = require('./router/usersRoutes');
+const dotenv = require("dotenv").config();
+const methodOverride = require("method-override");
+const mainRoutes = require("./router/mainRoutes");
+const productRoutes = require("./router/productRoutes");
+const usersRoutes = require("./router/usersRoutes");
 
 const app = express();
 
 app.set("view engine", "ejs");
 
 app.set("views", [
-  path.join(__dirname, './views/productViews'),
-  path.join(__dirname, './views/usersViews'),
-  path.join(__dirname, './views/mainViews'),
+  path.join(__dirname, "./views/productViews"),
+  path.join(__dirname, "./views/usersViews"),
+  path.join(__dirname, "./views/mainViews"),
 ]);
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-app.use(express.urlencoded({extended : true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(methodOverride("_method"));
 
 app.use(mainRoutes);
 
-app.use('/producto', productRoutes);
+app.use("/producto", productRoutes);
 
 app.use(usersRoutes);
 
