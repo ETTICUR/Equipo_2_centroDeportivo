@@ -43,14 +43,23 @@
                         <div class="botonDetail">
                             <button><i class="fa-solid fa-basket-shopping"></i>AÑADIR AL CARRITO</button>
                         </div>
+                    </div>
+                    <div class="divBtnProductos">
                         <div>
-                            <button class="btnPlan"><i class="fa-solid fa-plus"></i><a href="/producto/crear"> Crear</a></button>
-                            <button class="btnPlan"><i class="fa-solid fa-pen-to-square"></i><a href="/producto/<%= actividad.id %>/editar"> Editar</a></button>
-
-                            <form action="/producto/detalle/<%= actividad.id %>" method="POST">
-                                <button type="submit" class="btnPlan"><i class="fa fa-trash"></i>Eliminar</button>
+                            <form action="">
+                                <button class="btnPlan"><i class="fa-solid fa-plus"></i><a href="/producto/crear"> Crear</a></button>
                             </form>
                         </div>
+                        <div>
+                            <form action="">
+                                <button class="btnPlan"><i class="fa-solid fa-pen-to-square"></i><a href="/producto/<%= actividad.id %>/editar"> Editar</a></button>
+                            </form>
+                        </div>
+                        <div>
+                            <form action="/producto/detalle/<%= actividad.id %>" method="POST">
+                                <button type="submit" class="btnPlan"><i class="fa fa-trash"></i> Eliminar</button>
+                            </form>
+                        </div>       
                     </div>
                 </div>
          </div>

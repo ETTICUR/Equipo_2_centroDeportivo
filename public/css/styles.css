@@ -351,12 +351,19 @@ iframe {
 }
 
 .recoverBoton {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
-  height: 20%;
+  margin-top: 30px;
+  text-align: center;
 }
 
+.divBtnProductos{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.divBtnProductos div{
+  padding: 0 10px;
+}
 
 .agregarDetail {
   display: flex;
@@ -933,6 +940,16 @@ textarea {
     display: flex;
     width: 100%;
     align-items: center;
+  }
+
+  .divBtnProductos{
+    margin-top: 130px;
+  }
+
+   /* PRODUCTOS ELIMINADOS */
+
+  .recoverBoton{
+    margin-top: 150px;
   }
 
   /* LOGIN */

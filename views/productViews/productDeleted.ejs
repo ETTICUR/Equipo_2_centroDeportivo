@@ -29,20 +29,15 @@
                         <li><span>Turno Tarde:</span> - <%= actividad.afternoonShift %> -</li>
                         <li><span>Turno Noche:</span> - <%= actividad.nightShift %> -</li>
                     </ul>
-                </div>
-                <div class="recoverBoton">
                     
-
-                    <div class="botonRecover">
-                       
-                        <form action="/producto/recuperar/<%= actividad.id %>" method="POST">
-                            <button type="submit" class="btnPlan"><i class="fa fa-trash"></i>Recuperar</button>
-                        </form>
-                  
+                    <div class="recoverBoton">
+                            <form action="/producto/recuperar/<%= actividad.id %>" method="POST">
+                               <button type="submit" class="btnPlan"><i class="fa-solid fa-plus"></i> Recuperar</button>
+                           </form>                       
                     </div>
                 </div>
             </div>
-     </div>
+        </div>
     </div>
 
     <% }) %>
