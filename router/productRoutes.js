@@ -14,6 +14,6 @@ router.get("/crear", productController.create);
 router.post("/crear", productController.processCreate);
 
 router.get("/:id/editar", productController.editView);
-router.post("/:id/editar", productController.editProduct);
+router.put("/:id/editar", productController.editProduct);
 
 module.exports = router;
