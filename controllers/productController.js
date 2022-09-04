@@ -59,8 +59,6 @@ let controller = {
       nightShift: req.body.nightShift
     }
 
-
-
     actividadesRestantes.push(actividadEditada)
 
     console.log(actividadesRestantes);
