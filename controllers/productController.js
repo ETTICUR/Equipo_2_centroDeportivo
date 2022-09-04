@@ -26,6 +26,26 @@ let controller = {
 
   processCreate: (req, res) => {
     //res.send({body: req.body});
+    let actividadesObjeto = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/actividades.json')));
+
+    let nuevaActividad = {
+      id: actividadesObjeto.length + 1,
+      name: req.body.name,
+      image: '/images/' + req.file.filename,
+      price: req.body.price,
+      category: req.body.category,
+      morningShift: req.body.morningShift,
+      afternoonShift: req.body.afternoonShift,
+      nightShift: req.body.nightShift,
+      description: req.body.description
+    };
+
+    actividadesObjeto.push(nuevaActividad);
+
+    let actividadesObjetoJSON = JSON.stringify(actividadesObjeto);
+
+    fs.writeFileSync(path.join(__dirname, '../data/actividades.json'), actividadesObjetoJSON);
+
     res.redirect('/');
   },
 

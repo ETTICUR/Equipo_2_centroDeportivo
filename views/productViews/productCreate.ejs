@@ -6,7 +6,7 @@
   <h1>Crear Actividad</h1>
   <main class="mainCreateEdit">
     <div class="divCreateEdit">
-      <form class="formCreateEdit" action="/producto/crear" method="POST">
+      <form class="formCreateEdit" action="/producto/crear" method="POST" enctype="multipart/form-data">
         <p>Completar los campos de la Actividad:</p>
         <div class="flex">
           <div class="inputForm ancho">
@@ -60,12 +60,12 @@
               class="selectRegister"
             >
               <option selected disabled>Elige una opción</option>
-              <option value="8-9">de 08:00Hs a 09:00Hs</option>
-              <option value="9-10">de 09:00Hs a 10:00Hs</option>
-              <option value="10-11">de 10:00Hs a 11:00Hs</option>
-              <option value="11-12">de 11:00Hs a 12:00Hs</option>
-              <option value="8-12">de 08:00Hs a 12:00Hs</option>
-              <option value="sinTurno">Sin turnos por la mañanana</option>
+              <option value="de 08:00Hs a 09:00Hs">de 08:00Hs a 09:00Hs</option>
+              <option value="de 09:00Hs a 10:00Hs">de 09:00Hs a 10:00Hs</option>
+              <option value="de 10:00Hs a 11:00Hs">de 10:00Hs a 11:00Hs</option>
+              <option value="de 11:00Hs a 12:00Hs">de 11:00Hs a 12:00Hs</option>
+              <option value="de 08:00Hs a 12:00Hs">de 08:00Hs a 12:00Hs</option>
+              <option value="Sin turnos por la mañanana">Sin turnos por la mañanana</option>
             </select>
           </div>
 
@@ -78,12 +78,12 @@
               class="selectRegister"
             >
               <option selected disabled>Elige una opción</option>
-              <option value="14-15">de 14:00Hs a 15:00Hs</option>
-              <option value="15-16">de 15:00Hs a 16:00Hs</option>
-              <option value="16-17">de 16:00Hs a 17:00Hs</option>
-              <option value="17-18">de 17:00Hs a 18:00Hs</option>
-              <option value="14-18">de 14:00Hs a 18:00Hs</option>
-              <option value="sinTurno">Sin turnos por la tarde</option>
+              <option value="de 14:00Hs a 15:00Hs">de 14:00Hs a 15:00Hs</option>
+              <option value="de 15:00Hs a 16:00Hs">de 15:00Hs a 16:00Hs</option>
+              <option value="de 16:00Hs a 17:00Hs">de 16:00Hs a 17:00Hs</option>
+              <option value="de 17:00Hs a 18:00Hs">de 17:00Hs a 18:00Hs</option>
+              <option value="de 14:00Hs a 18:00Hs">de 14:00Hs a 18:00Hs</option>
+              <option value="Sin turnos por la tarde">Sin turnos por la tarde</option>
             </select>
           </div>
 
@@ -92,11 +92,11 @@
             ><span class="asterisco">*</span>
             <select name="nightShift" id="nightShift" class="selectRegister">
               <option selected disabled>Elige una opción</option>
-              <option value="18-19">de 18:00Hs a 19:00Hs</option>
-              <option value="19-20">de 19:00Hs a 20:00Hs</option>
-              <option value="20-21">de 20:00Hs a 21:00Hs</option>
-              <option value="21-22">de 21:00Hs a 22:00Hs</option>
-              <option value="sinTurno">Sin turnos por la noche</option>
+              <option value="de 18:00Hs a 19:00Hs">de 18:00Hs a 19:00Hs</option>
+              <option value="de 19:00Hs a 20:00Hs">de 19:00Hs a 20:00Hs</option>
+              <option value="de 20:00Hs a 21:00Hs">de 20:00Hs a 21:00Hs</option>
+              <option value="de 21:00Hs a 22:00Hs">de 21:00Hs a 22:00Hs</option>
+              <option value="Sin turnos por la noche">Sin turnos por la noche</option>
             </select>
           </div>
         </div>
