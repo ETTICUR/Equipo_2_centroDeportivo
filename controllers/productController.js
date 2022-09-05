@@ -42,7 +42,7 @@ let controller = {
 
     actividadesObjeto.push(nuevaActividad);
 
-    let actividadesObjetoJSON = JSON.stringify(actividadesObjeto);
+    let actividadesObjetoJSON = JSON.stringify(actividadesObjeto, null, " ");
 
     fs.writeFileSync(path.join(__dirname, '../data/actividades.json'), actividadesObjetoJSON);
 
@@ -88,7 +88,7 @@ let controller = {
 
     actividadesRestantes.push(actividadEditada)
 
-    let actividadesRestantesJSON = JSON.stringify(actividadesRestantes)
+    let actividadesRestantesJSON = JSON.stringify(actividadesRestantes, null, " ")
 
     fs.writeFileSync(path.join(__dirname, "../data/actividades.json"), actividadesRestantesJSON)
 
@@ -107,8 +107,8 @@ let controller = {
 
     eliminadas.push(actividadEliminada)
     
-    let actividadesRestantesJSON = JSON.stringify(actividadesRestantes)
-    let actividadEliminadaJSON = JSON.stringify(eliminadas)
+    let actividadesRestantesJSON = JSON.stringify(actividadesRestantes, null, " ")
+    let actividadEliminadaJSON = JSON.stringify(eliminadas, null, " ")
 
     fs.writeFileSync(path.join(__dirname, "../data/actividades.json"), actividadesRestantesJSON)
     fs.writeFileSync(path.join(__dirname, "../data/actividadesBorradas.json"), actividadEliminadaJSON)
@@ -135,8 +135,8 @@ let controller = {
 
     data.push(recuperarActividad)
 
-    let recuperarActividadJSON = JSON.stringify(data)
-    let actividadesBorradasRestantesJSON = JSON.stringify(actividadesBorradasRestantes)
+    let recuperarActividadJSON = JSON.stringify(data, null, " ")
+    let actividadesBorradasRestantesJSON = JSON.stringify(actividadesBorradasRestantes, null, " ")
 
     fs.writeFileSync(path.join(__dirname, "../data/actividades.json"), recuperarActividadJSON)
     fs.writeFileSync(path.join(__dirname, "../data/actividadesBorradas.json"), actividadesBorradasRestantesJSON)
