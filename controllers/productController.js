@@ -67,12 +67,19 @@ let controller = {
     let actividadesRestantes = data.filter(e => e.id != idSeleccionado )
     let actividadAEditar = data.find(e => e.id == idSeleccionado )
 
+    let imageActividadEditada;
+    if(req.file == undefined){
+      imageActividadEditada = actividadAEditar.image;
+    }else{
+      imageActividadEditada = '/images/'+ req.file.filename;
+    }
+
     let actividadEditada = {
       id: idSeleccionado,
       name: req.body.name,
       category: req.body.category,
       price: req.body.price,
-      image: actividadAEditar.image,
+      image: imageActividadEditada,
       description: req.body.description,
       morningShift: req.body.morningShift,
       afternoonShift: req.body.afternoonShift,
@@ -80,8 +87,6 @@ let controller = {
     }
 
     actividadesRestantes.push(actividadEditada)
-
-    console.log(actividadesRestantes);
 
     let actividadesRestantesJSON = JSON.stringify(actividadesRestantes)
 

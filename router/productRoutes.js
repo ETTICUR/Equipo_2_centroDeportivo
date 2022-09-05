@@ -28,6 +28,6 @@ router.get("/crear", productController.create);
 router.post("/crear", uploadFile.single('image'), productController.processCreate);
 
 router.get("/:id/editar", productController.editView);
-router.put("/:id/editar", productController.editProduct);
+router.put("/:id/editar", uploadFile.single('image'), productController.editProduct);
 
 module.exports = router;

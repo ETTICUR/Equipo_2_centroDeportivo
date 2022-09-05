@@ -7,7 +7,7 @@
       </h1>
       <main class="mainCreateEdit">
         <div class="divCreateEdit">
-          <form class="formCreateEdit" action="/producto/<%= actividad.id %> /editar?_method=PUT" method="POST">
+          <form class="formCreateEdit" action="/producto/<%= actividad.id %> /editar?_method=PUT" method="POST" enctype="multipart/form-data">
             <p>Modifica los campos deseados:</p>
             <div class="flex">
               <div class="inputForm ancho">
@@ -54,7 +54,7 @@
                   <option value="de 10:00Hs a 11:00Hs" <%=actividad.morningShift=='de 10:00Hs a 11:00Hs' ? 'selected' : '' ; %>>de 10:00Hs a 11:00Hs</option>
                   <option value="de 11:00Hs a 12:00Hs" <%=actividad.morningShift=='de 11:00Hs a 12:00Hs' ? 'selected' : '' ; %>>de 11:00Hs a 12:00Hs</option>
                   <option value="de 08:00Hs a 12:00Hs" <%=actividad.morningShift=='de 08:00Hs a 12:00Hs' ? 'selected' : '' ; %>>de 08:00Hs a 12:00Hs</option>
-                  <option value="sinTurno" <%=actividad.morningShift=='sinTurno' ? 'selected' : '' ; %>>Sin turnos por la mañana</option>
+                  <option value="Sin turnos por la mañana" <%=actividad.morningShift=='sinTurno' ? 'selected' : '' ; %>>Sin turnos por la mañana</option>
                 </select>
               </div>
 
@@ -63,11 +63,11 @@
                 <select name="afternoonShift" id="afternoonShift" class="selectRegister">
                   <option disabled>Elige una opción</option>
                   <option value="de 14:00Hs a 15:00Hs" <%=actividad.afternoonShift=='de 14:00Hs a 15:00Hs' ? 'selected' : '' ; %>>de 14:00Hs a 15:00Hs</option>
-                  <option value="1de 15:00Hs a 16:00Hs" <%=actividad.afternoonShift=='de 15:00Hs a 16:00Hs' ? 'selected' : '' ; %>>de 15:00Hs a 16:00Hs</option>
+                  <option value="de 15:00Hs a 16:00Hs" <%=actividad.afternoonShift=='de 15:00Hs a 16:00Hs' ? 'selected' : '' ; %>>de 15:00Hs a 16:00Hs</option>
                   <option value="de 16:00Hs a 17:00Hs" <%=actividad.afternoonShift=='de 16:00Hs a 17:00Hs' ? 'selected' : '' ; %>>de 16:00Hs a 17:00Hs</option>
                   <option value="de 17:00Hs a 18:00Hs" <%=actividad.afternoonShift=='de 17:00Hs a 18:00Hs' ? 'selected' : '' ; %>>de 17:00Hs a 18:00Hs</option>
                   <option value="de 14:00Hs a 18:00Hs" <%=actividad.afternoonShift=='de 14:00Hs a 18:00Hs' ? 'selected' : '' ; %>>de 14:00Hs a 18:00Hs</option>
-                  <option value="sinTurno" <%=actividad.afternoonShift=='sinTurno' ? 'selected' : '' ; %>>Sin turnos por la tarde</option>
+                  <option value="Sin turnos por la tarde" <%=actividad.afternoonShift=='sinTurno' ? 'selected' : '' ; %>>Sin turnos por la tarde</option>
                 </select>
               </div>
 
@@ -79,7 +79,7 @@
                   <option value="de 19:00Hs a 20:00Hs" <%=actividad.nightShift=='de 19:00Hs a 20:00Hs' ? 'selected' : '' ; %>>de 19:00Hs a 20:00Hs</option>
                   <option value="de 20:00Hs a 21:00Hs" <%=actividad.nightShift=='de 20:00Hs a 21:00Hs' ? 'selected' : '' ; %>>de 20:00Hs a 21:00Hs</option>
                   <option value="de 21:00Hs a 22:00Hs" <%=actividad.nightShift=='de 21:00Hs a 22:00Hs' ? 'selected' : '' ; %>>de 21:00Hs a 22:00Hs</option>
-                  <option value="sinTurno" <%=actividad.nightShift=='sinTurno' ? 'selected' : '' ; %>>Sin turnos por la noche</option>
+                  <option value="Sin turnos por la noche" <%=actividad.nightShift=='sinTurno' ? 'selected' : '' ; %>>Sin turnos por la noche</option>
                 </select>
               </div>
             </div>
