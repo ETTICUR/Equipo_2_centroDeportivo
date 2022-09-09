@@ -1,8 +1,9 @@
-const fs = require("fs")
-const path = require("path")
-const { setTimeout } = require("timers/promises")
-let actividades = require("../data/actividades.json")
-let actividadesBorradas = require("../data/actividadesBorradas.json")
+const fs = require("fs");
+const path = require("path");
+const { validationResult } = require("express-validator");
+const { setTimeout } = require("timers/promises");
+let actividades = require("../data/actividades.json");
+let actividadesBorradas = require("../data/actividadesBorradas.json");
 
 
 let controller = {
@@ -26,27 +27,39 @@ let controller = {
 
   processCreate: (req, res) => {
     //res.send({body: req.body});
-    let actividadesObjeto = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/actividades.json')));
 
-    let nuevaActividad = {
-      id: actividadesObjeto.length + 1,
-      name: req.body.name,
-      image: '/images/' + req.file.filename,
-      price: req.body.price,
-      category: req.body.category,
-      morningShift: req.body.morningShift,
-      afternoonShift: req.body.afternoonShift,
-      nightShift: req.body.nightShift,
-      description: req.body.description
-    };
+    const resultadoValidaciones = validationResult(req);
 
-    actividadesObjeto.push(nuevaActividad);
+    if(resultadoValidaciones.errors.length > 0){
+      res.render('productCreate', {
+        title: 'Crear Actividad',
+        errors: resultadoValidaciones.mapped(),
+        oldData: req.body
+      })
 
-    let actividadesObjetoJSON = JSON.stringify(actividadesObjeto, null, " ");
+    }else{
+      let actividadesObjeto = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/actividades.json')));
 
-    fs.writeFileSync(path.join(__dirname, '../data/actividades.json'), actividadesObjetoJSON);
+      let nuevaActividad = {
+        id: actividadesObjeto.length + 1,
+        name: req.body.name,
+        image: '/images/' + req.file.filename,
+        price: req.body.price,
+        category: req.body.category,
+        morningShift: req.body.morningShift,
+        afternoonShift: req.body.afternoonShift,
+        nightShift: req.body.nightShift,
+        description: req.body.description
+      };
 
-    res.redirect('/');
+      actividadesObjeto.push(nuevaActividad);
+
+      let actividadesObjetoJSON = JSON.stringify(actividadesObjeto, null, " ");
+
+      fs.writeFileSync(path.join(__dirname, '../data/actividades.json'), actividadesObjetoJSON);
+
+      res.redirect('/');
+    }
   },
 
   editView: (req,res) => {
