@@ -43,7 +43,7 @@ let controller = {
       let nuevaActividad = {
         id: actividadesObjeto.length + 1,
         name: req.body.name,
-        image: '/images/' + req.file.filename,
+        image: '/images/products' + req.file.filename,
         price: req.body.price,
         category: req.body.category,
         morningShift: req.body.morningShift,
@@ -84,7 +84,7 @@ let controller = {
     if(req.file == undefined){
       imageActividadEditada = actividadAEditar.image;
     }else{
-      imageActividadEditada = '/images/'+ req.file.filename;
+      imageActividadEditada = '/images/products'+ req.file.filename;
     }
 
     let actividadEditada = {

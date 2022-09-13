@@ -18,7 +18,7 @@ router.get("/recuperar", productController.deletedProducts)
 router.post("/recuperar/:id", productController.productRecovery)
 
 router.get("/crear", productController.create);
-router.post("/crear", uploadFile.single('image'), validacionesProducts, productController.processCreate);
+router.post("/crear", [uploadFile.single('image'), validacionesProducts], productController.processCreate);
 
 router.get("/:id/editar", productController.editView);
 router.put("/:id/editar", uploadFile.single('image'), productController.editProduct);
