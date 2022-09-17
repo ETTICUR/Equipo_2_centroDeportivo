@@ -1,13 +1,16 @@
 ## ** Daily 01/09 
 
 ###### * * Tareas: 
-○ Actualizar retro
-○ Modificar CSS del mapa
-○ Actualizar daily.md
-○ Realizar CRUD
+
+○ Implementar la entidad de usuarios
+○Implementar el registro de usuarios
+○Implementar el login de usuarios
+○Implementar la función de recordar al usuario
+○Implementar rutas de huéspedes y de usuarios
 
 ###### * * Implementadas: 
-*Creación de JSON usuario
-
+○ Actualizar retro
+○ Actualizar el tablero de trabajo
+○ Actualizar daily.md
 ###### * * Soluciones propuestas:
-Reunión para crar JSON con Mockaroo y distribución de tareas.
+Generar cronograma de trabajo.
