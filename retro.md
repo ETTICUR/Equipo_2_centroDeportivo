@@ -1,7 +1,7 @@
 ## ** RETROEXPECTIVA DE ESTRELLA
 
 ###### * * Start Doing: 
-División de commits, por más que nos reunamos, dividir los commits para reflejar trabajo equitativo en Git.
+Distribución más equitativas de commits entre los integrantes del grupo.
 
 ###### * * More of: 
 Sumar a la planificación las clases prácticas, como tiempo para el proyecto.
@@ -14,7 +14,9 @@ Mantener la comunicación y planteo de dudas en el grupo de whatsapp para llegar
 Realizar grupalmente los avances, para comprender los contenidos todos los integrantes del grupo.
 ###### * * Less of: 
 Commit grupales generales.
+Planificación sin los horarios de las aplicaciones prácticas, considerarlos como tiempos para desarrollo de proyecto.
 
 ###### * * Stop Doing: 
 Commit en base a quien comparte pantalla, en  vez de por persona y tema.
 Incumplir acuerdos horarios o no comunicar los contratiempos al momento de las daily o pushear.
+Commitear en cantidades y contenidos similares.
