@@ -350,6 +350,21 @@ iframe {
   justify-content: space-around;
 }
 
+.recoverBoton {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.divBtnProductos{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.divBtnProductos div{
+  padding: 0 10px;
+}
+
 .agregarDetail {
   display: flex;
   align-items: center;
@@ -393,6 +408,7 @@ iframe {
   font-weight: bold;
   border-radius: 10px;
 }
+
 
 .botonDetail button:hover {
   border-color: #fa8a01;
@@ -470,9 +486,17 @@ iframe {
   font-weight: 700;
 }
 
+.inputForm img{
+  padding-left: 5px;
+}
+
 .asterisco {
   color: red;
   font-weight: 700;
+}
+
+.errorInput{
+  color: red;
 }
 
 .inputForm input,
@@ -920,6 +944,16 @@ textarea {
     display: flex;
     width: 100%;
     align-items: center;
+  }
+
+  .divBtnProductos{
+    margin-top: 130px;
+  }
+
+   /* PRODUCTOS ELIMINADOS */
+
+  .recoverBoton{
+    margin-top: 150px;
   }
 
   /* LOGIN */
