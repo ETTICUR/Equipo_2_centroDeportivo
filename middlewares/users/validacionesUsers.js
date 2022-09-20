@@ -7,12 +7,13 @@ const validacionesUsers = {
         body('nombre').notEmpty().withMessage('El nombre es obligatorio'),
         body('apellido').notEmpty().withMessage('El apellido es obligatorio'),
         body('genero').notEmpty().withMessage('Indicanos tu genero'),
+        body('edad').notEmpty().withMessage('Debés indicar tu edad'),
         body('actividad').notEmpty().withMessage('Debés elegir tu actividad favorita'),
         body('email')
             .notEmpty().withMessage('El email usuario es necesario').bail()
             .isEmail().withMessage('Esto no es un email'),
         body('password')
-            .notEmpty().withMessage('la contraseña es obligatoria').bail()
+            .notEmpty().withMessage('La contraseña es obligatoria').bail()
             .isLength({ min: 8 }).withMessage('necesitas minimo 8 caracteres'),
         body('passwordConfirm').notEmpty().withMessage('Debes confirmar tu contraseña'),
         body('condiciones').notEmpty().withMessage('Debes aceptar terminos y condiciones'),
