@@ -6,10 +6,12 @@ const usersController = require('../controllers/usersController');
 const uploadFile = require('../middlewares/users/multerUsers');
 
 //Validaciones
-const validacionesUsers = require('../middlewares/products/validacionesProducts');
+const validacionesUsersRegister = require('../middlewares/users/validacionesUsers');
 
+//Rutas
 router.get("/login", usersController.login);
 
-router.get("/register", [uploadFile.single('image'), validacionesUsers], usersController.register);
+router.get("/register", usersController.register);
+router.post('/register', [uploadFile.single('fotoPerfil'), validacionesUsersRegister], usersController.processRegister);
 
 module.exports = router;
