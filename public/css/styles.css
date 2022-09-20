@@ -749,6 +749,40 @@ textarea {
   margin: 15% auto;
 }
 
+/*****************************************************************************************************/
+/********************************************* PROFILE**** ******************************************/
+/*****************************************************************************************************/
+
+
+.divProfile{
+  text-align: center;
+}
+
+.imgPerfil img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.datosProfile{
+  margin-top: 20px;
+  background-color: #ffaa41b6;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: start;
+}
+
+.datosProfile p{
+  padding: 15px;
+}
+
+.datosProfile p span{
+  font-weight:700;
+  font-style: italic;
+  text-decoration:underline;
+}
+
 
 /*****************************************************************************************************/
 /************************************************ FOOTER ********************************************/
@@ -960,6 +994,28 @@ textarea {
 
   .imagenLogin img {
     margin-bottom: 120px;
+  }
+
+  /* PROFILE */
+
+  .imgPerfil img{
+    width: 350px;
+    height: 350px;
+  }
+
+  .tituloProfile{
+    font-size: 20px;
+  }
+
+  .datosProfile{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .datosProfile p {
+    font-size: 20px;
   }
 
   /* CARRITO */

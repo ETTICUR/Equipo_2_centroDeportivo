@@ -1,0 +1,43 @@
+<%- include('../partials/head') %>
+
+    <body class="body">
+
+        <%- include('../partials/navbar') %>
+
+            <main class="mainDetail">
+                <div class="divProfile">
+
+                    <div class="imgPerfil">
+                        <img src="../../images/users/G0281625.JPG" alt="foto de perfil">
+                    </div>
+
+                    <div>
+                        <div class="tituloProfile">
+                            <h3>¡HOLA Lucho Festa!</h3>
+                        </div>
+
+                        <div class="datosProfile">
+                            <p> <span>Nombre: </span>Luciano</p>
+                            <p> <span>Apellido: </span>Festa</p>
+                            <p> <span>Género: </span>Masculino</p>
+                            <p> <span>Edad: </span>30 Años</p>
+                            <p> <span>Actividad Preferida: </span>Combinado</p>
+                            <p> <span>Correo Electrónico: </span>lucianoefesta@hotmail.com</p>
+                        </div>
+
+                        <div class="divBtnProductos">
+                            <div>
+                                <form action="">
+                                    <button class="btnPlan"><i class="fa-solid fa-pen-to-square"></i><a href="/producto//editar"> Editar</a></button>
+                                </form>
+                            </div>
+                            <div>
+                                <form action="/producto/detalle/?_method=DELETE" method="POST">
+                                    <button type="submit" class="btnPlan"><i class="fa fa-trash"></i> Eliminar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+
+            <%- include('../partials/footer') %>

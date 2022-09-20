@@ -18,6 +18,12 @@ let controller = {
         if (validacionesResultado.errors.length > 0){
             res.render('register')
         }
+    },
+
+    profile: (req,res) => {
+        res.render('profile', {
+            title: 'Perfil'
+        });
     }
 }
 
