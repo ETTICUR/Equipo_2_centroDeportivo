@@ -15,6 +15,7 @@ router.post('/login',validacionesUsers.login, usersController.processLogin);
 router.get("/register", usersController.register);
 router.post('/register', [uploadFile.single('fotoPerfil'), validacionesUsers.register], usersController.processRegister);
 
-router.get('/profile', usersController.profile);
+router.get('/userEdit/:id', usersController.userEdit);
+router.post('/userEdit/:id', uploadFile.single('fotoPerfil'), usersController.processUserEdit);
 
 module.exports = router;
