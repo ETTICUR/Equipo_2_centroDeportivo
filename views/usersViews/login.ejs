@@ -11,15 +11,25 @@
                 <img src="/images/Logo Centro Deportivo Blanco.png" alt="Logo Centro Deportivo">
             </div>
 
-            <form class="formLogin">
+            <form class="formLogin" method="post" action="/login">
                 <div class="inputForm">
                     <label for="email">Correo Electrónico:</label>
                     <input type="text" placeholder="Ingresar Correo Electrónico" id="email" name="email">
+                    <% if(locals.errors && errors.email) { %>
+                        <div>
+                          <span class="errorInput"> * <%= errors.email.msg %> </span>
+                        </div>
+                        <% } %>
                 </div>
 
                 <div class="inputForm">
                     <label for="password">Contraseña:</label>
                     <input type="password" placeholder="Ingresar Contraseña" id="password" name="password">
+                    <% if(locals.errors && errors.password) { %>
+                        <div>
+                          <span class="errorInput"> * <%= errors.password.msg %> </span>
+                        </div>
+                        <% } %>
                 </div>
 
                 <div class="divBoton">

@@ -33,9 +33,14 @@ const validacionesUsers = {
     ],
 
     login: [
-
+        body('email')
+            .notEmpty().withMessage('El email usuario es necesario').bail()
+            .isEmail().withMessage('Esto no es un email'),
+        body('password')
+            .notEmpty().withMessage('La contraseña es obligatoria').bail()
+            .isLength({ min: 8 }).withMessage('necesitas minimo 8 caracteres'),
     ]
-} 
+}
 
 
 module.exports = validacionesUsers;

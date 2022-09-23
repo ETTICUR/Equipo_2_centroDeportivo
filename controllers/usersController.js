@@ -1,32 +1,77 @@
 const path = require('path');
 const fs = require('fs');
-const {validationResult}= require('express-validator');
+const { validationResult } = require('express-validator');
 const bcryptjs = require("bcryptjs");
 
 let controller = {
     login: (req, res) => {
-        res.render('login', {title: 'Login'});
+        res.render('login', { title: 'Login' });
+    },
+
+    processLogin: (req, res) => {
+        const validacionesResultado = validationResult(req);
+
+        if (validacionesResultado.errors.length > 0) {
+            res.render('login', {
+                title: 'Login',
+                errors: validacionesResultado.mapped(),
+                oldData: req.body
+            })
+        } else {
+            let usuariosObjeto = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/user.json")));
+            let corroborarUsuario = usuariosObjeto.find(usuarioActual => usuarioActual.email == req.body.email);
+
+            if (corroborarUsuario) {
+                let verificarPassword = bcryptjs.compareSync(req.body.password, corroborarUsuario.password);
+
+                res.render("profile", {
+                    title: 'Hola ' + corroborarUsuario.nombre,
+                    user: corroborarUsuario
+                })
+            } else {
+                res.render('login', {
+                    title: 'Login', 
+                    errors: {
+                        password: {
+                            msg: 'La contraseña es incorrecta'
+                        }
+                    },
+                    oldData: req.body
+                })
+            }
+        } else {
+            res.render('login',{
+                title: 'Login',
+                errors: {
+                    email:{
+                      msg: 'El email ingresado no esta registrado'  
+                    }
+                }
+            })
+        }
+        }
+
     },
 
     register: (req, res) => {
-        res.render('register', {title: 'Registro'});
+        res.render('register', { title: 'Registro' });
 
     },
 
     processRegister: (req, res) => {
         const validacionesResultado = validationResult(req);
 
-        if (validacionesResultado.errors.length > 0){
+        if (validacionesResultado.errors.length > 0) {
             res.render('register', {
                 title: 'Registro',
                 errors: validacionesResultado.mapped(),
                 oldData: req.body
             })
-        }else{
+        } else {
             let usuariosObjeto = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/user.json")));
             let corroborarUsuario = usuariosObjeto.find(usuarioActual => usuarioActual.email == req.body.email);
 
-            if(!corroborarUsuario) {
+            if (!corroborarUsuario) {
                 let nuevoUsuario = {
                     id: usuariosObjeto.length + 1,
                     nombre: req.body.nombre,
@@ -41,7 +86,7 @@ let controller = {
                     fotoPerfil: "/images/users" + req.file.filename
                 };
 
-                if(bcryptjs.compareSync(req.body.password, nuevoUsuario.passwordConfirm)) {
+                if (bcryptjs.compareSync(req.body.password, nuevoUsuario.passwordConfirm)) {
                     usuariosObjeto.push(nuevoUsuario);
 
                     let usuariosObjetoJSON = JSON.stringify(usuariosObjeto, null, " ");
@@ -50,33 +95,33 @@ let controller = {
 
                     res.redirect("login");
 
-                }else{
+                } else {
                     res.render("register", {
-                        title: "Registro", 
+                        title: "Registro",
                         errors: {
-                            passwordConfirm:{
+                            passwordConfirm: {
                                 msg: "La contraseña ingresada no coincide"
                             }
                         },
                         oldData: req.body
                     })
                 }
-            
-            } else{
+
+            } else {
                 res.render("register", {
-                    title: "Registro", 
+                    title: "Registro",
                     errors: {
-                        email:{
+                        email: {
                             msg: "Este mail ya se encuentra registrado"
                         }
                     },
                     oldData: req.body
                 })
-            }   
+            }
         }
     },
 
-    profile: (req,res) => {
+    profile: (req, res) => {
         res.render('profile', {
             title: 'Perfil'
         });

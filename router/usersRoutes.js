@@ -10,6 +10,7 @@ const validacionesUsers = require('../middlewares/users/validacionesUsers');
 
 //Rutas
 router.get("/login", usersController.login);
+router.post('/login',validacionesUsers.login, usersController.processLogin);
 
 router.get("/register", usersController.register);
 router.post('/register', [uploadFile.single('fotoPerfil'), validacionesUsers.register], usersController.processRegister);
