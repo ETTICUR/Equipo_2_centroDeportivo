@@ -22,15 +22,18 @@ let controller = {
     } else {
 
       let usuariosObjeto = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/user.json")));
-      let corroborarUsuario = usuariosObjeto.find((usuarioActual) => usuarioActual.email == req.body.email);
+      let usuarioLogueado = usuariosObjeto.find((usuarioActual) => usuarioActual.email == req.body.email);
 
-      if (corroborarUsuario) {
-        let verificarPassword = bcryptjs.compareSync(req.body.password,corroborarUsuario.password);
+      if (usuarioLogueado) {
+        let verificarPassword = bcryptjs.compareSync(req.body.password,usuarioLogueado.password);
 
         if (verificarPassword) {
+          delete usuarioLogueado.password && delete usuarioLogueado.passwordConfirm;
+          req.session.usuarioLogueado = usuarioLogueado;
+
           res.render("profile", {
-            title: "Hola " + corroborarUsuario.nombre,
-            user: corroborarUsuario,
+            title: "Hola " + usuarioLogueado.nombre,
+            user: usuarioLogueado
           });
 
         } else{
@@ -196,6 +199,11 @@ let controller = {
 
     res.redirect("/");
     
+  },
+
+  logout: (req,res) => {
+    req.session.destroy();
+    res.redirect('/login');
   }
 
 };

@@ -178,5 +178,18 @@
   "edad": 20,
   "actividad": "combinado",
   "email": "gjaquemarj@xing.com"
+ },
+ {
+  "id": 21,
+  "nombre": "AYELEN",
+  "apellido": "CURETTI",
+  "genero": "femenino",
+  "edad": "33",
+  "actividad": "aerobico",
+  "email": "ayecuretti@hotmail.com",
+  "password": "$2a$10$gOGaTohaZXFrqb9fYjsVneYc09XrTLCD4EfcmgxvfOSCkgOtAji2i",
+  "passwordConfirm": "$2a$10$BdaRvp6RJRNHk4K88Z7N.OtTLyp/7XZTQ/GjiweyuDBLRqZlTyaYy",
+  "condiciones": "on",
+  "fotoPerfil": "/images/users/1664488982205_user.jpg"
  }
 ]
