@@ -182,6 +182,20 @@ let controller = {
         title: "Hola " + usuarioEditado.nombre,
         user: usuarioEditado,
       });
+  },
+
+  userDelete: (req, res) => {
+    const userId = Number(req.params.id);
+
+    const usuariosObjeto = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/user.json")));
+    const usuariosRestantes = usuariosObjeto.filter(usuarioActual => usuarioActual.id != userId);
+
+    const usuariosObjetoJSON = JSON.stringify(usuariosRestantes, null, " ");
+
+    fs.writeFileSync(path.join(__dirname, "../data/user.json"), usuariosObjetoJSON);
+
+    res.redirect("/");
+    
   }
 
 };
