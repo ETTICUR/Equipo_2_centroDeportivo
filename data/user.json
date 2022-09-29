@@ -178,31 +178,5 @@
   "edad": 20,
   "actividad": "combinado",
   "email": "gjaquemarj@xing.com"
- },
- {
-  "id": 21,
-  "nombre": "maria laura",
-  "apellido": "soy genia",
-  "genero": "femenino",
-  "edad": "19",
-  "actividad": "aerobico",
-  "email": "todosepuede_victoria@yahoo.com.ar",
-  "password": "$2a$10$TIroyZbYhBBZgFNVJT7loeo1aDOXyliYA6HUxRerZe5Ep/AJnyY8e",
-  "passwordConfirm": "$2a$10$P4mVchSRCC6ou0orrgPideQKd7hnqIdqDoKI3iAN9g.pn9oWNclKm",
-  "condiciones": "on",
-  "fotoPerfil": "/images/users1663712621049_user.jpg"
- },
- {
-  "id": 22,
-  "nombre": "Luciano Ezequiel",
-  "apellido": "Festa",
-  "genero": "femenino",
-  "edad": "45",
-  "actividad": "fuerza",
-  "email": "lucianoefesta@hotmail.com",
-  "password": "$2a$10$QnOJpNLgp.bDLdn1hjx8pOlZGp/jvj9CQkrNTYD6fOLpJJW69GQe.",
-  "passwordConfirm": "$2a$10$Y2P7ep75KzTqWu3t/1LotepVxui/NASQo6EpFTwaX5JM.3icUoWVO",
-  "condiciones": "on",
-  "fotoPerfil": "/images/users/1663966730192_user.png"
  }
 ]

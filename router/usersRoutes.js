@@ -18,4 +18,7 @@ router.post('/register', [uploadFile.single('fotoPerfil'), validacionesUsers.reg
 router.get('/userEdit/:id', usersController.userEdit);
 router.post('/userEdit/:id', uploadFile.single('fotoPerfil'), usersController.processUserEdit);
 
+router.delete('/profile/delete/:id', usersController.userDelete);
+
+
 module.exports = router;
