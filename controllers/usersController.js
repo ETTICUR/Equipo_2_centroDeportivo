@@ -187,6 +187,103 @@ let controller = {
       });
   },
 
+  editPassword: (req,res) => {
+    const userId = Number(req.params.id);
+
+    const usuariosObjeto = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/user.json")));
+    const usuarioEditar = usuariosObjeto.find(usuarioActual => usuarioActual.id == userId);
+
+    res.render('editPassword', {
+      title: 'Editar Contraseña',
+      user: usuarioEditar
+    });
+
+  },
+
+  processEditPassword: (req,res) => {
+    const userId = Number(req.params.id);
+
+    const usuariosObjeto = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/user.json")));
+    const usuariosRestantes = usuariosObjeto.filter(usuarioActual => usuarioActual.id != userId);
+    const usuarioEditar = usuariosObjeto.find(usuarioActual => usuarioActual.id == userId);
+
+    const validacionesResultado = validationResult(req);
+
+    if(validacionesResultado.errors.length > 0){
+      res.render('editPassword', {
+        title: 'Editar Contraseña',
+        errors: validacionesResultado.mapped(),
+        user: usuarioEditar
+      })
+
+    }else{
+      const verificacionPasswordActual = bcryptjs.compareSync(req.body.passwordOld, usuarioEditar.password);
+
+      if(!verificacionPasswordActual) {
+        res.render('editPassword', {
+          title: 'Editar Contraseña',
+          errors: {
+            passwordOld: {
+              msg: 'Tu contraseña actual es incorrecta'
+            }
+          },
+          user: usuarioEditar
+        })
+
+      } else{
+        const verificacionNewPassword = bcryptjs.compareSync(req.body.password, usuarioEditar.password);
+
+        if(verificacionNewPassword){
+          res.render('editPassword', {
+            title: 'Editar Contraseña',
+            errors: {
+              password: {
+                msg: 'Tu nueva contraseña no debe coincidir con la anterior'
+              }
+            },
+            user: usuarioEditar
+          })
+
+        }else{
+          if(req.body.password == req.body.passwordConfirm){
+            const usuarioEditado = {
+              id: usuarioEditar.id,
+              nombre: usuarioEditar.nombre,
+              apellido: usuarioEditar.apellido,
+              genero: usuarioEditar.genero,
+              edad: usuarioEditar.edad,
+              actividad: usuarioEditar.actividad,
+              email: usuarioEditar.email,
+              password: bcryptjs.hashSync(req.body.password, 10),
+              passwordConfirm: bcryptjs.hashSync(req.body.passwordConfirm, 10),
+              condiciones: usuarioEditar.condiciones,
+              fotoPerfil: usuarioEditar.fotoPerfil
+            }
+
+            usuariosRestantes.push(usuarioEditado);
+
+            let usuariosObjetoJSON = JSON.stringify(usuariosRestantes, null, " ");
+
+            fs.writeFileSync(path.join(__dirname, "../data/user.json"), usuariosObjetoJSON);
+
+            res.redirect('/login');
+
+          }else{
+            res.render('editPassword', {
+              title: 'Editar Contraseña',
+              errors: {
+                passwordConfirm: {
+                  msg: 'La contraseña no coincide.'
+                }
+              },
+              user: usuarioEditar
+            })
+          }
+        }
+      }
+    }
+  },
+
   userDelete: (req, res) => {
     const userId = Number(req.params.id);
 

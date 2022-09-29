@@ -38,7 +38,12 @@
                             </div>
                             <div>
                                 <form action= "/logout" method="GET"> 
-                                    <button type="submit" class="btnPlan"><i class="fa fa-trash"></i>Cerrar sesión</button>
+                                    <button type="submit" class="btnPlan"><i class="fa fa-trash"></i> Cerrar sesión</button>
+                                </form>
+                            </div>
+                            <div>
+                                <form action= ""> 
+                                    <button class="btnPlan"><i class="fa fa-trash"></i><a href="/profile/editPassword/<%= user.id %>"> Editar contraseña</a></button>
                                 </form>
                             </div>
                         </div>

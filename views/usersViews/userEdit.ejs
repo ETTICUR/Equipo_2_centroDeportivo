@@ -60,30 +60,12 @@
               <input type="email" name="email" id="email" placeholder="Tu email" value="<%= user.email %>"/>
             </div>
 
-            <!-- <div class="inputForm">
-              <label for="contraseña">Contraseña: </label><span class="asterisco">*</span>
-              <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña" />
-              <% if(locals.errors && errors.password) { %>
-                <div>
-                  <span class="errorInput"> * <%= errors.password.msg %> </span>
-                </div>
-                <% } %>
-            </div>
-
-            <div class="inputForm">
-              <label for="confirmarContraseña">Confirmar contraseña:
-              </label><span class="asterisco">*</span>
-              <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirma tu contraseña"/>
-              <% if(locals.errors && errors.passwordConfirm) { %>
-                <div>
-                  <span class="errorInput"> * <%= errors.passwordConfirm.msg %> </span>
-                </div>
-                <% } %>
-            </div> -->
-
             <div class="divBoton">
               <button class="btn" type="submit">
                 <i class="fas fa-check"></i> Modificar
+              </button>
+              <button class="btn" type="submit">
+                <i class="fas fa-check"></i> <a href="/login"> Cancelar</a> 
               </button>
             </div>
           </form>

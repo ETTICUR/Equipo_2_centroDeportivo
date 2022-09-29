@@ -19,6 +19,9 @@ router.post('/register', [uploadFile.single('fotoPerfil'), validacionesUsers.reg
 router.get('/userEdit/:id', usersController.userEdit);
 router.post('/userEdit/:id', uploadFile.single('fotoPerfil'), usersController.processUserEdit);
 
+router.get('/profile/editPassword/:id', usersController.editPassword);
+router.post('/profile/editPassword/:id', validacionesUsers.editPassword, usersController.processEditPassword);
+
 router.delete('/profile/delete/:id', usersController.userDelete);
 
 router.get('/logout', usersController.logout);

@@ -39,6 +39,16 @@ const validacionesUsers = {
         body('password')
             .notEmpty().withMessage('La contraseña es obligatoria').bail()
             .isLength({ min: 8 }).withMessage('necesitas minimo 8 caracteres'),
+    ],
+
+    editPassword: [
+        body('passwordOld')
+            .notEmpty().withMessage('La contraseña actual es obligatoria').bail()
+            .isLength({ min: 8 }).withMessage('necesitas minimo 8 caracteres'),
+        body('password')
+            .notEmpty().withMessage('La nueva contraseña es obligatoria').bail()
+            .isLength({ min: 8 }).withMessage('necesitas minimo 8 caracteres'),
+        body('passwordConfirm').notEmpty().withMessage('Debes confirmar tu nueva contraseña'),
     ]
 }
 

@@ -187,9 +187,21 @@
   "edad": "33",
   "actividad": "aerobico",
   "email": "ayecuretti@hotmail.com",
-  "password": "$2a$10$gOGaTohaZXFrqb9fYjsVneYc09XrTLCD4EfcmgxvfOSCkgOtAji2i",
-  "passwordConfirm": "$2a$10$BdaRvp6RJRNHk4K88Z7N.OtTLyp/7XZTQ/GjiweyuDBLRqZlTyaYy",
+  "password": "$2a$10$AfkpGHsEtxivPq6mJ0YU7uFKI6wlGRVlX7G7kBRdZWknEU939YuC2",
+  "passwordConfirm": "$2a$10$lhCIoFRSt42eaO5/WVs78OCxSTTNu5fFmTlXRIkyfpMUYmg7OLZC.",
+  "condiciones": "on"
+ },
+ {
+  "id": 22,
+  "nombre": "Luciano",
+  "apellido": "Festa",
+  "genero": "masculino",
+  "edad": "20",
+  "actividad": "aerobico",
+  "email": "lucianoefesta@hotmail.com",
+  "password": "$2a$10$HVdXPhwIceO02HTeY5dm.e11pEZ9OFlIXMSsKHl3Tp7yMNJ0aXM02",
+  "passwordConfirm": "$2a$10$e3Y7nQWJTXk7KjvOABS2m.IE39g0XoWz3XIP3nZjDdv4x.w4DMUhu",
   "condiciones": "on",
-  "fotoPerfil": "/images/users/1664488982205_user.jpg"
+  "fotoPerfil": "/images/users/1664492702220_user.png"
  }
 ]
