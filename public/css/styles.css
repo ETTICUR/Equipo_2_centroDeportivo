@@ -713,7 +713,7 @@ textarea {
 }
 
 .finishButton {
-  width: 90%;
+  width: 80%;
   padding: 15px;
   border: 2px solid #fa8a01;
   border-radius: 5px;
@@ -777,10 +777,14 @@ textarea {
   padding: 15px;
 }
 
+.datosProfile p i{
+  color:#fa8a01;
+  font-size: 15px;
+}
+
 .datosProfile p span{
   font-weight:700;
   font-style: italic;
-  text-decoration:underline;
 }
 
 
@@ -925,7 +929,8 @@ textarea {
 
   .flex {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
 

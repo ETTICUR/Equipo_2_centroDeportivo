@@ -8,7 +8,7 @@
         <div class="divRegistro">
           <div class="divImagen"></div>
           <form action="/userEdit/<%= user.id %>" method="post" enctype="multipart/form-data">
-            <p>Modifica tus datos:</p>
+            <p>Por favor, modificá los datos deseados:</p>
             <div class="flex">
               <div class="inputForm ancho">
                 <label for="nombre">Nombre: </label><span class="asterisco">*</span>
@@ -25,7 +25,7 @@
                   <input type="file" id="image" name="fotoPerfil" />
                 </div>
                 <div>
-                    <img src="<%= user.fotoPerfil %>" width="120" alt="">
+                    <img src="<%= user.fotoPerfil %>" width="120" alt="Foto de Perfil">
                 </div>
             </div>
 
