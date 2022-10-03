@@ -240,7 +240,7 @@ h2 {
 
 .btnPlan:hover {
   border-color: #fa8a01;
-  box-shadow: inset 10em 0 0 0 #fa8a01;
+  box-shadow: inset 12em 0 0 0 #fa8a01;
   transition: 0.7s;
 }
 
@@ -358,11 +358,13 @@ iframe {
 .divBtnProductos{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding-top: 50px;
 }
 
 .divBtnProductos div{
   padding: 0 10px;
+  margin-top: 15px;
 }
 
 .agregarDetail {
@@ -513,6 +515,10 @@ textarea,
 .divBoton {
   display: flex;
   justify-content: center;
+}
+
+.divBoton button{
+  margin-left: 10px;
 }
 
 .btn {
