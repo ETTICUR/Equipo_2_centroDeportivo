@@ -58,7 +58,7 @@
             <label for="category">Categoria: </label
             ><span class="asterisco">*</span>
             <select name="category" id="category" class="selectRegister">
-              <option disabled <%= locals.oldData && !oldData.category ? 'selected' : '' ; %>>Elige una opción</option>
+              <option disabled <%= !locals.oldData || !oldData.category ? 'selected' : '' ; %>>Elige una opción</option>
               <option value="aerobico" <%= locals.oldData && oldData.category == 'aerobico' ? 'selected' : '' ; %>>Aeróbico</option>
               <option value="fuerza" <%= locals.oldData && oldData.category == 'fuerza' ? 'selected' : '' ; %>>Fuerza</option>
               <option value="relax" <%= locals.oldData && oldData.category == 'relax' ? 'selected' : '' ; %>>Relax</option>
@@ -81,7 +81,7 @@
               id="morningShift"
               class="selectRegister"
             >
-              <option disabled <%= locals.oldData && !oldData.morningShift ? 'selected' : '' ; %>>Elige una opción</option>
+              <option disabled <%= !locals.oldData || !oldData.morningShift ? 'selected' : '' ; %>>Elige una opción</option>
               <option value="de 08:00Hs a 09:00Hs" <%= locals.oldData && oldData.morningShift == 'de 08:00Hs a 09:00Hs' ? 'selected' : '' ; %>>de 08:00Hs a 09:00Hs</option>
               <option value="de 09:00Hs a 10:00Hs" <%= locals.oldData && oldData.morningShift == 'de 09:00Hs a 10:00Hs' ? 'selected' : '' ; %>>de 09:00Hs a 10:00Hs</option>
               <option value="de 10:00Hs a 11:00Hs" <%= locals.oldData && oldData.morningShift == 'de 10:00Hs a 11:00Hs' ? 'selected' : '' ; %>>de 10:00Hs a 11:00Hs</option>
@@ -103,7 +103,7 @@
               id="afternoonShift"
               class="selectRegister"
             >
-              <option disabled <%= locals.oldData && !oldData.afternoonShift ? 'selected' : '' ; %>>Elige una opción</option>
+              <option disabled <%= !locals.oldData || !oldData.afternoonShift ? 'selected' : '' ; %>>Elige una opción</option>
               <option value="de 14:00Hs a 15:00Hs" <%= locals.oldData && oldData.afternoonShift == 'de 14:00Hs a 15:00Hs' ? 'selected' : '' ; %>>de 14:00Hs a 15:00Hs</option>
               <option value="de 15:00Hs a 16:00Hs" <%= locals.oldData && oldData.afternoonShift == 'de 15:00Hs a 16:00Hs' ? 'selected' : '' ; %>>de 15:00Hs a 16:00Hs</option>
               <option value="de 16:00Hs a 17:00Hs" <%= locals.oldData && oldData.afternoonShift == 'de 16:00Hs a 17:00Hs' ? 'selected' : '' ; %>>de 16:00Hs a 17:00Hs</option>
@@ -121,7 +121,7 @@
             <label for="nightShift">Horario Noche: </label
             ><span class="asterisco">*</span>
             <select name="nightShift" id="nightShift" class="selectRegister">
-              <option disabled <%= locals.oldData && !oldData.nightShift ? 'selected' : '' ; %>>Elige una opción</option>
+              <option disabled <%= !locals.oldData || !oldData.nightShift ? 'selected' : '' ; %>>Elige una opción</option>
               <option value="de 18:00Hs a 19:00Hs" <%= locals.oldData && oldData.nightShift == 'de 18:00Hs a 19:00Hs' ? 'selected' : '' ; %>>de 18:00Hs a 19:00Hs</option>
               <option value="de 19:00Hs a 20:00Hs" <%= locals.oldData && oldData.nightShift == 'de 19:00Hs a 20:00Hs' ? 'selected' : '' ; %>>de 19:00Hs a 20:00Hs</option>
               <option value="de 20:00Hs a 21:00Hs" <%= locals.oldData && oldData.nightShift == 'de 20:00Hs a 21:00Hs' ? 'selected' : '' ; %>>de 20:00Hs a 21:00Hs</option>
