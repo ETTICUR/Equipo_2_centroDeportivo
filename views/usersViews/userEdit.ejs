@@ -1,0 +1,75 @@
+<%- include('../partials/head') %>
+
+  <body class="body">
+    <%- include('../partials/navbar') %>
+
+      <h1>Editá tu perfil</h1>
+      <main class="mainRegister">
+        <div class="divRegistro">
+          <div class="divImagen"></div>
+          <form action="/userEdit/<%= user.id %>" method="post" enctype="multipart/form-data">
+            <p>Por favor, modificá los datos deseados:</p>
+            <div class="flex">
+              <div class="inputForm ancho">
+                <label for="nombre">Nombre: </label><span class="asterisco">*</span>
+                <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" value="<%= user.nombre %>" />
+              </div>
+              <div class="inputForm ancho">
+                <label for="apellido">Apellido: </label><span class="asterisco">*</span>
+                <input type="text" name="apellido" id="apellido" placeholder="Tu apellido" value="<%= user.apellido %>"/>
+              </div>
+            </div>
+            <div class="flex">
+                <div class="inputForm ancho">
+                  <label for="image">Imágen: </label>
+                  <input type="file" id="image" name="fotoPerfil" />
+                </div>
+                <div>
+                    <img src="<%= user.fotoPerfil %>" width="120" alt="Foto de Perfil">
+                </div>
+            </div>
+
+            <div class="flex espacio">
+              <div class="inputForm">
+                <div class="inputForm">
+                  <label for="genero">Género: </label><span class="asterisco">*</span>
+                  <select name="genero" id="genero" class="selectRegister">
+                    <option value="masculino" <%= user.genero == 'masculino' ? 'selected' : '' ; %>>Masculino</option>
+                    <option value="femenino" <%= user.genero == 'femenino' ? 'selected' : '' ; %>>Femenino</option>
+                    <option value="otro" <%= user.genero == 'otro' ? 'selected' : '' ; %>>Otro</option>
+                  </select>
+                </div>
+              </div>
+              <div class="inputForm">
+                <label for="edad">Edad: </label><span class="asterisco">*</span>
+                <input type="number" name="edad" id="edad" placeholder="Tu edad" value="<%= user.edad %>"/>
+              </div>
+              <div class="inputForm">
+                <label for="actividad">Actividad preferida: </label><span class="asterisco">*</span>
+                <select name="actividad" id="actividad" class="selectRegister">
+                  <option value="aerobico" <%= user.actividad == 'aerobico' ? 'selected' : '' ; %>>Aeróbico</option>
+                  <option value="fuerza" <%= user.actividad == 'fuerza' ? 'selected' : '' ; %>>Fuerza</option>
+                  <option value="relax" <%= user.actividad == 'relax' ? 'selected' : '' ; %>>Relax</option>
+                  <option value="combinado" <%= user.actividad == 'combinado' ? 'selected' : '' ; %>>Combinado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="inputForm">
+              <label for="email">Correo electrónico: </label><span class="asterisco">*</span>
+              <input type="email" name="email" id="email" placeholder="Tu email" value="<%= user.email %>"/>
+            </div>
+
+            <div class="divBoton">
+              <button class="btn" type="submit">
+                <i class="fas fa-check"></i> Modificar
+              </button>
+              <button class="btn" type="submit">
+                <i class="fa-solid fa-xmark"></i> <a href="/login"> Cancelar</a> 
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <%- include('../partials/footer') %>

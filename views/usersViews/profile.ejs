@@ -1,0 +1,53 @@
+<%- include('../partials/head') %>
+
+    <body class="body">
+
+        <%- include('../partials/navbar') %>
+
+            <main class="mainDetail">
+                <div class="divProfile">
+
+                    <div class="imgPerfil">
+                        <img src="<%= user.fotoPerfil %>" alt="foto de perfil">
+                    </div>
+
+                    <div>
+                        <div class="tituloProfile">
+                            <h3>¡HOLA <%= user.nombre %>!</h3>
+                        </div>
+
+                        <div class="datosProfile">
+                            <p> <span><i class="fa-solid fa-user"></i> Nombre: </span><%= user.nombre %></p>
+                            <p> <span><i class="fa-solid fa-user"></i> Apellido: </span><%= user.apellido %></p>
+                            <p> <span><i class="fa-solid fa-venus-mars"></i> Género: </span><%= user.genero %></p>
+                            <p> <span><i class="fa-solid fa-calendar-days"></i> Edad: </span><%= user.edad %> Años</p>
+                            <p> <span><i class="fa-solid fa-dumbbell"></i> Actividad Preferida: </span><%= user.actividad %></p>
+                            <p> <span><i class="fa-solid fa-envelope"></i> Correo Electrónico: </span><%= user.email %></p>
+                        </div>
+
+                        <div class="divBtnProductos">
+                            <div>
+                                <form action="">
+                                    <button class="btnPlan"><i class="fa-solid fa-pen-to-square"></i><a href="/userEdit/<%= user.id %>"> Editar</a></button>
+                                </form>
+                            </div>
+                            <div>
+                                <form action= "/profile/delete/<%= user.id %>?_method=DELETE" method="POST"> 
+                                    <button type="submit" class="btnPlan"><i class="fa fa-trash"></i> Eliminar</button>
+                                </form>
+                            </div>
+                            <div>
+                                <form action= ""> 
+                                    <button class="btnPlan"><i class="fa-solid fa-pen-to-square"></i><a href="/profile/editPassword/<%= user.id %>"> Editar contraseña</a></button>
+                                </form>
+                            </div>
+                            <div>
+                                <form action= "/logout" method="GET"> 
+                                    <button type="submit" class="btnPlan"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+
+            <%- include('../partials/footer') %>

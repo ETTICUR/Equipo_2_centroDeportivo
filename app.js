@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const session = require("express-session");
 const dotenv = require("dotenv").config();
 const methodOverride = require("method-override");
 const expressSession = require("express-session")
@@ -20,7 +21,11 @@ app.set("views", [
 
 app.use(express.static("public"));
 
-app.use(expressSession({secret: "centro-deportivo"}))
+app.use(session({
+  secret: "es un secreto shh",
+  resave: false,
+  saveUninitialized: false,
+}));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

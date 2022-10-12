@@ -1,20 +1,207 @@
-[{"id":1,"nombre":"Nedi","apellido":"Hammerton","genero":"femenino","edad":1,"actividad":"aerobico","email":"nhammerton0@digg.com"},
-{"id":2,"nombre":"Pammi","apellido":"Emmitt","genero":"femenino","edad":2,"actividad":"fuerza","email":"pemmitt1@netvibes.com"},
-{"id":3,"nombre":"Heinrik","apellido":"Moakler","genero":"masculino","edad":3,"actividad":"relax","email":"hmoakler2@nifty.com"},
-{"id":4,"nombre":"Tiphani","apellido":"Stowgill","genero":"femenino","edad":4,"actividad":"relax","email":"tstowgill3@1und1.de"},
-{"id":5,"nombre":"Brand","apellido":"Gregori","genero":"masculino","edad":5,"actividad":"combinado","email":"bgregori4@feedburner.com"},
-{"id":6,"nombre":"Crawford","apellido":"Booker","genero":"masculino","edad":6,"actividad":"aerobico","email":"cbooker5@wikimedia.org"},
-{"id":7,"nombre":"Vite","apellido":"Allcott","genero":"masculino","edad":7,"actividad":"aerobico","email":"vallcott6@amazonaws.com"},
-{"id":8,"nombre":"Olia","apellido":"Tittletross","genero":"femenino","edad":8,"actividad":"aerobico","email":"otittletross7@hexun.com"},
-{"id":9,"nombre":"Herculie","apellido":"Whitwood","genero":"masculino","edad":9,"actividad":"relax","email":"hwhitwood8@unc.edu"},
-{"id":10,"nombre":"Cass","apellido":"Dugdale","genero":"masculino","edad":10,"actividad":"aerobico","email":"cdugdale9@sitemeter.com"},
-{"id":11,"nombre":"Merridie","apellido":"Braunlein","genero":"femenino","edad":11,"actividad":"relax","email":"mbraunleina@dion.ne.jp"},
-{"id":12,"nombre":"Dur","apellido":"Mungane","genero":"masculino","edad":12,"actividad":"combinado","email":"dmunganeb@dyndns.org"},
-{"id":13,"nombre":"Alberik","apellido":"Maleham","genero":"masculino","edad":13,"actividad":"relax","email":"amalehamc@elegantthemes.com"},
-{"id":14,"nombre":"Jada","apellido":"Prin","genero":"femenino","edad":14,"actividad":"aerobico","email":"jprind@si.edu"},
-{"id":15,"nombre":"Uri","apellido":"Hardi","genero":"masculino","edad":15,"actividad":"combinado","email":"uhardie@harvard.edu"},
-{"id":16,"nombre":"Iago","apellido":"Osbourn","genero":"masculino","edad":16,"actividad":"aerobico","email":"iosbournf@yahoo.com"},
-{"id":17,"nombre":"Kristen","apellido":"Scullard","genero":"femenino","edad":17,"actividad":"combinado","email":"kscullardg@dailymotion.com"},
-{"id":18,"nombre":"Kyle","apellido":"Tarbox","genero":"masculino","edad":18,"actividad":"aerobico","email":"ktarboxh@360.cn"},
-{"id":19,"nombre":"Garv","apellido":"Cristofalo","genero":"masculino","edad":19,"actividad":"fuerza","email":"gcristofaloi@flickr.com"},
-{"id":20,"nombre":"Gil","apellido":"Jaquemar","genero":"masculino","edad":20,"actividad":"combinado","email":"gjaquemarj@xing.com"}]
+[
+ {
+  "id": 1,
+  "nombre": "Nedi",
+  "apellido": "Hammerton",
+  "genero": "femenino",
+  "edad": 1,
+  "actividad": "aerobico",
+  "email": "nhammerton0@digg.com"
+ },
+ {
+  "id": 2,
+  "nombre": "Pammi",
+  "apellido": "Emmitt",
+  "genero": "femenino",
+  "edad": 2,
+  "actividad": "fuerza",
+  "email": "pemmitt1@netvibes.com"
+ },
+ {
+  "id": 3,
+  "nombre": "Heinrik",
+  "apellido": "Moakler",
+  "genero": "masculino",
+  "edad": 3,
+  "actividad": "relax",
+  "email": "hmoakler2@nifty.com"
+ },
+ {
+  "id": 4,
+  "nombre": "Tiphani",
+  "apellido": "Stowgill",
+  "genero": "femenino",
+  "edad": 4,
+  "actividad": "relax",
+  "email": "tstowgill3@1und1.de"
+ },
+ {
+  "id": 5,
+  "nombre": "Brand",
+  "apellido": "Gregori",
+  "genero": "masculino",
+  "edad": 5,
+  "actividad": "combinado",
+  "email": "bgregori4@feedburner.com"
+ },
+ {
+  "id": 6,
+  "nombre": "Crawford",
+  "apellido": "Booker",
+  "genero": "masculino",
+  "edad": 6,
+  "actividad": "aerobico",
+  "email": "cbooker5@wikimedia.org"
+ },
+ {
+  "id": 7,
+  "nombre": "Vite",
+  "apellido": "Allcott",
+  "genero": "masculino",
+  "edad": 7,
+  "actividad": "aerobico",
+  "email": "vallcott6@amazonaws.com"
+ },
+ {
+  "id": 8,
+  "nombre": "Olia",
+  "apellido": "Tittletross",
+  "genero": "femenino",
+  "edad": 8,
+  "actividad": "aerobico",
+  "email": "otittletross7@hexun.com"
+ },
+ {
+  "id": 9,
+  "nombre": "Herculie",
+  "apellido": "Whitwood",
+  "genero": "masculino",
+  "edad": 9,
+  "actividad": "relax",
+  "email": "hwhitwood8@unc.edu"
+ },
+ {
+  "id": 10,
+  "nombre": "Cass",
+  "apellido": "Dugdale",
+  "genero": "masculino",
+  "edad": 10,
+  "actividad": "aerobico",
+  "email": "cdugdale9@sitemeter.com"
+ },
+ {
+  "id": 11,
+  "nombre": "Merridie",
+  "apellido": "Braunlein",
+  "genero": "femenino",
+  "edad": 11,
+  "actividad": "relax",
+  "email": "mbraunleina@dion.ne.jp"
+ },
+ {
+  "id": 12,
+  "nombre": "Dur",
+  "apellido": "Mungane",
+  "genero": "masculino",
+  "edad": 12,
+  "actividad": "combinado",
+  "email": "dmunganeb@dyndns.org"
+ },
+ {
+  "id": 13,
+  "nombre": "Alberik",
+  "apellido": "Maleham",
+  "genero": "masculino",
+  "edad": 13,
+  "actividad": "relax",
+  "email": "amalehamc@elegantthemes.com"
+ },
+ {
+  "id": 14,
+  "nombre": "Jada",
+  "apellido": "Prin",
+  "genero": "femenino",
+  "edad": 14,
+  "actividad": "aerobico",
+  "email": "jprind@si.edu"
+ },
+ {
+  "id": 15,
+  "nombre": "Uri",
+  "apellido": "Hardi",
+  "genero": "masculino",
+  "edad": 15,
+  "actividad": "combinado",
+  "email": "uhardie@harvard.edu"
+ },
+ {
+  "id": 16,
+  "nombre": "Iago",
+  "apellido": "Osbourn",
+  "genero": "masculino",
+  "edad": 16,
+  "actividad": "aerobico",
+  "email": "iosbournf@yahoo.com"
+ },
+ {
+  "id": 17,
+  "nombre": "Kristen",
+  "apellido": "Scullard",
+  "genero": "femenino",
+  "edad": 17,
+  "actividad": "combinado",
+  "email": "kscullardg@dailymotion.com"
+ },
+ {
+  "id": 18,
+  "nombre": "Kyle",
+  "apellido": "Tarbox",
+  "genero": "masculino",
+  "edad": 18,
+  "actividad": "aerobico",
+  "email": "ktarboxh@360.cn"
+ },
+ {
+  "id": 19,
+  "nombre": "Garv",
+  "apellido": "Cristofalo",
+  "genero": "masculino",
+  "edad": 19,
+  "actividad": "fuerza",
+  "email": "gcristofaloi@flickr.com"
+ },
+ {
+  "id": 20,
+  "nombre": "Gil",
+  "apellido": "Jaquemar",
+  "genero": "masculino",
+  "edad": 20,
+  "actividad": "combinado",
+  "email": "gjaquemarj@xing.com"
+ },
+ {
+  "id": 21,
+  "nombre": "AYELEN",
+  "apellido": "CURETTI",
+  "genero": "femenino",
+  "edad": "33",
+  "actividad": "aerobico",
+  "email": "ayecuretti@hotmail.com",
+  "password": "$2a$10$AfkpGHsEtxivPq6mJ0YU7uFKI6wlGRVlX7G7kBRdZWknEU939YuC2",
+  "passwordConfirm": "$2a$10$lhCIoFRSt42eaO5/WVs78OCxSTTNu5fFmTlXRIkyfpMUYmg7OLZC.",
+  "condiciones": "on"
+ },
+ {
+  "id": 22,
+  "nombre": "Luciano",
+  "apellido": "Festa",
+  "genero": "masculino",
+  "edad": "20",
+  "actividad": "aerobico",
+  "email": "lucianoefesta@hotmail.com",
+  "password": "$2a$10$HVdXPhwIceO02HTeY5dm.e11pEZ9OFlIXMSsKHl3Tp7yMNJ0aXM02",
+  "passwordConfirm": "$2a$10$e3Y7nQWJTXk7KjvOABS2m.IE39g0XoWz3XIP3nZjDdv4x.w4DMUhu",
+  "condiciones": "on",
+  "fotoPerfil": "/images/users/1664492702220_user.png"
+ }
+]

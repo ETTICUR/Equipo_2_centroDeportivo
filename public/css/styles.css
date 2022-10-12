@@ -240,7 +240,7 @@ h2 {
 
 .btnPlan:hover {
   border-color: #fa8a01;
-  box-shadow: inset 10em 0 0 0 #fa8a01;
+  box-shadow: inset 12em 0 0 0 #fa8a01;
   transition: 0.7s;
 }
 
@@ -358,11 +358,13 @@ iframe {
 .divBtnProductos{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding-top: 50px;
 }
 
 .divBtnProductos div{
   padding: 0 10px;
+  margin-top: 15px;
 }
 
 .agregarDetail {
@@ -513,6 +515,10 @@ textarea,
 .divBoton {
   display: flex;
   justify-content: center;
+}
+
+.divBoton button{
+  margin-left: 10px;
 }
 
 .btn {
@@ -713,7 +719,7 @@ textarea {
 }
 
 .finishButton {
-  width: 90%;
+  width: 80%;
   padding: 15px;
   border: 2px solid #fa8a01;
   border-radius: 5px;
@@ -747,6 +753,44 @@ textarea {
   display: flex;
   justify-content: center;
   margin: 15% auto;
+}
+
+/*****************************************************************************************************/
+/********************************************* PROFILE**** ******************************************/
+/*****************************************************************************************************/
+
+
+.divProfile{
+  text-align: center;
+}
+
+.imgPerfil img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.datosProfile{
+  margin-top: 20px;
+  background-color: #ffaa41b6;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: start;
+}
+
+.datosProfile p{
+  padding: 15px;
+}
+
+.datosProfile p i{
+  color:#fa8a01;
+  font-size: 15px;
+}
+
+.datosProfile p span{
+  font-weight:700;
+  font-style: italic;
 }
 
 
@@ -891,7 +935,8 @@ textarea {
 
   .flex {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
 
@@ -960,6 +1005,28 @@ textarea {
 
   .imagenLogin img {
     margin-bottom: 120px;
+  }
+
+  /* PROFILE */
+
+  .imgPerfil img{
+    width: 350px;
+    height: 350px;
+  }
+
+  .tituloProfile{
+    font-size: 20px;
+  }
+
+  .datosProfile{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .datosProfile p {
+    font-size: 20px;
   }
 
   /* CARRITO */
