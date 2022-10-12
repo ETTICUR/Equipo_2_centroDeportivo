@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv").config();
 const methodOverride = require("method-override");
+const expressSession = require("express-session")
+
 const mainRoutes = require("./router/mainRoutes");
 const productRoutes = require("./router/productRoutes");
 const usersRoutes = require("./router/usersRoutes");
@@ -17,6 +19,8 @@ app.set("views", [
 ]);
 
 app.use(express.static("public"));
+
+app.use(expressSession({secret: "centro-deportivo"}))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
