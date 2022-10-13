@@ -205,7 +205,7 @@
   "fotoPerfil": "/images/users/1665607790597_user.jpg"
  },
  {
-  "id": 24,
+  "id": 0,
   "nombre": "admin",
   "apellido": "admin",
   "genero": "otro",
@@ -223,11 +223,11 @@
   "apellido": "Festa",
   "genero": "masculino",
   "edad": "30",
-  "actividad": "aerobico",
+  "actividad": "combinado",
   "email": "lucianoefesta@hotmail.com",
-  "password": "$2a$10$J633DBsOz.nMZmGSsIuZquhae4mtp9C3NyQ2TBxxhhtarAsyql1B2",
-  "passwordConfirm": "$2a$10$bVewRVOoNrnAClwD1vhIuu2BpKR/8rhdlO6yY7sDG2adBbuqbxSDy",
+  "password": "$2a$10$6PXR4NO5lEtKtO08wDTpcubHpEjeN/MODg/xdjssPFWGC0o3XsOIm",
+  "passwordConfirm": "$2a$10$GDK3jnkAIf08Z4n2tDnWbek.icodSScEHvs4SXCmGmUQYCptAIgn2",
   "condiciones": "on",
-  "fotoPerfil": "/images/users/1665694591632_user.png"
+  "fotoPerfil": "/images/users/1665695628109_user.png"
  }
 ]
