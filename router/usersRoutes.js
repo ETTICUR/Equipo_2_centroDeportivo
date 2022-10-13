@@ -14,7 +14,7 @@ const authLogin = require("../middlewares/users/authLogin");
 router.get("/login", verSession, usersController.login);
 router.post("/login", validacionesUsers.login, usersController.processLogin);
 
-router.get("/profile", authLogin, usersController.profileView);
+
 
 router.get("/register", verSession, usersController.register);
 router.post(
@@ -29,6 +29,8 @@ router.post(
   uploadFile.single("fotoPerfil"),
   usersController.processUserEdit
 );
+
+router.get("/profile", authLogin, usersController.profileView);
 
 router.get(
   "/profile/editPassword/:id",
