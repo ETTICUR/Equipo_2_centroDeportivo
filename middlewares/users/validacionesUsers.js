@@ -5,6 +5,7 @@ const validacionesUsers = {
     register: [
 
         body('nombre').notEmpty().withMessage('El nombre es obligatorio'),
+        body('nombre').custom(value=>value != "admin").withMessage('Elige otro nombre'),
         body('apellido').notEmpty().withMessage('El apellido es obligatorio'),
         body('genero').notEmpty().withMessage('Indicanos tu genero'),
         body('edad').notEmpty().withMessage('Debés indicar tu edad'),

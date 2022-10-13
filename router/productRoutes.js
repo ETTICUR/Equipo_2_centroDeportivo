@@ -1,26 +1,37 @@
 const express = require("express");
 const router = express.Router();
-const productController = require('../controllers/productController');
+const productController = require("../controllers/productController");
 
 //Multer
-const uploadFile = require('../middlewares/products/multerProducts');
+const uploadFile = require("../middlewares/products/multerProducts");
 
 //Validaciones
-const validacionesProducts = require('../middlewares/products/validacionesProducts');
+const validacionesProducts = require("../middlewares/products/validacionesProducts");
+const authAdmin = require("../middlewares/users/authAdmin");
+const authLogin = require("../middlewares/users/authLogin");
 
 //Rutas
-router.get("/carrito", productController.cart);
+router.get("/carrito", authLogin, productController.cart);
 
 router.get("/detalle/:id", productController.detail);
-router.delete("/detalle/:id", productController.delete)
+router.delete("/detalle/:id", productController.delete);
 
-router.get("/recuperar", productController.deletedProducts)
-router.post("/recuperar/:id", productController.productRecovery)
+router.get("/recuperar", authAdmin, productController.deletedProducts);
+router.post("/recuperar/:id", authAdmin, productController.productRecovery);
 
-router.get("/crear", productController.create);
-router.post("/crear", [uploadFile.single('image'), validacionesProducts], productController.processCreate);
+router.get("/crear", authAdmin, productController.create);
+router.post(
+  "/crear",
+  [uploadFile.single("image"), validacionesProducts, authAdmin],
+  productController.processCreate
+);
 
-router.get("/:id/editar", productController.editView);
-router.put("/:id/editar", uploadFile.single('image'), productController.editProduct);
+router.get("/:id/editar", authAdmin, productController.editView);
+router.put(
+  "/:id/editar",
+  authAdmin,
+  uploadFile.single("image"),
+  productController.editProduct
+);
 
 module.exports = router;

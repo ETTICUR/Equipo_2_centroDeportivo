@@ -3,11 +3,12 @@ const path = require("path");
 const session = require("express-session");
 const dotenv = require("dotenv").config();
 const methodOverride = require("method-override");
-const expressSession = require("express-session")
+const expressSession = require("express-session");
 
 const mainRoutes = require("./router/mainRoutes");
 const productRoutes = require("./router/productRoutes");
 const usersRoutes = require("./router/usersRoutes");
+const personaLogueada = require("./middlewares/users/authLogin");
 
 const app = express();
 
@@ -21,11 +22,13 @@ app.set("views", [
 
 app.use(express.static("public"));
 
-app.use(session({
-  secret: "es un secreto shh",
-  resave: false,
-  saveUninitialized: false,
-}));
+app.use(
+  session({
+    secret: "es un secreto shh",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

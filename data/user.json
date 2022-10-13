@@ -203,5 +203,31 @@
   "passwordConfirm": "$2a$10$e3Y7nQWJTXk7KjvOABS2m.IE39g0XoWz3XIP3nZjDdv4x.w4DMUhu",
   "condiciones": "on",
   "fotoPerfil": "/images/users/1664492702220_user.png"
+ },
+ {
+  "id": 23,
+  "nombre": "Mateo",
+  "apellido": "Ascona",
+  "genero": "masculino",
+  "edad": "27",
+  "actividad": "relax",
+  "email": "asconamateo@gmail.com",
+  "password": "$2a$10$lQwDplqjxrHCJMyLN.cb7uiBBj7JlWFYTptkrQUBk2i7PIf7BjB8.",
+  "passwordConfirm": "$2a$10$VaOgoivNYiQNSKk7SaQxoOD51On2mxAzLxsSax3BRcFtBE4fTKYh6",
+  "condiciones": "on",
+  "fotoPerfil": "/images/users/1665607790597_user.jpg"
+ },
+ {
+  "id": 24,
+  "nombre": "admin",
+  "apellido": "admin",
+  "genero": "otro",
+  "edad": "99",
+  "actividad": "combinado",
+  "email": "admin@centrodeportivo.com.ar",
+  "password": "$2a$10$Hd0gAl/KqoSkmfsuZvs8Z.SN/QixwH0k59J/cmvN5p4wXz8eb/mgK",
+  "passwordConfirm": "$2a$10$Sg5D/Xp37OjNLlkuSItUceB12Ng22ZIPB1zpRnJxAk5vjG2wFoige",
+  "condiciones": "on",
+  "fotoPerfil": "/images/users/1665685260458_user.png"
  }
 ]

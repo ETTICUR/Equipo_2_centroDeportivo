@@ -44,23 +44,32 @@
                             <button><i class="fa-solid fa-basket-shopping"></i>AÑADIR AL CARRITO</button>
                         </div>
                     </div>
+                    <%if(personaLogueada == undefined || personaLogueada.nombre != "admin"){ %>
+                        <div></div>
+                    <%}else if (personaLogueada.nombre = "admin") { %>
                     <div class="divBtnProductos">
                         <div>
                             <form action="">
                                 <button class="btnPlan"><i class="fa-solid fa-plus"></i><a href="/producto/crear"> Crear</a></button>
                             </form>
                         </div>
+                         
+                        
                         <div>
                             <form action="">
                                 <button class="btnPlan"><i class="fa-solid fa-pen-to-square"></i><a href="/producto/<%= actividad.id %>/editar"> Editar</a></button>
                             </form>
                         </div>
+
                         <div>
                             <form action="/producto/detalle/<%= actividad.id %>?_method=DELETE" method="POST">
                                 <button type="submit" class="btnPlan"><i class="fa fa-trash"></i> Eliminar</button>
                             </form>
                         </div>       
                     </div>
+                    
+                
+                        <% } %>
                 </div>
          </div>
     </main>

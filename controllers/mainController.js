@@ -5,7 +5,8 @@ let controller = {
     index: (req, res) => {
         res.render('index', {
             title: "Home",
-            actividades
+            actividades,
+            personaLogueada: req.session.usuarioLogueado
         })
     }
 }
