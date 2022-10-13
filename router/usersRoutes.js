@@ -24,6 +24,7 @@ router.post(
 );
 
 router.get("/userEdit/:id", authLogin, usersController.userEdit);
+
 router.post(
   "/userEdit/:id",
   uploadFile.single("fotoPerfil"),

@@ -3,6 +3,7 @@ function verSession(req,res,next) {
         res.render("profile", {
             title: "Hola " + req.session.usuarioLogueado.nombre,
             user: req.session.usuarioLogueado,
+            personaLogueada: req.session.usuarioLogueado
           });
     }
     next();
