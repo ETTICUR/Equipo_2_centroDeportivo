@@ -328,7 +328,7 @@ let controller = {
               usuariosObjetoJSON
             );
 
-            res.redirect("/login");
+            res.redirect("/logout");
           } else {
             res.render("editPassword", {
               title: "Editar Contraseña",
