@@ -369,7 +369,10 @@ let controller = {
 
   logout: (req, res) => {
     req.session.destroy();
-    res.redirect("/login");
+    res.redirect("/login", {
+      personaLogueada: req.session.usuarioLogueado
+    });
+    
   },
 };
 
