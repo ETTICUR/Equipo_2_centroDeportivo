@@ -223,6 +223,7 @@ let controller = {
     res.render("profile", {
       title: "Hola " + usuarioEditado.nombre,
       user: usuarioEditado,
+      personaLogueada: req.session.usuarioLogueado
     });
   },
 

@@ -218,16 +218,16 @@
   "fotoPerfil": "/images/users/1665685260458_user.png"
  },
  {
-  "id": 22,
+  "id": 24,
   "nombre": "Luciano",
   "apellido": "Festa",
   "genero": "masculino",
-  "edad": "20",
+  "edad": "30",
   "actividad": "aerobico",
   "email": "lucianoefesta@hotmail.com",
-  "password": "$2a$10$UbBH3PCoVX7JXvgHK23b3OAg.zcB8mhJmZEx11f2LmM8CBqiymRue",
-  "passwordConfirm": "$2a$10$GNaK/acqmvl370E1Cw0ooOLqEtX8lxK3QC/Ol1aigEiK9r2weMrUy",
+  "password": "$2a$10$J633DBsOz.nMZmGSsIuZquhae4mtp9C3NyQ2TBxxhhtarAsyql1B2",
+  "passwordConfirm": "$2a$10$bVewRVOoNrnAClwD1vhIuu2BpKR/8rhdlO6yY7sDG2adBbuqbxSDy",
   "condiciones": "on",
-  "fotoPerfil": "/images/users/1664492702220_user.png"
+  "fotoPerfil": "/images/users/1665694591632_user.png"
  }
 ]
