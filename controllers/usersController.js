@@ -263,6 +263,7 @@ let controller = {
         title: "Editar Contraseña",
         errors: validacionesResultado.mapped(),
         user: usuarioEditar,
+        personaLogueada: req.session.usuarioLogueado
       });
     } else {
       const verificacionPasswordActual = bcryptjs.compareSync(
@@ -279,6 +280,7 @@ let controller = {
             },
           },
           user: usuarioEditar,
+          personaLogueada: req.session.usuarioLogueado
         });
       } else {
         const verificacionNewPassword = bcryptjs.compareSync(
@@ -295,6 +297,7 @@ let controller = {
               },
             },
             user: usuarioEditar,
+            personaLogueada: req.session.usuarioLogueado
           });
         } else {
           if (req.body.password == req.body.passwordConfirm) {
@@ -335,6 +338,7 @@ let controller = {
                 },
               },
               user: usuarioEditar,
+              personaLogueada: req.session.usuarioLogueado
             });
           }
         }

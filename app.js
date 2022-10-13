@@ -8,7 +8,6 @@ const expressSession = require("express-session");
 const mainRoutes = require("./router/mainRoutes");
 const productRoutes = require("./router/productRoutes");
 const usersRoutes = require("./router/usersRoutes");
-const personaLogueada = require("./middlewares/users/authLogin");
 
 const app = express();
 

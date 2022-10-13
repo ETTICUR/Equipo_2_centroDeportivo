@@ -205,19 +205,6 @@
   "fotoPerfil": "/images/users/1664492702220_user.png"
  },
  {
-  "id": 23,
-  "nombre": "Mateo",
-  "apellido": "Ascona",
-  "genero": "masculino",
-  "edad": "27",
-  "actividad": "relax",
-  "email": "asconamateo@gmail.com",
-  "password": "$2a$10$lQwDplqjxrHCJMyLN.cb7uiBBj7JlWFYTptkrQUBk2i7PIf7BjB8.",
-  "passwordConfirm": "$2a$10$VaOgoivNYiQNSKk7SaQxoOD51On2mxAzLxsSax3BRcFtBE4fTKYh6",
-  "condiciones": "on",
-  "fotoPerfil": "/images/users/1665607790597_user.jpg"
- },
- {
   "id": 24,
   "nombre": "admin",
   "apellido": "admin",
@@ -229,5 +216,18 @@
   "passwordConfirm": "$2a$10$Sg5D/Xp37OjNLlkuSItUceB12Ng22ZIPB1zpRnJxAk5vjG2wFoige",
   "condiciones": "on",
   "fotoPerfil": "/images/users/1665685260458_user.png"
+ },
+ {
+  "id": 23,
+  "nombre": "Mateo",
+  "apellido": "Ascona",
+  "genero": "masculino",
+  "edad": "27",
+  "actividad": "relax",
+  "email": "asconamateo@gmail.com",
+  "password": "$2a$10$Fo0X5qaI0jy7EMig5o9P..3m3Q6QxwIQS/iGdWipzt7rohsqbPrxK",
+  "passwordConfirm": "$2a$10$8TlHy2r6ovkV71z0lrt7SuGniztiIACgqs9zIiGYPalh8fdE8/bTG",
+  "condiciones": "on",
+  "fotoPerfil": "/images/users/1665607790597_user.jpg"
  }
 ]
