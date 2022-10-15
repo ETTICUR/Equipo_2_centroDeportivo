@@ -5,6 +5,7 @@ const dotenv = require("dotenv").config();
 const methodOverride = require("method-override");
 const expressSession = require("express-session");
 const cookieParser = require("cookie-parser");
+const loginCookie = require("./middlewares/users/loginCookie")
 
 const mainRoutes = require("./router/mainRoutes");
 const productRoutes = require("./router/productRoutes");
@@ -30,6 +31,9 @@ app.use(
   })
 );
 app.use(cookieParser());
+
+app.use(loginCookie)
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
