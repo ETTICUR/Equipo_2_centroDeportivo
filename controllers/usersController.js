@@ -3,18 +3,31 @@ const fs = require("fs");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const { send } = require("process");
-
 let controller = {
 
+  
   login: (req, res) => {
+    
+
+
     res.render("login", {
       title: "Login",
       personaLogueada: req.session.usuarioLogueado,
+      
+      
+      
+      
+      
+
     });
+    
   },
+  
+
 
   processLogin: (req, res) => {
     const validacionesResultado = validationResult(req);
+    
 
     if (validacionesResultado.errors.length > 0) {
       res.render("login", {
@@ -22,8 +35,17 @@ let controller = {
         errors: validacionesResultado.mapped(),
         oldData: req.body,
         personaLogueada: req.session.usuarioLogueado,
-      });
-    } else {
+
+        
+        });
+
+
+    
+        } 
+        
+
+          
+        else {
       let usuariosObjeto = JSON.parse(
         fs.readFileSync(path.join(__dirname, "../data/user.json"))
       );
@@ -41,12 +63,16 @@ let controller = {
           delete usuarioLogueado.password &&
             delete usuarioLogueado.passwordConfirm;
           req.session.usuarioLogueado = usuarioLogueado;
-
+          if (req.body.recuerdame != undefined) {
+            res.cookie('recordame',
+            req.session.usuarioLogueado, {maxAge: 6000 * 30})}
           res.render("profile", {
+
             title: "Hola " + usuarioLogueado.nombre,
             user: usuarioLogueado,
             personaLogueada: req.session.usuarioLogueado,
           });
+          
         } else {
           res.render("login", {
             title: "Login",
@@ -82,6 +108,7 @@ let controller = {
   },
 
   register: (req, res) => {
+    
     res.render("register", {
       title: "Registro",
       personaLogueada: req.session.usuarioLogueado,
