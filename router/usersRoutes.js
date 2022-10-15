@@ -17,32 +17,16 @@ router.post("/login", validacionesUsers.login, usersController.processLogin);
 
 
 router.get("/register", verSession, usersController.register);
-router.post(
-  "/register",
-  [uploadFile.single("fotoPerfil"), validacionesUsers.register],
-  usersController.processRegister
-);
+router.post( "/register", [uploadFile.single("fotoPerfil"), validacionesUsers.register], usersController.processRegister);
 
 router.get("/userEdit/:id", authLogin, usersController.userEdit);
 
-router.post(
-  "/userEdit/:id",
-  uploadFile.single("fotoPerfil"),
-  usersController.processUserEdit
-);
+router.post("/userEdit/:id", uploadFile.single("fotoPerfil"), usersController.processUserEdit);
 
 router.get("/profile", authLogin, usersController.profileView);
 
-router.get(
-  "/profile/editPassword/:id",
-  authLogin,
-  usersController.editPassword
-);
-router.post(
-  "/profile/editPassword/:id",
-  validacionesUsers.editPassword,
-  usersController.processEditPassword
-);
+router.get("/profile/editPassword/:id", authLogin, usersController.editPassword);
+router.post("/profile/editPassword/:id", validacionesUsers.editPassword, usersController.processEditPassword);
 
 router.delete("/profile/delete/:id", authLogin, usersController.userDelete);
 

@@ -5,7 +5,6 @@ const bcryptjs = require("bcryptjs");
 const { send } = require("process");
 
 let controller = {
-
   login: (req, res) => {
     res.render("login", {
       title: "Login",
@@ -96,7 +95,7 @@ let controller = {
         title: "Registro",
         errors: validacionesResultado.mapped(),
         oldData: req.body,
-        personaLogueada: req.session.usuarioLogueado
+        personaLogueada: req.session.usuarioLogueado,
       });
     } else {
       let usuariosObjeto = JSON.parse(
@@ -143,7 +142,7 @@ let controller = {
               },
             },
             oldData: req.body,
-            personaLogueada: req.session.usuarioLogueado
+            personaLogueada: req.session.usuarioLogueado,
           });
         }
       } else {
@@ -155,7 +154,7 @@ let controller = {
             },
           },
           oldData: req.body,
-          personaLogueada: req.session.usuarioLogueado
+          personaLogueada: req.session.usuarioLogueado,
         });
       }
     }
@@ -223,7 +222,7 @@ let controller = {
     res.render("profile", {
       title: "Hola " + usuarioEditado.nombre,
       user: usuarioEditado,
-      personaLogueada: req.session.usuarioLogueado
+      personaLogueada: req.session.usuarioLogueado,
     });
   },
 
@@ -264,7 +263,7 @@ let controller = {
         title: "Editar Contraseña",
         errors: validacionesResultado.mapped(),
         user: usuarioEditar,
-        personaLogueada: req.session.usuarioLogueado
+        personaLogueada: req.session.usuarioLogueado,
       });
     } else {
       const verificacionPasswordActual = bcryptjs.compareSync(
@@ -281,7 +280,7 @@ let controller = {
             },
           },
           user: usuarioEditar,
-          personaLogueada: req.session.usuarioLogueado
+          personaLogueada: req.session.usuarioLogueado,
         });
       } else {
         const verificacionNewPassword = bcryptjs.compareSync(
@@ -298,7 +297,7 @@ let controller = {
               },
             },
             user: usuarioEditar,
-            personaLogueada: req.session.usuarioLogueado
+            personaLogueada: req.session.usuarioLogueado,
           });
         } else {
           if (req.body.password == req.body.passwordConfirm) {
@@ -339,7 +338,7 @@ let controller = {
                 },
               },
               user: usuarioEditar,
-              personaLogueada: req.session.usuarioLogueado
+              personaLogueada: req.session.usuarioLogueado,
             });
           }
         }
@@ -370,7 +369,6 @@ let controller = {
   logout: (req, res) => {
     req.session.destroy();
     res.redirect("/login");
-    
   },
 };
 
