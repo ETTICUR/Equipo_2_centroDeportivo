@@ -37,8 +37,7 @@ let controller = {
         );
 
         if (verificarPassword) {
-          delete usuarioLogueado.password &&
-            delete usuarioLogueado.passwordConfirm;
+          delete usuarioLogueado.password && delete usuarioLogueado.passwordConfirm;
           req.session.usuarioLogueado = usuarioLogueado;
 
           if (req.body.recuerdame != undefined) {
