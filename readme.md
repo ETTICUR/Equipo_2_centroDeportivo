@@ -5,6 +5,13 @@
 Administrador de cupos y disponibilidades para asistencia a clases en un centro deportivo. Gestionado a través de la compra de una suscripción para diferentes planes que incluyen diversas actividades como CrossFit, Funcional, Pesas y demás. Apunta a un público variado ya que el centro cuenta con profesionales especializados que elaboran los planes adecuandose a la edad, dificultades físicas y objetivos personales de quienes contratan nuestros planes.
 Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a quien dicta la clase información de los asistentes a esa jornada.
 
+### Usuario Admin:
+
+Para poder ver todas las funcionalidades de la pagina, ingresar con el siguiente usuario:
+
+Email: admin@centrodeportivo.com.ar
+Password: admin1234
+
 #### Integrantes del equipo:
 
 - ASCONA, Mateo: Tengo 27 años, soy de Sunchales, Santa Fe. Siempre me intereso la informatica en general y hace un par de años me empece a adentrar en la programacion y el desarrollo web. Me gusta investigar y aprender constantemente.
@@ -28,4 +35,6 @@ Permite hasta veinte minutos antes incluirse en la clase de interés y brinda a 
 #### Link Trello:
 
 - https://trello.com/b/hckivyZn/equipo2centrodeportivo
+
+
 
