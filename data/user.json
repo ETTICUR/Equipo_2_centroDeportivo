@@ -229,5 +229,18 @@
   "passwordConfirm": "$2a$10$GDK3jnkAIf08Z4n2tDnWbek.icodSScEHvs4SXCmGmUQYCptAIgn2",
   "condiciones": "on",
   "fotoPerfil": "/images/users/1665695628109_user.png"
+ },
+ {
+  "id": 25,
+  "nombre": "nicolas",
+  "apellido": "asselborn",
+  "genero": "masculino",
+  "edad": "23",
+  "actividad": "fuerza",
+  "email": "fer_assel@hotmail.com",
+  "password": "$2a$10$G7jcdLyUPNfqc.pZ15NNm.olq21wjWf5I4AqoZkU7Cu/twLII9mrS",
+  "passwordConfirm": "$2a$10$/66IxczSHMPQpuGgVM8neemrH5VIBh/NCzJMPxoJjSkPKeRHKezNu",
+  "condiciones": "on",
+  "fotoPerfil": "/images/users/1665817069040_user.jpg"
  }
 ]

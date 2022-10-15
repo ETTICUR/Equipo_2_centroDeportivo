@@ -40,6 +40,11 @@ let controller = {
           delete usuarioLogueado.password && delete usuarioLogueado.passwordConfirm;
           req.session.usuarioLogueado = usuarioLogueado;
 
+          if (req.body.recuerdame != undefined) {
+            res.cookie("recuerdame", req.session.usuarioLogueado, {
+              maxAge: 6000 * 30,
+            });
+          }
           res.render("profile", {
             title: "Hola " + usuarioLogueado.nombre,
             user: usuarioLogueado,
@@ -367,6 +372,7 @@ let controller = {
 
   logout: (req, res) => {
     req.session.destroy();
+    res.clearCookie("recuerdame");
     res.redirect("/login");
   },
 };

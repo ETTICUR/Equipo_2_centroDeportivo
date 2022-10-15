@@ -14,8 +14,6 @@ const authLogin = require("../middlewares/users/authLogin");
 router.get("/login", verSession, usersController.login);
 router.post("/login", validacionesUsers.login, usersController.processLogin);
 
-
-
 router.get("/register", verSession, usersController.register);
 router.post( "/register", [uploadFile.single("fotoPerfil"), validacionesUsers.register], usersController.processRegister);
 
