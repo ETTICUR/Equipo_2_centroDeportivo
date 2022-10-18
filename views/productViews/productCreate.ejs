@@ -118,19 +118,19 @@
           </div>
 
           <div class="inputForm ancho">
-            <label for="nightShift">Horario Noche: </label
+            <label for="nigthShift">Horario Noche: </label
             ><span class="asterisco">*</span>
-            <select name="nightShift" id="nightShift" class="selectRegister">
-              <option disabled <%= !locals.oldData || !oldData.nightShift ? 'selected' : '' ; %>>Elige una opción</option>
-              <option value="de 18:00Hs a 19:00Hs" <%= locals.oldData && oldData.nightShift == 'de 18:00Hs a 19:00Hs' ? 'selected' : '' ; %>>de 18:00Hs a 19:00Hs</option>
-              <option value="de 19:00Hs a 20:00Hs" <%= locals.oldData && oldData.nightShift == 'de 19:00Hs a 20:00Hs' ? 'selected' : '' ; %>>de 19:00Hs a 20:00Hs</option>
-              <option value="de 20:00Hs a 21:00Hs" <%= locals.oldData && oldData.nightShift == 'de 20:00Hs a 21:00Hs' ? 'selected' : '' ; %>>de 20:00Hs a 21:00Hs</option>
-              <option value="de 21:00Hs a 22:00Hs" <%= locals.oldData && oldData.nightShift == 'de 21:00Hs a 22:00Hs' ? 'selected' : '' ; %>>de 21:00Hs a 22:00Hs</option>
-              <option value="Sin turnos por la noche" <%= locals.oldData && oldData.nightShift == 'Sin turnos por la noche' ? 'selected' : '' ; %>>Sin turnos por la noche</option>
+            <select name="nigthShift" id="nigthShift" class="selectRegister">
+              <option disabled <%= !locals.oldData || !oldData.nigthShift ? 'selected' : '' ; %>>Elige una opción</option>
+              <option value="de 18:00Hs a 19:00Hs" <%= locals.oldData && oldData.nigthShift == 'de 18:00Hs a 19:00Hs' ? 'selected' : '' ; %>>de 18:00Hs a 19:00Hs</option>
+              <option value="de 19:00Hs a 20:00Hs" <%= locals.oldData && oldData.nigthShift == 'de 19:00Hs a 20:00Hs' ? 'selected' : '' ; %>>de 19:00Hs a 20:00Hs</option>
+              <option value="de 20:00Hs a 21:00Hs" <%= locals.oldData && oldData.nigthShift == 'de 20:00Hs a 21:00Hs' ? 'selected' : '' ; %>>de 20:00Hs a 21:00Hs</option>
+              <option value="de 21:00Hs a 22:00Hs" <%= locals.oldData && oldData.nigthShift == 'de 21:00Hs a 22:00Hs' ? 'selected' : '' ; %>>de 21:00Hs a 22:00Hs</option>
+              <option value="Sin turnos por la noche" <%= locals.oldData && oldData.nigthShift == 'Sin turnos por la noche' ? 'selected' : '' ; %>>Sin turnos por la noche</option>
             </select>
-            <% if(locals.errors && errors.nightShift) { %>
+            <% if(locals.errors && errors.nigthShift) { %>
               <div>
-                <span class="errorInput"> * <%= errors.nightShift.msg %> </span>
+                <span class="errorInput"> * <%= errors.nigthShift.msg %> </span>
               </div>
             <% } %>
           </div>

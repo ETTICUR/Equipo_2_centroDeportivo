@@ -77,7 +77,7 @@ let controller = {
         category: req.body.category,
         morningShift: req.body.morningShift,
         afternoonShift: req.body.afternoonShift,
-        nightShift: req.body.nightShift,
+        nigthShift: req.body.nigthShift,
         description: req.body.description,
       };
 
@@ -120,7 +120,7 @@ let controller = {
       description: req.body.description,
       morningShift: req.body.morningShift,
       afternoonShift: req.body.afternoonShift,
-      nightShift: req.body.nightShift,
+      nigthShift: req.body.nigthShift,
     };
 
     actividadesRestantes.push(actividadEditada);
