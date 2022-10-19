@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     usuarios.belongsTo(models.productoCategoria, {
-        as: "productoCategoria",
+        as: "productoCategoria_usuario",
         foreignKey: "id_actividad",
         timestamps: false
     })

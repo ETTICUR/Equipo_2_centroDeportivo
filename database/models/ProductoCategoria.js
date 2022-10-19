@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
   productoCategoria.associate = (models) => {
     productoCategoria.hasMany(models.usuarios, {
-      as: "productoCategoria",
+      as: "productoCategoria_usuario",
       foreignKey: "id_actividad",
       timestamps: false,
     });
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     productoCategoria.hasMany(models.productoEliminado, {
-      as: "productoCategoria",
+      as: "productoCategoria_eliminado",
       foreignKey: "id_category",
       timestamps: false,
     });

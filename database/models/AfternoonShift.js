@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     afternoonShift.hasMany(models.productoEliminado, {
-      as: "afternoonShift",
+      as: "afternoonShift_eliminado",
       foreignKey: "id_afternoonShift",
       timestamps: false,
     });

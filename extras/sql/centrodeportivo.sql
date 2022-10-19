@@ -3,14 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2022 a las 17:57:34
+-- Tiempo de generación: 20-10-2022 a las 00:56:00
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 
 DROP DATABASE IF EXISTS centrodeportivo;
@@ -144,26 +143,26 @@ CREATE TABLE `productos` (
   `description` varchar(500) NOT NULL,
   `id_morningShift` int(11) NOT NULL,
   `id_afternoonShift` int(11) NOT NULL,
-  `id_nightShift` int(11) NOT NULL
+  `id_nigthShift` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `name`, `id_category`, `price`, `image`, `description`, `id_morningShift`, `id_afternoonShift`, `id_nightShift`) VALUES
-(17, ' YOGA        ', 3, 6000, '/images/products/1665068941310_actividad.png', 'Es una práctica que conecta el cuerpo, la respiración y la mente. Esta práctica utiliza posturas físicas, ejercicios de respiración y meditación para mejorar la salud general.', 1, 5, 1),
-(18, '     FUNCIONAL     ', 1, 5000, '/images/products/1665069354705_actividad.png', 'El entrenamiento funcional se basa en realizar ejercicios que se adaptan a los movimientos naturales del cuerpo humano para trabajar de forma global músculos y articulaciones combinando el entrenamiento de fuerza con aeróbico en circuito combinados.', 5, 4, 4),
-(20, 'CROSS TRAINNING', 1, 5000, '/images/products/1665760078340_actividad.png', 'Es un tipo de entrenamiento en el que se realizan diversos ejercicios de diferentes disciplinas (halterofilia, atletismo y gimnasia, entre otros) que se ejecutan de forma mecánica y controlada para introducir nuevos movimientos, siempre intentando evitar lesiones.', 1, 2, 5),
-(21, 'MUSCULACIÓN', 2, 3500, '/images/products/1665760137838_actividad.png', 'Es una actividad física basada generalmente en ejercicio físico de media a alta intensidad, con la finalidad encontrar un equilibrio muscular entre los segmentos corporales, generalmente realizando estímulos anaeróbicos.', 2, 4, 4),
-(22, 'PILETA', 1, 4000, '/images/products/1665760183364_actividad.png', 'Los ejercicios se hacen sumergidos, aquí se practican sobre tablas flotantes llamadas AquaBase sobre las que los usuarios se balancean mientras cumplen con su rutina.', 1, 2, 2),
-(23, 'CROSSFIT', 4, 6500, '/images/products/1665760223414_actividad.png', 'CrossFit se define como un sistema de entrenamiento de fuerza y acondicionamiento basado en ejercicios funcionales constantemente variados realizados a una alta intensidad.', 2, 3, 4),
-(24, 'ZUMBA', 1, 5200, '/images/products/1665760266256_actividad.png', 'Es una disciplina deportiva que se imparte en clases dirigidas en la que se realizan ejercicios aeróbicos al ritmo de música latina (merengue, samba, reggaeton, cumbia y salsa) con la finalidad de perder peso de forma divertida.', 2, 3, 5),
-(25, '  REHABILITACIÓN  ', 6, 4500, '/images/products/1665760313712_actividad.png', 'Cuidado que usted recibe para recuperar, mantener o mejorar las capacidades físicas que necesita para la vida diaria pérdidas por enfermedad, accidentes o por efectos secundarios de algún tratamiento médico.', 1, 5, 1),
-(26, 'SPINNING', 1, 4800, '/images/products/1665760388716_actividad.png', 'Es un ejercicio aeróbico y cardiovascular que se realiza sobre una bicicleta estática en el que se trabaja el tren inferior: las piernas y los glúteos. Su finalidad principal es perder peso y la tonificación de los músculos, además de mejorar la fuerza y la resistencia.', 3, 2, 3),
-(27, 'ADULTO MAYOR', 4, 3600, '/images/products/1665760445081_actividad.png', 'Actividad formada por una serie de ejercicios especialmente diseñados para ejercitar todas las partes del cuerpo. Son actividades de resistencia, o aeróbicas, cuyo fin es incrementar capacidad respiratoria, cardíaca y muscular.', 2, 2, 5),
-(28, 'STEP', 1, 4000, '/images/products/1665760493002_actividad.png', 'El trabajo con step es un ejercicio aeróbico que se basa en subir y bajar a dicha plataforma siguiendo el ritmo de la música y realizando, al mismo tiempo, una serie de pasos o coreografías.', 4, 4, 2),
-(29, 'STRONG', 1, 5000, '/images/products/1665760543804_actividad.png', 'Ha sido creado por los mismos creadores del zumba, pero con algunas diferencias. Los ejercicios que se practican en el strong van dirigidos a quemar grasa, construir masa muscular y tonificar todo el cuerpo, especialmente las abdominales, piernas y glúteos.', 2, 2, 3);
+INSERT INTO `productos` (`id`, `name`, `id_category`, `price`, `image`, `description`, `id_morningShift`, `id_afternoonShift`, `id_nigthShift`) VALUES
+(17, ' YOGA        ', 3, 6000, '/images/products/yoga.png', 'Es una práctica que conecta el cuerpo, la respiración y la mente. Esta práctica utiliza posturas físicas, ejercicios de respiración y meditación para mejorar la salud general.', 1, 5, 1),
+(18, '     FUNCIONAL     ', 1, 5000, '/images/products/funcional.png', 'El entrenamiento funcional se basa en realizar ejercicios que se adaptan a los movimientos naturales del cuerpo humano para trabajar de forma global músculos y articulaciones combinando el entrenamiento de fuerza con aeróbico en circuito combinados.', 5, 4, 4),
+(20, 'CROSS TRAINNING', 1, 5000, '/images/products/coreTrainning.png', 'Es un tipo de entrenamiento en el que se realizan diversos ejercicios de diferentes disciplinas (halterofilia, atletismo y gimnasia, entre otros) que se ejecutan de forma mecánica y controlada para introducir nuevos movimientos, siempre intentando evitar lesiones.', 1, 2, 5),
+(21, 'MUSCULACIÓN', 2, 3500, '/images/products/pesas.png', 'Es una actividad física basada generalmente en ejercicio físico de media a alta intensidad, con la finalidad encontrar un equilibrio muscular entre los segmentos corporales, generalmente realizando estímulos anaeróbicos.', 2, 4, 4),
+(22, 'PILETA', 1, 4000, '/images/products/pileta.png', 'Los ejercicios se hacen sumergidos, aquí se practican sobre tablas flotantes llamadas AquaBase sobre las que los usuarios se balancean mientras cumplen con su rutina.', 1, 2, 2),
+(23, 'CROSSFIT', 4, 6500, '/images/products/crossfit.png', 'CrossFit se define como un sistema de entrenamiento de fuerza y acondicionamiento basado en ejercicios funcionales constantemente variados realizados a una alta intensidad.', 2, 3, 4),
+(24, 'ZUMBA', 1, 5200, '/images/products/zumba.png', 'Es una disciplina deportiva que se imparte en clases dirigidas en la que se realizan ejercicios aeróbicos al ritmo de música latina (merengue, samba, reggaeton, cumbia y salsa) con la finalidad de perder peso de forma divertida.', 2, 3, 5),
+(25, '  REHABILITACIÓN  ', 6, 4500, '/images/products/rehabilitacion.png', 'Cuidado que usted recibe para recuperar, mantener o mejorar las capacidades físicas que necesita para la vida diaria pérdidas por enfermedad, accidentes o por efectos secundarios de algún tratamiento médico.', 1, 5, 1),
+(26, 'SPINNING', 1, 4800, '/images/products/spinning.png', 'Es un ejercicio aeróbico y cardiovascular que se realiza sobre una bicicleta estática en el que se trabaja el tren inferior: las piernas y los glúteos. Su finalidad principal es perder peso y la tonificación de los músculos, además de mejorar la fuerza y la resistencia.', 3, 2, 3),
+(27, 'ADULTO MAYOR', 4, 3600, '/images/products/adultoMayor.png', 'Actividad formada por una serie de ejercicios especialmente diseñados para ejercitar todas las partes del cuerpo. Son actividades de resistencia, o aeróbicas, cuyo fin es incrementar capacidad respiratoria, cardíaca y muscular.', 2, 2, 5),
+(28, 'STEP', 1, 4000, '/images/products/step.png', 'El trabajo con step es un ejercicio aeróbico que se basa en subir y bajar a dicha plataforma siguiendo el ritmo de la música y realizando, al mismo tiempo, una serie de pasos o coreografías.', 4, 4, 2),
+(29, 'STRONG', 1, 5000, '/images/products/strong.png', 'Ha sido creado por los mismos creadores del zumba, pero con algunas diferencias. Los ejercicios que se practican en el strong van dirigidos a quemar grasa, construir masa muscular y tonificar todo el cuerpo, especialmente las abdominales, piernas y glúteos.', 2, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -254,7 +253,7 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_morningShift` (`id_morningShift`),
   ADD KEY `id_afternoonShift` (`id_afternoonShift`),
-  ADD KEY `id_nigthShift` (`id_nightShift`),
+  ADD KEY `id_nigthShift` (`id_nigthShift`),
   ADD KEY `id_category` (`id_category`);
 
 --
@@ -326,7 +325,7 @@ ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `categoria_producto` (`id`),
   ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`id_morningShift`) REFERENCES `morningshift_productos` (`id`),
   ADD CONSTRAINT `productos_ibfk_3` FOREIGN KEY (`id_afternoonShift`) REFERENCES `afternoonshift_productos` (`id`),
-  ADD CONSTRAINT `productos_ibfk_4` FOREIGN KEY (`id_nightShift`) REFERENCES `nigthshift_productos` (`id`);
+  ADD CONSTRAINT `productos_ibfk_4` FOREIGN KEY (`id_nigthShift`) REFERENCES `nigthshift_productos` (`id`);
 
 --
 -- Filtros para la tabla `usuarios`

@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     nigthShift.hasMany(models.productoEliminado, {
-      as: "nigthShift",
+      as: "nigthShift_eliminado",
       foreignKey: "id_nigthShift",
       timestamps: false,
     });
