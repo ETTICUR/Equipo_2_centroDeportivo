@@ -45,9 +45,9 @@
                   <label for="genero">Género: </label><span class="asterisco">*</span>
                   <select name="genero" id="genero" class="selectRegister">
                     <option disabled <%= !locals.oldData || !oldData.genero ? 'selected' : '' ; %>>Elige una opción</option>
-                    <option value="masculino" <%= locals.oldData && oldData.genero == 'masculino' ? 'selected' : '' ; %>>Masculino</option>
-                    <option value="femenino" <%= locals.oldData && oldData.genero == 'femenino' ? 'selected' : '' ; %>>Femenino</option>
-                    <option value="otro" <%= locals.oldData && oldData.genero == 'otro' ? 'selected' : '' ; %>>Otro</option>
+                    <% generos.forEach(genero => { %> 
+                      <option value= "<%= genero.id %>" <%= locals.oldData && oldData.genero == 'genero.id' ? 'selected' : '' ; %>><%= genero.name %></option>
+                    <% }) %>
                   </select>
                   <% if(locals.errors && errors.genero) { %>
                     <div>
@@ -69,10 +69,9 @@
                 <label for="actividad">Actividad preferida: </label><span class="asterisco">*</span>
                 <select name="actividad" id="actividad" class="selectRegister">
                   <option disabled <%= !locals.oldData || !oldData.actividad ? 'selected' : '' ; %>>Elige una opción</option>
-                  <option value="aerobico" <%= locals.oldData && oldData.actividad == 'aerobico' ? 'selected' : '' ; %>>Aeróbico</option>
-                  <option value="fuerza" <%= locals.oldData && oldData.actividad == 'fuerza' ? 'selected' : '' ; %>>Fuerza</option>
-                  <option value="relax" <%= locals.oldData && oldData.actividad == 'relax' ? 'selected' : '' ; %>>Relax</option>
-                  <option value="combinado" <%= locals.oldData && oldData.actividad == 'combinado' ? 'selected' : '' ; %>>Combinado</option>
+                  <% actividades.forEach(actividad => { %> 
+                    <option value= "<%= actividad.id %>" <%= locals.oldData && oldData.actividad == 'actividad.id' ? 'selected' : '' ; %>><%= actividad.name %></option>
+                  <% }) %>
                 </select>
                 <% if(locals.errors && errors.actividad) { %>
                   <div>
