@@ -97,15 +97,31 @@ let controller = {
     });
   },
 
-  register: (req, res) => {
-    res.render("register", {
+  register: async (req, res) => {
+
+    try {
+
+      const generos = await db.genero.findAll({raw: true})
+      const actividades = await db.productoCategoria.findAll({raw:true})
+        console.log(generos)
+      res.render("register", {
       title: "Registro",
       personaLogueada: req.session.usuarioLogueado,
-    });
+      generos: await generos, 
+      actividades: await actividades,
+      });
+    }
+
+    catch (error) {
+      console.log(error)
+    }
+    
   },
 
-  processRegister: (req, res) => {
-    const validacionesResultado = validationResult(req);
+  processRegister: async (req, res) => {
+
+    try{
+      const validacionesResultado = validationResult(req);
 
     if (validacionesResultado.errors.length > 0) {
       res.render("register", {
@@ -115,21 +131,23 @@ let controller = {
         personaLogueada: req.session.usuarioLogueado,
       });
     } else {
-      let usuariosObjeto = JSON.parse(
-        fs.readFileSync(path.join(__dirname, "../data/user.json"))
-      );
-      let corroborarUsuario = usuariosObjeto.find(
-        (usuarioActual) => usuarioActual.email == req.body.email
-      );
+      
+      //let corroborarUsuario = usuariosObjeto.find(
+        //(usuarioActual) => usuarioActual.email == req.body.email
+      
+        const corroborarUsuario = await db.usuarios.findOne({
+          where: {
+            email: req.body.email
+          }
+        }) 
 
       if (!corroborarUsuario) {
         let nuevoUsuario = {
-          id: usuariosObjeto.length + 1,
           nombre: req.body.nombre,
           apellido: req.body.apellido,
-          genero: req.body.genero,
+          id_genero: req.body.genero,
           edad: req.body.edad,
-          actividad: req.body.actividad,
+          id_actividad: req.body.actividad,
           email: req.body.email,
           password: bcryptjs.hashSync(req.body.password, 10),
           passwordConfirm: bcryptjs.hashSync(req.body.passwordConfirm, 10),
@@ -138,14 +156,7 @@ let controller = {
         };
 
         if (bcryptjs.compareSync(req.body.password, nuevoUsuario.passwordConfirm)) {
-          usuariosObjeto.push(nuevoUsuario);
-
-          let usuariosObjetoJSON = JSON.stringify(usuariosObjeto, null, " ");
-
-          fs.writeFileSync(
-            path.join(__dirname, "../data/user.json"),
-            usuariosObjetoJSON
-          );
+          await db.usuarios.create(nuevoUsuario)
 
           res.redirect("login");
           
@@ -174,7 +185,14 @@ let controller = {
         });
       }
     }
+    }
+
+    catch (error) {
+      console.log(error)
+    }
+    
   },
+
 
   userEdit: (req, res) => {
     const idUser = Number(req.params.id);
