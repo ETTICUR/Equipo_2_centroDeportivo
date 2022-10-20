@@ -8,7 +8,7 @@ let controller = {
 
             res.render('index', {
                 title: "Home",
-                actividades,
+                actividades: await actividades,
                 personaLogueada: req.session.usuarioLogueado,   
             })
         }

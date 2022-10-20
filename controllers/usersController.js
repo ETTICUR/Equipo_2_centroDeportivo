@@ -3,6 +3,7 @@ const fs = require("fs");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const { send } = require("process");
+const db = require("../database/models");
 
 let controller = {
   login: (req, res) => {
@@ -12,67 +13,79 @@ let controller = {
     });
   },
 
-  processLogin: (req, res) => {
-    const validacionesResultado = validationResult(req);
+  processLogin: async (req, res) => {
 
-    if (validacionesResultado.errors.length > 0) {
-      res.render("login", {
-        title: "Login",
-        errors: validacionesResultado.mapped(),
-        oldData: req.body,
-        personaLogueada: req.session.usuarioLogueado,
-      });
-    } else {
-      let usuariosObjeto = JSON.parse(
-        fs.readFileSync(path.join(__dirname, "../data/user.json"))
-      );
-      let usuarioLogueado = usuariosObjeto.find(
-        (usuarioActual) => usuarioActual.email == req.body.email
-      );
+    try {
 
-      if (usuarioLogueado) {
-        let verificarPassword = bcryptjs.compareSync(
-          req.body.password,
-          usuarioLogueado.password
-        );
+      const validacionesResultado = validationResult(req);
 
-        if (verificarPassword) {
-          delete usuarioLogueado.password && delete usuarioLogueado.passwordConfirm;
-          req.session.usuarioLogueado = usuarioLogueado;
+      if (validacionesResultado.errors.length > 0) {
+        res.render("login", {
+          title: "Login",
+          errors: validacionesResultado.mapped(),
+          oldData: req.body,
+          personaLogueada: req.session.usuarioLogueado,
+        });
 
-          if (req.body.recuerdame != undefined) {
-            res.cookie("recuerdame", req.session.usuarioLogueado, {
-              maxAge: 6000 * 30,
+      } else {
+
+        const usuarioLogueado = await db.usuarios.findOne({
+          where: {email: req.body.email},
+          include: [{association: 'genero'}, {association: 'productoCategoria_usuario'}],
+          raw: true
+        })
+
+        if (await usuarioLogueado) {
+          let verificarPassword = bcryptjs.compareSync(req.body.password,usuarioLogueado.password);
+
+          if (verificarPassword) {
+            delete usuarioLogueado.password && delete usuarioLogueado.passwordConfirm;
+            req.session.usuarioLogueado = usuarioLogueado;
+
+            usuarioLogueado.actividad = usuarioLogueado['productoCategoria_usuario.name']
+            usuarioLogueado.genero = usuarioLogueado['genero.name']
+
+            if (req.body.recuerdame != undefined) {
+              res.cookie("recuerdame", req.session.usuarioLogueado, {
+                maxAge: 6000 * 30,
+              });
+            }
+
+            res.render("profile", {
+              title: "Hola " + usuarioLogueado.nombre,
+              user: await usuarioLogueado,
+              personaLogueada: req.session.usuarioLogueado,
+            });
+
+          } else {
+
+            res.render("login", {
+              title: "Login",
+              errors: {
+                password: {
+                  msg: "La contraseña es incorrecta",
+                },
+              },
+              oldData: req.body,
+              personaLogueada: req.session.usuarioLogueado,
             });
           }
-          res.render("profile", {
-            title: "Hola " + usuarioLogueado.nombre,
-            user: usuarioLogueado,
-            personaLogueada: req.session.usuarioLogueado,
-          });
+
         } else {
           res.render("login", {
             title: "Login",
             errors: {
-              password: {
-                msg: "La contraseña es incorrecta",
+              email: {
+                msg: "El email ingresado no esta registrado",
               },
             },
-            oldData: req.body,
             personaLogueada: req.session.usuarioLogueado,
           });
         }
-      } else {
-        res.render("login", {
-          title: "Login",
-          errors: {
-            email: {
-              msg: "El email ingresado no esta registrado",
-            },
-          },
-          personaLogueada: req.session.usuarioLogueado,
-        });
       }
+
+    } catch (error) {
+      console.log(error);
     }
   },
 
@@ -124,9 +137,7 @@ let controller = {
           fotoPerfil: "/images/users/" + req.file.filename,
         };
 
-        if (
-          bcryptjs.compareSync(req.body.password, nuevoUsuario.passwordConfirm)
-        ) {
+        if (bcryptjs.compareSync(req.body.password, nuevoUsuario.passwordConfirm)) {
           usuariosObjeto.push(nuevoUsuario);
 
           let usuariosObjetoJSON = JSON.stringify(usuariosObjeto, null, " ");
@@ -137,6 +148,7 @@ let controller = {
           );
 
           res.redirect("login");
+          
         } else {
           res.render("register", {
             title: "Registro",
