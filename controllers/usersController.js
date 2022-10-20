@@ -14,9 +14,7 @@ let controller = {
   },
 
   processLogin: async (req, res) => {
-
     try {
-
       const validacionesResultado = validationResult(req);
 
       if (validacionesResultado.errors.length > 0) {
@@ -26,24 +24,30 @@ let controller = {
           oldData: req.body,
           personaLogueada: req.session.usuarioLogueado,
         });
-
       } else {
-
         const usuarioLogueado = await db.usuarios.findOne({
-          where: {email: req.body.email},
-          include: [{association: 'genero'}, {association: 'productoCategoria_usuario'}],
-          raw: true
-        })
+          where: { email: req.body.email },
+          include: [
+            { association: "genero" },
+            { association: "productoCategoria_usuario" },
+          ],
+          raw: true,
+        });
 
         if (await usuarioLogueado) {
-          let verificarPassword = bcryptjs.compareSync(req.body.password,usuarioLogueado.password);
+          let verificarPassword = bcryptjs.compareSync(
+            req.body.password,
+            usuarioLogueado.password
+          );
 
           if (verificarPassword) {
-            delete usuarioLogueado.password && delete usuarioLogueado.passwordConfirm;
+            delete usuarioLogueado.password &&
+              delete usuarioLogueado.passwordConfirm;
             req.session.usuarioLogueado = usuarioLogueado;
 
-            usuarioLogueado.actividad = usuarioLogueado['productoCategoria_usuario.name']
-            usuarioLogueado.genero = usuarioLogueado['genero.name']
+            usuarioLogueado.actividad =
+              usuarioLogueado["productoCategoria_usuario.name"];
+            usuarioLogueado.genero = usuarioLogueado["genero.name"];
 
             if (req.body.recuerdame != undefined) {
               res.cookie("recuerdame", req.session.usuarioLogueado, {
@@ -56,9 +60,7 @@ let controller = {
               user: await usuarioLogueado,
               personaLogueada: req.session.usuarioLogueado,
             });
-
           } else {
-
             res.render("login", {
               title: "Login",
               errors: {
@@ -70,7 +72,6 @@ let controller = {
               personaLogueada: req.session.usuarioLogueado,
             });
           }
-
         } else {
           res.render("login", {
             title: "Login",
@@ -83,7 +84,6 @@ let controller = {
           });
         }
       }
-
     } catch (error) {
       console.log(error);
     }
@@ -98,101 +98,101 @@ let controller = {
   },
 
   register: async (req, res) => {
-
     try {
+      const generos = await db.genero.findAll({ raw: true });
+      const actividades = await db.productoCategoria.findAll({ raw: true });
 
-      const generos = await db.genero.findAll({raw: true})
-      const actividades = await db.productoCategoria.findAll({raw:true})
-        console.log(generos)
       res.render("register", {
-      title: "Registro",
-      personaLogueada: req.session.usuarioLogueado,
-      generos: await generos, 
-      actividades: await actividades,
+        title: "Registro",
+        personaLogueada: req.session.usuarioLogueado,
+        generos: await generos,
+        actividades: await actividades,
       });
+    } catch (error) {
+      console.log(error);
     }
-
-    catch (error) {
-      console.log(error)
-    }
-    
   },
 
   processRegister: async (req, res) => {
-
-    try{
+    try {
       const validacionesResultado = validationResult(req);
 
-    if (validacionesResultado.errors.length > 0) {
-      res.render("register", {
-        title: "Registro",
-        errors: validacionesResultado.mapped(),
-        oldData: req.body,
-        personaLogueada: req.session.usuarioLogueado,
-      });
-    } else {
-      
-      //let corroborarUsuario = usuariosObjeto.find(
-        //(usuarioActual) => usuarioActual.email == req.body.email
-      
+      const generos = await db.genero.findAll({ raw: true });
+      const actividades = await db.productoCategoria.findAll({ raw: true });
+
+      if (validacionesResultado.errors.length > 0) {
+        res.render("register", {
+          title: "Registro",
+          errors: validacionesResultado.mapped(),
+          oldData: req.body,
+          personaLogueada: req.session.usuarioLogueado,
+          generos: await generos,
+          actividades: await actividades
+        });
+      } else {
         const corroborarUsuario = await db.usuarios.findOne({
           where: {
-            email: req.body.email
+            email: req.body.email,
+          },
+        });
+
+        if (!corroborarUsuario) {
+          let nuevoUsuario = {
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            id_genero: req.body.genero,
+            edad: req.body.edad,
+            id_actividad: req.body.actividad,
+            email: req.body.email,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            passwordConfirm: bcryptjs.hashSync(req.body.passwordConfirm, 10),
+            condiciones: req.body.condiciones,
+            fotoPerfil: "/images/users/" + req.file.filename,
+          };
+
+          if (
+            bcryptjs.compareSync(
+              req.body.password,
+              nuevoUsuario.passwordConfirm
+            )
+          ) {
+            await db.usuarios.create(nuevoUsuario);
+
+            res.redirect("login");
+          } else {
+            res.render("register", {
+              title: "Registro",
+              errors: {
+                passwordConfirm: {
+                  msg: "La contraseña ingresada no coincide",
+                },
+              },
+              oldData: req.body,
+              personaLogueada: req.session.usuarioLogueado,
+              generos: await generos,
+              actividades: await actividades
+              
+            });
           }
-        }) 
-
-      if (!corroborarUsuario) {
-        let nuevoUsuario = {
-          nombre: req.body.nombre,
-          apellido: req.body.apellido,
-          id_genero: req.body.genero,
-          edad: req.body.edad,
-          id_actividad: req.body.actividad,
-          email: req.body.email,
-          password: bcryptjs.hashSync(req.body.password, 10),
-          passwordConfirm: bcryptjs.hashSync(req.body.passwordConfirm, 10),
-          condiciones: req.body.condiciones,
-          fotoPerfil: "/images/users/" + req.file.filename,
-        };
-
-        if (bcryptjs.compareSync(req.body.password, nuevoUsuario.passwordConfirm)) {
-          await db.usuarios.create(nuevoUsuario)
-
-          res.redirect("login");
-          
         } else {
           res.render("register", {
             title: "Registro",
             errors: {
-              passwordConfirm: {
-                msg: "La contraseña ingresada no coincide",
+              email: {
+                msg: "Este mail ya se encuentra registrado",
               },
             },
             oldData: req.body,
             personaLogueada: req.session.usuarioLogueado,
+            generos: await generos,
+            actividades: await actividades
           });
         }
-      } else {
-        res.render("register", {
-          title: "Registro",
-          errors: {
-            email: {
-              msg: "Este mail ya se encuentra registrado",
-            },
-          },
-          oldData: req.body,
-          personaLogueada: req.session.usuarioLogueado,
-        });
       }
+    } catch (error) {
+      console.log(error);
     }
-    }
-
-    catch (error) {
-      console.log(error)
-    }
-    
   },
-
 
   userEdit: (req, res) => {
     const idUser = Number(req.params.id);
