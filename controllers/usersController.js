@@ -194,34 +194,28 @@ let controller = {
     }
   },
 
-  userEdit: (req, res) => {
-    const idUser = Number(req.params.id);
-    const usuariosObjeto = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/user.json"))
-    );
-
-    let usuarioEditar = usuariosObjeto.find(
-      (usuarioActual) => usuarioActual.id == idUser
-    );
+  userEdit: async (req, res) => {
+    const idUser = req.params.id;
+    
+    const usuarioEditar = await db.usuarios.findByPk(idUser,{raw: true})
+    const generos = await db.genero.findAll({ raw: true });
+    const actividades = await db.productoCategoria.findAll({ raw: true });
 
     res.render("userEdit", {
       title: "Editar Perfil",
       user: usuarioEditar,
       personaLogueada: req.session.usuarioLogueado,
+      generos: await generos,
+      actividades: await actividades,
     });
   },
 
-  processUserEdit: (req, res) => {
-    const idUser = Number(req.params.id);
-    const usuariosObjeto = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/user.json"))
-    );
-    let usuariosRestantes = usuariosObjeto.filter(
-      (usuarioActual) => usuarioActual.id != idUser
-    );
-    let usuarioEditar = usuariosObjeto.find(
-      (usuarioActual) => usuarioActual.id == idUser
-    );
+  processUserEdit: async (req, res) => {
+    const idUser = req.params.id;
+
+    let usuarioEditar = await db.usuarios.findByPk(idUser,{raw: true})
+    const generos = await db.genero.findAll({ raw: true });
+    const actividades = await db.productoCategoria.findAll({ raw: true });
 
     let imagenPerfil;
     if (req.file == undefined) {
@@ -230,33 +224,38 @@ let controller = {
       imagenPerfil = "/images/users/" + req.file.filename;
     }
 
-    let usuarioEditado = {
-      id: usuarioEditar.id,
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
-      genero: req.body.genero,
-      edad: req.body.edad,
-      actividad: req.body.actividad,
-      email: req.body.email,
-      password: usuarioEditar.password,
-      passwordConfirm: usuarioEditar.passwordConfirm,
-      condiciones: usuarioEditar.condiciones,
-      fotoPerfil: imagenPerfil,
-    };
+   await db.usuarios.update({
+    nombre: req.body.nombre,
+    apellido: req.body.apellido,
+    id_genero: req.body.genero,
+    edad: req.body.edad,
+    id_actividad: req.body.actividad,
+    email: req.body.email,
+    password: usuarioEditar.password,
+    passwordConfirm: usuarioEditar.passwordConfirm,
+    condiciones: usuarioEditar.condiciones,
+    fotoPerfil: imagenPerfil,
+  }, {
+    where: {id: idUser}
+  })
+  
+  const nuevoUsuario = await db.usuarios.findByPk(idUser, {
+    include: [
+      { association: "genero" },
+      { association: "productoCategoria_usuario" },
+    ],
+  })
 
-    usuariosRestantes.push(usuarioEditado);
-
-    let usuariosObjetoJSON = JSON.stringify(usuariosRestantes, null, " ");
-
-    fs.writeFileSync(
-      path.join(__dirname, "../data/user.json"),
-      usuariosObjetoJSON
-    );
+  nuevoUsuario.actividad = nuevoUsuario[ "productoCategoria_usuario.name"]
+  nuevoUsuario.genero = nuevoUsuario[ "genero.name"]
+  req.session.usuarioLogueado = nuevoUsuario;
 
     res.render("profile", {
-      title: "Hola " + usuarioEditado.nombre,
-      user: usuarioEditado,
+      title: "Hola " + nuevoUsuario.nombre,
+      user: nuevoUsuario,
       personaLogueada: req.session.usuarioLogueado,
+      //generos: await generos,
+      //actividades: await actividades, 
     });
   },
 

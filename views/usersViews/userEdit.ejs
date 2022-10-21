@@ -34,9 +34,9 @@
                 <div class="inputForm">
                   <label for="genero">Género: </label><span class="asterisco">*</span>
                   <select name="genero" id="genero" class="selectRegister">
-                    <option value="masculino" <%= user.genero == 'masculino' ? 'selected' : '' ; %>>Masculino</option>
-                    <option value="femenino" <%= user.genero == 'femenino' ? 'selected' : '' ; %>>Femenino</option>
-                    <option value="otro" <%= user.genero == 'otro' ? 'selected' : '' ; %>>Otro</option>
+                    <% generos.forEach(genero => { %> 
+                      <option value= "<%= genero.id %>" <%= locals.oldData && oldData.genero == 'genero.id' ? 'selected' : '' ; %>><%= genero.name %></option>
+                    <% }) %>
                   </select>
                 </div>
               </div>
@@ -47,10 +47,9 @@
               <div class="inputForm">
                 <label for="actividad">Actividad preferida: </label><span class="asterisco">*</span>
                 <select name="actividad" id="actividad" class="selectRegister">
-                  <option value="aerobico" <%= user.actividad == 'aerobico' ? 'selected' : '' ; %>>Aeróbico</option>
-                  <option value="fuerza" <%= user.actividad == 'fuerza' ? 'selected' : '' ; %>>Fuerza</option>
-                  <option value="relax" <%= user.actividad == 'relax' ? 'selected' : '' ; %>>Relax</option>
-                  <option value="combinado" <%= user.actividad == 'combinado' ? 'selected' : '' ; %>>Combinado</option>
+                  <% actividades.forEach(actividad => { %> 
+                    <option value= "<%= actividad.id %>" <%= locals.oldData && oldData.actividad == 'actividad.id' ? 'selected' : '' ; %>><%= actividad.name %></option>
+                  <% }) %>
                 </select>
               </div>
             </div>
