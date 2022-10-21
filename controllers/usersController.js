@@ -127,7 +127,7 @@ let controller = {
           oldData: req.body,
           personaLogueada: req.session.usuarioLogueado,
           generos: await generos,
-          actividades: await actividades
+          actividades: await actividades,
         });
       } else {
         const corroborarUsuario = await db.usuarios.findOne({
@@ -170,8 +170,7 @@ let controller = {
               oldData: req.body,
               personaLogueada: req.session.usuarioLogueado,
               generos: await generos,
-              actividades: await actividades
-              
+              actividades: await actividades,
             });
           }
         } else {
@@ -185,7 +184,7 @@ let controller = {
             oldData: req.body,
             personaLogueada: req.session.usuarioLogueado,
             generos: await generos,
-            actividades: await actividades
+            actividades: await actividades,
           });
         }
       }
@@ -195,183 +194,213 @@ let controller = {
   },
 
   userEdit: async (req, res) => {
-    const idUser = req.params.id;
-    
-    const usuarioEditar = await db.usuarios.findByPk(idUser,{raw: true})
-    const generos = await db.genero.findAll({ raw: true });
-    const actividades = await db.productoCategoria.findAll({ raw: true });
+    try {
+      const idUser = req.params.id;
 
-    res.render("userEdit", {
-      title: "Editar Perfil",
-      user: await usuarioEditar,
-      personaLogueada: req.session.usuarioLogueado,
-      generos: await generos,
-      actividades: await actividades,
-    });
+      const usuarioEditar = await db.usuarios.findByPk(idUser, { raw: true });
+      const generos = await db.genero.findAll({ raw: true });
+      const actividades = await db.productoCategoria.findAll({ raw: true });
+
+      res.render("userEdit", {
+        title: "Editar Perfil",
+        user: await usuarioEditar,
+        personaLogueada: req.session.usuarioLogueado,
+        generos: await generos,
+        actividades: await actividades,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   processUserEdit: async (req, res) => {
-    const idUser = req.params.id;
+    try {
+      const idUser = req.params.id;
 
-    let usuarioEditar = await db.usuarios.findByPk(idUser,{raw: true})
+      let usuarioEditar = await db.usuarios.findByPk(idUser, { raw: true });
 
-    let imagenPerfil;
-    if (req.file == undefined) {
-      imagenPerfil = usuarioEditar.fotoPerfil;
-    } else {
-      imagenPerfil = "/images/users/" + req.file.filename;
+      let imagenPerfil;
+      if (req.file == undefined) {
+        imagenPerfil = usuarioEditar.fotoPerfil;
+      } else {
+        imagenPerfil = "/images/users/" + req.file.filename;
+      }
+
+      await db.usuarios.update(
+        {
+          nombre: req.body.nombre,
+          apellido: req.body.apellido,
+          id_genero: req.body.genero,
+          edad: req.body.edad,
+          id_actividad: req.body.actividad,
+          email: req.body.email,
+          password: usuarioEditar.password,
+          passwordConfirm: usuarioEditar.passwordConfirm,
+          condiciones: usuarioEditar.condiciones,
+          fotoPerfil: imagenPerfil,
+        },
+        {
+          where: { id: idUser },
+        }
+      );
+
+      const nuevoUsuario = await db.usuarios.findByPk(idUser, {
+        raw: true,
+        include: [
+          { association: "genero" },
+          { association: "productoCategoria_usuario" },
+        ],
+      });
+
+      nuevoUsuario.actividad = nuevoUsuario["productoCategoria_usuario.name"];
+      nuevoUsuario.genero = nuevoUsuario["genero.name"];
+
+      req.session.usuarioLogueado = nuevoUsuario;
+
+      res.render("profile", {
+        title: "Hola " + nuevoUsuario.nombre,
+        user: await nuevoUsuario,
+        personaLogueada: req.session.usuarioLogueado,
+      });
+    } catch (error) {
+      console.log(error);
     }
-
-   await db.usuarios.update({
-    nombre: req.body.nombre,
-    apellido: req.body.apellido,
-    id_genero: req.body.genero,
-    edad: req.body.edad,
-    id_actividad: req.body.actividad,
-    email: req.body.email,
-    password: usuarioEditar.password,
-    passwordConfirm: usuarioEditar.passwordConfirm,
-    condiciones: usuarioEditar.condiciones,
-    fotoPerfil: imagenPerfil,
-  }, {
-    where: {id: idUser}
-  })
-  
-  const nuevoUsuario = await db.usuarios.findByPk(idUser, {
-    raw: true,
-    include: [
-      { association: "genero" },
-      { association: "productoCategoria_usuario" },
-    ],
-  })
-
-  nuevoUsuario.actividad = nuevoUsuario[ "productoCategoria_usuario.name"]
-  nuevoUsuario.genero = nuevoUsuario[ "genero.name"]
-
-  req.session.usuarioLogueado = nuevoUsuario;
-
-    res.render("profile", {
-      title: "Hola " + nuevoUsuario.nombre,
-      user: await nuevoUsuario,
-      personaLogueada: req.session.usuarioLogueado,
-    });
   },
 
   editPassword: async (req, res) => {
-    const userId = req.params.id;
+    try {
+      const userId = req.params.id;
 
-    let usuarioEditar = await db.usuarios.findByPk(userId,{raw: true})
+      let usuarioEditar = await db.usuarios.findByPk(userId, { raw: true });
 
-    res.render("editPassword", {
-      title: "Editar Contraseña",
-      user: usuarioEditar,
-      personaLogueada: req.session.usuarioLogueado,
-    });
-  },
-
-  processEditPassword: async (req, res) => {
-    const userId = req.params.id;
-
-    const usuarioEditar = await db.usuarios.findByPk(userId,{raw: true});
-
-    const validacionesResultado = validationResult(req);
-
-    if (validacionesResultado.errors.length > 0) {
       res.render("editPassword", {
         title: "Editar Contraseña",
-        errors: validacionesResultado.mapped(),
         user: await usuarioEditar,
         personaLogueada: req.session.usuarioLogueado,
       });
-    } else {
-      const verificacionPasswordActual = bcryptjs.compareSync(
-        req.body.passwordOld,
-        usuarioEditar.password
-      );
+    } catch (error) {
+      console.log(error);
+    }
+  },
 
-      if (!verificacionPasswordActual) {
+  processEditPassword: async (req, res) => {
+    try {
+      const userId = req.params.id;
+
+      const usuarioEditar = await db.usuarios.findByPk(userId, { raw: true });
+
+      const validacionesResultado = validationResult(req);
+
+      if (validacionesResultado.errors.length > 0) {
         res.render("editPassword", {
           title: "Editar Contraseña",
-          errors: {
-            passwordOld: {
-              msg: "Tu contraseña actual es incorrecta",
-            },
-          },
+          errors: validacionesResultado.mapped(),
           user: await usuarioEditar,
           personaLogueada: req.session.usuarioLogueado,
         });
       } else {
-        const verificacionNewPassword = bcryptjs.compareSync(
-          req.body.password,
+        const verificacionPasswordActual = bcryptjs.compareSync(
+          req.body.passwordOld,
           usuarioEditar.password
         );
 
-        if (verificacionNewPassword) {
+        if (!verificacionPasswordActual) {
           res.render("editPassword", {
             title: "Editar Contraseña",
             errors: {
-              password: {
-                msg: "Tu nueva contraseña no debe coincidir con la anterior",
+              passwordOld: {
+                msg: "Tu contraseña actual es incorrecta",
               },
             },
             user: await usuarioEditar,
             personaLogueada: req.session.usuarioLogueado,
           });
         } else {
-          if (req.body.password == req.body.passwordConfirm) {
-            const usuarioEditado = {
-              nombre: usuarioEditar.nombre,
-              apellido: usuarioEditar.apellido,
-              genero: usuarioEditar.genero,
-              edad: usuarioEditar.edad,
-              actividad: usuarioEditar.actividad,
-              email: usuarioEditar.email,
-              password: bcryptjs.hashSync(req.body.password, 10),
-              passwordConfirm: bcryptjs.hashSync(req.body.passwordConfirm, 10),
-              condiciones: usuarioEditar.condiciones,
-              fotoPerfil: usuarioEditar.fotoPerfil,
-            };
+          const verificacionNewPassword = bcryptjs.compareSync(
+            req.body.password,
+            usuarioEditar.password
+          );
 
-            await db.usuarios.update(usuarioEditado, {
-              where: {id: userId}
-            });
-
-            res.redirect("/logout");
-          } else {
+          if (verificacionNewPassword) {
             res.render("editPassword", {
               title: "Editar Contraseña",
               errors: {
-                passwordConfirm: {
-                  msg: "La contraseña no coincide.",
+                password: {
+                  msg: "Tu nueva contraseña no debe coincidir con la anterior",
                 },
               },
               user: await usuarioEditar,
               personaLogueada: req.session.usuarioLogueado,
             });
+          } else {
+            if (req.body.password == req.body.passwordConfirm) {
+              const usuarioEditado = {
+                nombre: usuarioEditar.nombre,
+                apellido: usuarioEditar.apellido,
+                genero: usuarioEditar.genero,
+                edad: usuarioEditar.edad,
+                actividad: usuarioEditar.actividad,
+                email: usuarioEditar.email,
+                password: bcryptjs.hashSync(req.body.password, 10),
+                passwordConfirm: bcryptjs.hashSync(
+                  req.body.passwordConfirm,
+                  10
+                ),
+                condiciones: usuarioEditar.condiciones,
+                fotoPerfil: usuarioEditar.fotoPerfil,
+              };
+
+              await db.usuarios.update(usuarioEditado, {
+                where: { id: userId },
+              });
+
+              res.redirect("/logout");
+            } else {
+              res.render("editPassword", {
+                title: "Editar Contraseña",
+                errors: {
+                  passwordConfirm: {
+                    msg: "La contraseña no coincide.",
+                  },
+                },
+                user: await usuarioEditar,
+                personaLogueada: req.session.usuarioLogueado,
+              });
+            }
           }
         }
       }
+    } catch (error) {
+      console.log(error);
     }
   },
 
   userDelete: async (req, res) => {
-    const userId = req.params.id;
 
-    await db.usuarios.destroy({
-      where: {id: userId}
-    })
+    try {
+      const userId = req.params.id;
 
-    await req.session.destroy();
-    await res.clearCookie("recuerdame");
+      await db.usuarios.destroy({
+        where: { id: userId },
+      });
+  
+      await req.session.destroy();
+      await res.clearCookie("recuerdame");
+  
+      res.redirect("/");
+    }
 
-    res.redirect("/");
+    catch(error){
+      console.log(error)
+    }
+
   },
 
   logout: (req, res) => {
     req.session.destroy();
     res.clearCookie("recuerdame");
     res.redirect("/login");
-  },
+  }
 };
 
 module.exports = controller;
