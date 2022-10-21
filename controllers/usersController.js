@@ -376,31 +376,27 @@ let controller = {
   },
 
   userDelete: async (req, res) => {
-
     try {
       const userId = req.params.id;
 
       await db.usuarios.destroy({
         where: { id: userId },
       });
-  
+
       await req.session.destroy();
       await res.clearCookie("recuerdame");
-  
+
       res.redirect("/");
+    } catch (error) {
+      console.log(error);
     }
-
-    catch(error){
-      console.log(error)
-    }
-
   },
 
   logout: (req, res) => {
     req.session.destroy();
     res.clearCookie("recuerdame");
     res.redirect("/login");
-  }
+  },
 };
 
 module.exports = controller;
