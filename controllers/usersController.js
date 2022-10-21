@@ -203,7 +203,7 @@ let controller = {
 
     res.render("userEdit", {
       title: "Editar Perfil",
-      user: usuarioEditar,
+      user: await usuarioEditar,
       personaLogueada: req.session.usuarioLogueado,
       generos: await generos,
       actividades: await actividades,
@@ -214,8 +214,6 @@ let controller = {
     const idUser = req.params.id;
 
     let usuarioEditar = await db.usuarios.findByPk(idUser,{raw: true})
-    const generos = await db.genero.findAll({ raw: true });
-    const actividades = await db.productoCategoria.findAll({ raw: true });
 
     let imagenPerfil;
     if (req.file == undefined) {
@@ -240,6 +238,7 @@ let controller = {
   })
   
   const nuevoUsuario = await db.usuarios.findByPk(idUser, {
+    raw: true,
     include: [
       { association: "genero" },
       { association: "productoCategoria_usuario" },
@@ -248,26 +247,20 @@ let controller = {
 
   nuevoUsuario.actividad = nuevoUsuario[ "productoCategoria_usuario.name"]
   nuevoUsuario.genero = nuevoUsuario[ "genero.name"]
+
   req.session.usuarioLogueado = nuevoUsuario;
 
     res.render("profile", {
       title: "Hola " + nuevoUsuario.nombre,
-      user: nuevoUsuario,
+      user: await nuevoUsuario,
       personaLogueada: req.session.usuarioLogueado,
-      //generos: await generos,
-      //actividades: await actividades, 
     });
   },
 
-  editPassword: (req, res) => {
-    const userId = Number(req.params.id);
+  editPassword: async (req, res) => {
+    const userId = req.params.id;
 
-    const usuariosObjeto = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/user.json"))
-    );
-    const usuarioEditar = usuariosObjeto.find(
-      (usuarioActual) => usuarioActual.id == userId
-    );
+    let usuarioEditar = await db.usuarios.findByPk(userId,{raw: true})
 
     res.render("editPassword", {
       title: "Editar Contraseña",
@@ -276,18 +269,10 @@ let controller = {
     });
   },
 
-  processEditPassword: (req, res) => {
-    const userId = Number(req.params.id);
+  processEditPassword: async (req, res) => {
+    const userId = req.params.id;
 
-    const usuariosObjeto = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/user.json"))
-    );
-    const usuariosRestantes = usuariosObjeto.filter(
-      (usuarioActual) => usuarioActual.id != userId
-    );
-    const usuarioEditar = usuariosObjeto.find(
-      (usuarioActual) => usuarioActual.id == userId
-    );
+    const usuarioEditar = await db.usuarios.findByPk(userId,{raw: true});
 
     const validacionesResultado = validationResult(req);
 
@@ -295,7 +280,7 @@ let controller = {
       res.render("editPassword", {
         title: "Editar Contraseña",
         errors: validacionesResultado.mapped(),
-        user: usuarioEditar,
+        user: await usuarioEditar,
         personaLogueada: req.session.usuarioLogueado,
       });
     } else {
@@ -312,7 +297,7 @@ let controller = {
               msg: "Tu contraseña actual es incorrecta",
             },
           },
-          user: usuarioEditar,
+          user: await usuarioEditar,
           personaLogueada: req.session.usuarioLogueado,
         });
       } else {
@@ -329,13 +314,12 @@ let controller = {
                 msg: "Tu nueva contraseña no debe coincidir con la anterior",
               },
             },
-            user: usuarioEditar,
+            user: await usuarioEditar,
             personaLogueada: req.session.usuarioLogueado,
           });
         } else {
           if (req.body.password == req.body.passwordConfirm) {
             const usuarioEditado = {
-              id: usuarioEditar.id,
               nombre: usuarioEditar.nombre,
               apellido: usuarioEditar.apellido,
               genero: usuarioEditar.genero,
@@ -348,18 +332,9 @@ let controller = {
               fotoPerfil: usuarioEditar.fotoPerfil,
             };
 
-            usuariosRestantes.push(usuarioEditado);
-
-            let usuariosObjetoJSON = JSON.stringify(
-              usuariosRestantes,
-              null,
-              " "
-            );
-
-            fs.writeFileSync(
-              path.join(__dirname, "../data/user.json"),
-              usuariosObjetoJSON
-            );
+            await db.usuarios.update(usuarioEditado, {
+              where: {id: userId}
+            });
 
             res.redirect("/logout");
           } else {
@@ -370,7 +345,7 @@ let controller = {
                   msg: "La contraseña no coincide.",
                 },
               },
-              user: usuarioEditar,
+              user: await usuarioEditar,
               personaLogueada: req.session.usuarioLogueado,
             });
           }
@@ -379,22 +354,15 @@ let controller = {
     }
   },
 
-  userDelete: (req, res) => {
-    const userId = Number(req.params.id);
+  userDelete: async (req, res) => {
+    const userId = req.params.id;
 
-    const usuariosObjeto = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/user.json"))
-    );
-    const usuariosRestantes = usuariosObjeto.filter(
-      (usuarioActual) => usuarioActual.id != userId
-    );
+    await db.usuarios.destroy({
+      where: {id: userId}
+    })
 
-    const usuariosObjetoJSON = JSON.stringify(usuariosRestantes, null, " ");
-
-    fs.writeFileSync(
-      path.join(__dirname, "../data/user.json"),
-      usuariosObjetoJSON
-    );
+    await req.session.destroy();
+    await res.clearCookie("recuerdame");
 
     res.redirect("/");
   },

@@ -35,7 +35,7 @@
                   <label for="genero">Género: </label><span class="asterisco">*</span>
                   <select name="genero" id="genero" class="selectRegister">
                     <% generos.forEach(genero => { %> 
-                      <option value= "<%= genero.id %>" <%= locals.oldData && oldData.genero == 'genero.id' ? 'selected' : '' ; %>><%= genero.name %></option>
+                      <option value= "<%= genero.id %>" <%= user.id_genero  == genero.id ? 'selected' : '' ; %>><%= genero.name %></option>
                     <% }) %>
                   </select>
                 </div>
@@ -48,7 +48,7 @@
                 <label for="actividad">Actividad preferida: </label><span class="asterisco">*</span>
                 <select name="actividad" id="actividad" class="selectRegister">
                   <% actividades.forEach(actividad => { %> 
-                    <option value= "<%= actividad.id %>" <%= locals.oldData && oldData.actividad == 'actividad.id' ? 'selected' : '' ; %>><%= actividad.name %></option>
+                    <option value= "<%= actividad.id %>" <%= user.id_actividad == actividad.id ? 'selected' : '' ; %>><%= actividad.name %></option>
                   <% }) %>
                 </select>
               </div>
