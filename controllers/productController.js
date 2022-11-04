@@ -117,7 +117,7 @@ let controller = {
    PROCESS
    ----------------------------------------------*/
 
-   processCreate: async (req, res) => {
+  processCreate: async (req, res) => {
     try {
       const resultadoValidaciones = validationResult(req);
 
@@ -181,8 +181,7 @@ let controller = {
         }
       );
 
-      // res.redirect(`/producto/detalle/${actividadAEditar.id}`);
-      res.redirect(`/`);
+      res.redirect(`/producto/detalle/${actividadAEditar.id}`);
     } catch (error) {
       console.log(error);
     }
@@ -193,6 +192,7 @@ let controller = {
       let idSeleccionado = Number(req.params.id);
 
       let actividadEliminada = await db.productos.findByPk(idSeleccionado);
+
 
       await db.productoEliminado.create(actividadEliminada.dataValues);
 

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     description: { type: DataTypes.STRING, allowNull: false },
     id_morningShift: { type: DataTypes.INTEGER, allowNull: false },
     id_afternoonShift: { type: DataTypes.INTEGER, allowNull: false },
-    id_nightShift: { type: DataTypes.INTEGER, allowNull: false },
+    id_nigthShift: { type: DataTypes.INTEGER, allowNull: false },
   };
   const config = {
     tableName: "productos_eliminados",
