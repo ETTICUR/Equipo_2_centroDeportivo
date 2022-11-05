@@ -7,7 +7,7 @@ const validacionesProducts = [
     body('category').notEmpty().withMessage('Debes elegir una categoria'),
     body('morningShift').notEmpty().withMessage('Elige un horario de mañana'),
     body('afternoonShift').notEmpty().withMessage('Elige un horario de tarde'),
-    body('nightShift').notEmpty().withMessage('Elige un horario de noche'),
+    body('nigthShift').notEmpty().withMessage('Elige un horario de noche'),
     body('description').notEmpty().withMessage('Debes agregar una descripción'),
     body('image').custom((value, {req}) => {
         let file = req.file;

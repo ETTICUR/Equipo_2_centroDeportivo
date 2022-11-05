@@ -4,6 +4,7 @@ const { validationResult } = require("express-validator");
 const { setTimeout } = require("timers/promises");
 let actividades = require("../data/actividades.json");
 let actividadesBorradas = require("../data/actividadesBorradas.json");
+const db = require("../database/models");
 
 let controller = {
   /* --------------------------------------------
@@ -17,15 +18,36 @@ let controller = {
     });
   },
 
-  detail: (req, res) => {
-    let idSeleccionado = Number(req.params.id);
-    let actividadSeleccionada = actividades.find((e) => e.id == idSeleccionado);
+  detail: async (req, res) => {
+    try {
+      const actividadSeleccionada = await db.productos.findOne({
+        where: {
+          id: req.params.id,
+        },
+        include: [
+          { association: "productoCategoria" },
+          { association: "morningShift" },
+          { association: "afternoonShift" },
+          { association: "nigthShift" },
+        ],
+        raw: true,
+      });
 
-    res.render("productDetail", {
-      title: "Detalle Actividad",
-      actividad: actividadSeleccionada,
-      personaLogueada: req.session.usuarioLogueado,
-    });
+      actividadSeleccionada.morningShift =
+        actividadSeleccionada["morningShift.horaTurno"];
+      actividadSeleccionada.afternoonShift =
+        actividadSeleccionada["afternoonShift.horaTurno"];
+      actividadSeleccionada.nigthShift =
+        actividadSeleccionada["nigthShift.horaTurno"];
+
+      res.render("productDetail", {
+        title: "Detalle Actividad",
+        actividad: actividadSeleccionada,
+        personaLogueada: req.session.usuarioLogueado,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   create: (req, res) => {
@@ -35,186 +57,177 @@ let controller = {
     });
   },
 
-  editView: (req, res) => {
+  editView: async (req, res) => {
     let idActividad = Number(req.params.id);
-    let actividadSeleccionada = actividades.find(
-      (actividadActual) => actividadActual.id == idActividad
-    );
 
-    res.render("productEdit", {
-      title: "Editar Actividad",
-      actividad: actividadSeleccionada,
-      personaLogueada: req.session.usuarioLogueado,
-    });
+    try {
+      const actividadSeleccionada = await db.productos.findOne({
+        where: {
+          id: idActividad,
+        },
+        include: [
+          { association: "productoCategoria" },
+          { association: "morningShift" },
+          { association: "afternoonShift" },
+          { association: "nigthShift" },
+        ],
+        raw: true,
+      });
+
+      actividadSeleccionada.morningShift =
+        actividadSeleccionada["morningShift.horaTurno"];
+      actividadSeleccionada.afternoonShift =
+        actividadSeleccionada["afternoonShift.horaTurno"];
+      actividadSeleccionada.nigthShift =
+        actividadSeleccionada["nigthShift.horaTurno"];
+
+      res.render("productEdit", {
+        title: "Editar Actividad",
+        actividad: actividadSeleccionada,
+        personaLogueada: req.session.usuarioLogueado,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  deletedProducts: async (req, res) => {
+    try {
+      const actividadesBorradas = await db.productoEliminado.findAll({
+        include: [
+          { association: "productoCategoria_eliminado" },
+          { association: "morningShift_eliminado" },
+          { association: "afternoonShift_eliminado" },
+          { association: "nigthShift_eliminado" },
+        ],
+        raw: true,
+      });
+
+      res.render("productDeleted", {
+        title: "Actividades Borradas",
+        actividadesBorradas,
+        personaLogueada: req.session.usuarioLogueado,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   /* --------------------------------------------
    PROCESS
    ----------------------------------------------*/
 
-  processCreate: (req, res) => {
-    //res.send({body: req.body});
+  processCreate: async (req, res) => {
+    try {
+      const resultadoValidaciones = validationResult(req);
 
-    const resultadoValidaciones = validationResult(req);
+      if (resultadoValidaciones.errors.length > 0) {
+        res.render("productCreate", {
+          title: "Crear Actividad",
+          errors: resultadoValidaciones.mapped(),
+          oldData: req.body,
+          personaLogueada: req.session.usuarioLogueado,
+        });
+      } else {
+        let nuevaActividad = {
+          name: req.body.name,
+          id_category: req.body.category,
+          price: req.body.price,
+          image: "/images/products/" + req.file.filename,
+          description: req.body.description,
+          id_morningShift: req.body.morningShift,
+          id_afternoonShift: req.body.afternoonShift,
+          id_nigthShift: req.body.nigthShift,
+        };
 
-    if (resultadoValidaciones.errors.length > 0) {
-      res.render("productCreate", {
-        title: "Crear Actividad",
-        errors: resultadoValidaciones.mapped(),
-        oldData: req.body,
-        personaLogueada: req.session.usuarioLogueado,
+        await db.productos.create(nuevaActividad);
+
+        res.redirect("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  editProduct: async (req, res) => {
+    try {
+      let idSeleccionado = Number(req.params.id);
+
+      let actividadAEditar = await db.productos.findByPk(idSeleccionado, {
+        raw: true,
       });
-    } else {
-      let actividadesObjeto = JSON.parse(
-        fs.readFileSync(path.join(__dirname, "../data/actividades.json"))
+
+      let imageActividadEditada;
+      if (req.file == undefined) {
+        imageActividadEditada = actividadAEditar.image;
+      } else {
+        imageActividadEditada = "/images/products/" + req.file.filename;
+      }
+      await db.productos.update(
+        {
+          name: req.body.name,
+          id_category: req.body.category,
+          price: req.body.price,
+          image: imageActividadEditada,
+          description: req.body.description,
+          id_morningShift: req.body.morningShift,
+          id_afternoonShift: req.body.afternoonShift,
+          id_nigthShift: req.body.nigthShift,
+        },
+        {
+          where: {
+            id: idSeleccionado,
+          },
+        }
       );
 
-      let nuevaActividad = {
-        id: actividadesObjeto.length + 1,
-        name: req.body.name,
-        image: "/images/products" + req.file.filename,
-        price: req.body.price,
-        category: req.body.category,
-        morningShift: req.body.morningShift,
-        afternoonShift: req.body.afternoonShift,
-        nightShift: req.body.nightShift,
-        description: req.body.description,
-      };
+      res.redirect(`/producto/detalle/${actividadAEditar.id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  },
 
-      actividadesObjeto.push(nuevaActividad);
+  delete: async (req, res) => {
+    try {
+      let idSeleccionado = Number(req.params.id);
 
-      let actividadesObjetoJSON = JSON.stringify(actividadesObjeto, null, " ");
+      let actividadEliminada = await db.productos.findByPk(idSeleccionado);
 
-      fs.writeFileSync(
-        path.join(__dirname, "../data/actividades.json"),
-        actividadesObjetoJSON
-      );
+
+      await db.productoEliminado.create(actividadEliminada.dataValues);
+
+      await db.productos.destroy({
+        where: {
+          id: idSeleccionado,
+        },
+      });
 
       res.redirect("/");
+    } catch (error) {
+      console.log(error);
     }
   },
 
-  editProduct: (req, res) => {
-    let idSeleccionado = Number(req.params.id);
+  productRecovery: async (req, res) => {
+    try {
+      let idSeleccionado = Number(req.params.id);
 
-    let data = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/actividades.json"))
-    );
+      let actividadARecuperar = await db.productoEliminado.findByPk(
+        idSeleccionado
+      );
 
-    let actividadesRestantes = data.filter((e) => e.id != idSeleccionado);
-    let actividadAEditar = data.find((e) => e.id == idSeleccionado);
+      await db.productos.create(actividadARecuperar.dataValues);
 
-    let imageActividadEditada;
-    if (req.file == undefined) {
-      imageActividadEditada = actividadAEditar.image;
-    } else {
-      imageActividadEditada = "/images/products" + req.file.filename;
+      await db.productoEliminado.destroy({
+        where: {
+          id: idSeleccionado,
+        },
+      });
+
+      res.redirect("/");
+    } catch (error) {
+      console.log(error);
     }
-
-    let actividadEditada = {
-      id: idSeleccionado,
-      name: req.body.name,
-      category: req.body.category,
-      price: req.body.price,
-      image: imageActividadEditada,
-      description: req.body.description,
-      morningShift: req.body.morningShift,
-      afternoonShift: req.body.afternoonShift,
-      nightShift: req.body.nightShift,
-    };
-
-    actividadesRestantes.push(actividadEditada);
-
-    let actividadesRestantesJSON = JSON.stringify(
-      actividadesRestantes,
-      null,
-      " "
-    );
-
-    fs.writeFileSync(
-      path.join(__dirname, "../data/actividades.json"),
-      actividadesRestantesJSON
-    );
-
-    res.redirect(`/producto/detalle/${actividadAEditar.id}`);
-  },
-
-  delete: (req, res) => {
-    let idSeleccionado = Number(req.params.id);
-
-    let data = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/actividades.json"))
-    );
-    let eliminadas = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/actividadesBorradas.json"))
-    );
-
-    let actividadesRestantes = data.filter((e) => e.id !== idSeleccionado);
-    let actividadEliminada = data.find((e) => e.id == idSeleccionado);
-
-    eliminadas.push(actividadEliminada);
-
-    let actividadesRestantesJSON = JSON.stringify(
-      actividadesRestantes,
-      null,
-      " "
-    );
-    let actividadEliminadaJSON = JSON.stringify(eliminadas, null, " ");
-
-    fs.writeFileSync(
-      path.join(__dirname, "../data/actividades.json"),
-      actividadesRestantesJSON
-    );
-    fs.writeFileSync(
-      path.join(__dirname, "../data/actividadesBorradas.json"),
-      actividadEliminadaJSON
-    );
-
-    res.redirect("/");
-  },
-
-  deletedProducts: (req, res) => {
-    res.render("productDeleted", {
-      title: "Actividades Borradas",
-      actividadesBorradas,
-      personaLogueada: req.session.usuarioLogueado,
-    });
-  },
-
-  productRecovery: (req, res) => {
-    let idSeleccionado = Number(req.params.id);
-
-    let data = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/actividades.json"))
-    );
-    let eliminadas = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/actividadesBorradas.json"))
-    );
-
-    let recuperarActividad = eliminadas.find((e) => e.id == idSeleccionado);
-    let actividadesBorradasRestantes = eliminadas.filter(
-      (e) => e.id !== idSeleccionado
-    );
-
-    data.push(recuperarActividad);
-
-    let recuperarActividadJSON = JSON.stringify(data, null, " ");
-    let actividadesBorradasRestantesJSON = JSON.stringify(
-      actividadesBorradasRestantes,
-      null,
-      " "
-    );
-
-    fs.writeFileSync(
-      path.join(__dirname, "../data/actividades.json"),
-      recuperarActividadJSON
-    );
-    fs.writeFileSync(
-      path.join(__dirname, "../data/actividadesBorradas.json"),
-      actividadesBorradasRestantesJSON
-    );
-
-    res.redirect("/");
   },
 };
 

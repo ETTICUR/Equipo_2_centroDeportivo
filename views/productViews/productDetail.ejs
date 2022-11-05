@@ -1,77 +1,86 @@
-<%- include('../partials/head') %> 
+<%- include('../partials/head') %>
 
-<body class="body">
-    
-    <%- include('../partials/navbar') %> 
+    <body class="body">
 
-    <main class="mainDetail">
-        <div class="divMainDetail">
-            <div class="imgDivDetail">
-                <img src="<%= actividad.image %> " alt="<%= actividad.name %>">
-            </div>
-            <div class="detalleDivDetail">
-                <div class="detalleDetail">
-                    <div class="tituloDetail">
-                        <h3><%= actividad.name %></h3>
+        <%- include('../partials/navbar') %>
+
+            <main class="mainDetail">
+                <div class="divMainDetail">
+                    <div class="imgDivDetail">
+                        <img src="<%= actividad.image %>" alt="<%= actividad.name %>">
                     </div>
-                    <div class="detalleEntrenamiento">
-                        <h3 class="tituloDetailTabletDesktop"><%= actividad.name %></h3>
-                        <p class="precioDetail"><%= actividad.price %></p>
-                        <p class="descripcionDetail"><i class="fa-solid fa-file-lines"></i>
-                            <%= actividad.description %>
-                        </p>
-                        <ul class="horariosDetail">
-                            <p><i class="fa-solid fa-clock"></i> Horarios:</p>
-                            <li><span>Turno Mañana:</span> - <%= actividad.morningShift %> -</li>
-                            <li><span>Turno Tarde:</span> - <%= actividad.afternoonShift %> -</li>
-                            <li><span>Turno Noche:</span> - <%= actividad.nightShift %> -</li>
-                        </ul>
-                    </div>
-                    <div class="agregarBoton">
-                        <div>
-                            <div class="agregarDetail">
-                                <div class="numeroDetail">
-                                    <p>1</p>
+                    <div class="detalleDivDetail">
+                        <div class="detalleDetail">
+                            <div class="tituloDetail">
+                                <h3>
+                                    <%= actividad.name %>
+                                </h3>
+                            </div>
+                            <div class="detalleEntrenamiento">
+                                <h3 class="tituloDetailTabletDesktop">
+                                    <%= actividad.name %>
+                                </h3>
+                                <p class="precioDetail">$<%= actividad.price %>
+                                </p>
+                                <p class="descripcionDetail"><i class="fa-solid fa-file-lines"></i>
+                                    <%= actividad.description %>
+                                </p>
+                                <ul class="horariosDetail">
+                                    <p><i class="fa-solid fa-clock"></i> Horarios:</p>
+                                    <li><span>Turno Mañana:</span> - <%= actividad.morningShift %> -</li>
+                                    <li><span>Turno Tarde:</span> - <%= actividad.afternoonShift %> -</li>
+                                    <li><span>Turno Noche:</span> - <%= actividad.nigthShift %> -</li>
+                                </ul>
+                            </div>
+                            <div class="agregarBoton">
+                                <div>
+                                    <div class="agregarDetail">
+                                        <div class="numeroDetail">
+                                            <p>1</p>
+                                        </div>
+                                        <div class="masMenosDetail">
+                                            <button><i class="fa-solid fa-arrow-up"></i></button>
+                                            <button><i class="fa-solid fa-arrow-down-long"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="masMenosDetail">
-                                    <button><i class="fa-solid fa-arrow-up"></i></button>
-                                    <button><i class="fa-solid fa-arrow-down-long"></i></button>
+
+                                <div class="botonDetail">
+                                    <button><i class="fa-solid fa-basket-shopping"></i>AÑADIR AL CARRITO</button>
                                 </div>
                             </div>
-                        </div>
+                            <%if(personaLogueada==undefined || personaLogueada.nombre !="admin" ){ %>
+                                <div></div>
+                                <%}else if (personaLogueada.nombre="admin" ) { %>
+                                    <div class="divBtnProductos">
+                                        <div>
+                                            <form action="">
+                                                <button class="btnPlan"><i class="fa-solid fa-plus"></i><a
+                                                        href="/producto/crear"> Crear</a></button>
+                                            </form>
+                                        </div>
 
-                        <div class="botonDetail">
-                            <button><i class="fa-solid fa-basket-shopping"></i>AÑADIR AL CARRITO</button>
+
+                                        <div>
+                                            <form action="">
+                                                <button class="btnPlan"><i class="fa-solid fa-pen-to-square"></i><a
+                                                        href="/producto/<%= actividad.id %>/editar"> Editar</a></button>
+                                            </form>
+                                        </div>
+
+                                        <div>
+                                            <form action="/producto/detalle/<%= actividad.id %>?_method=DELETE"
+                                                method="POST">
+                                                <button type="submit" class="btnPlan"><i class="fa fa-trash"></i>
+                                                    Eliminar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+                                    <% } %>
                         </div>
                     </div>
-                    <%if(personaLogueada == undefined || personaLogueada.nombre != "admin"){ %>
-                        <div></div>
-                    <%}else if (personaLogueada.nombre = "admin") { %>
-                    <div class="divBtnProductos">
-                        <div>
-                            <form action="">
-                                <button class="btnPlan"><i class="fa-solid fa-plus"></i><a href="/producto/crear"> Crear</a></button>
-                            </form>
-                        </div>
-                         
-                        
-                        <div>
-                            <form action="">
-                                <button class="btnPlan"><i class="fa-solid fa-pen-to-square"></i><a href="/producto/<%= actividad.id %>/editar"> Editar</a></button>
-                            </form>
-                        </div>
+            </main>
 
-                        <div>
-                            <form action="/producto/detalle/<%= actividad.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="btnPlan"><i class="fa fa-trash"></i> Eliminar</button>
-                            </form>
-                        </div>       
-                    </div>
-                    
-                
-                        <% } %>
-                </div>
-         </div>
-    </main>
-    
-    <%- include('../partials/footer') %>
+            <%- include('../partials/footer') %>
