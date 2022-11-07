@@ -18,9 +18,18 @@
             <i class="fa-solid fa-right-to-bracket"></i> Perfil</a
           >
         </li>
-       
+        <%if(personaLogueada==undefined || personaLogueada.nombre !="admin" ){
+        %>
+        <div></div>
+        <%}else if (personaLogueada.nombre="admin" ) { %>
+        <li>
+          <a href="/producto/crear"> Crear</a>
+        </li>
+        <li>
+          <a href="/producto/recuperar"> Recuperar</a>
+        </li>
 
-        <% }else{    %>
+        <% } %> <% }else{ %>
         <li>
           <a href="/register"
             ><i class="fa-solid fa-id-card"></i> Registrarme</a
