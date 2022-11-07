@@ -12,6 +12,10 @@ Para poder ver todas las funcionalidades de la pagina, ingresar con el siguiente
 Email: admin@centrodeportivo.com.ar
 Password: admin1234
 
+### Base de datos:
+
+Dentro de la carpeta 'extras/sql' se encuentra el archivo 'centrodeportivo.sql' que crea la base de datos e inserta datos para poder comprobar la funcionalidad de la pagina.
+
 #### Integrantes del equipo:
 
 - ASCONA, Mateo: Tengo 27 años, soy de Sunchales, Santa Fe. Siempre me intereso la informatica en general y hace un par de años me empece a adentrar en la programacion y el desarrollo web. Me gusta investigar y aprender constantemente.
