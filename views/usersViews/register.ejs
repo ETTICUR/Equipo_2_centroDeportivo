@@ -7,12 +7,14 @@
       <main class="mainRegister">
         <div class="divRegistro">
           <div class="divImagen"></div>
-          <form class="userForms" action="/register" method="post" enctype="multipart/form-data">
+          <form class="userForms" id="registerForm" action="/register" method="post" enctype="multipart/form-data">
             <p>Para comenzar completa los campos:</p>
             <div class="flex">
               <div class="inputForm ancho">
                 <label for="nombre">Nombre: </label><span class="asterisco">*</span>
-                <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" value="<%= locals.oldData ? oldData.nombre : null %>" />
+                <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" required
+                  value="<%= locals.oldData ? oldData.nombre : null %>" />
+                <span class="asterisco" id="errorNombre"></span>
                 <% if(locals.errors && errors.nombre) { %>
                   <div>
                     <span class="errorInput"> * <%= errors.nombre.msg %> </span>
@@ -21,7 +23,9 @@
               </div>
               <div class="inputForm ancho">
                 <label for="apellido">Apellido: </label><span class="asterisco">*</span>
-                <input type="text" name="apellido" id="apellido" placeholder="Tu apellido" value="<%= locals.oldData ? oldData.apellido : null %>"/>
+                <input type="text" name="apellido" id="apellido" placeholder="Tu apellido" required
+                  value="<%= locals.oldData ? oldData.apellido : null %>" />
+                  <span class="asterisco" id="errorApellido"></span>
                 <% if(locals.errors && errors.apellido) { %>
                   <div>
                     <span class="errorInput"> * <%= errors.apellido.msg %> </span>
@@ -30,7 +34,7 @@
               </div>
               <div class="inputForm ancho">
                 <label for="image">Imágen: </label><span class="asterisco">*</span>
-                <input type="file" id="image" name="fotoPerfil" />
+                <input type="file" id="image" name="fotoPerfil" required />
                 <% if(locals.errors && errors.fotoPerfil) { %>
                   <div>
                     <span class="errorInput"> * <%= errors.fotoPerfil.msg %> </span>
@@ -43,12 +47,16 @@
               <div class="inputForm">
                 <div class="inputForm">
                   <label for="genero">Género: </label><span class="asterisco">*</span>
-                  <select name="genero" id="genero" class="selectRegister">
-                    <option disabled <%= !locals.oldData || !oldData.genero ? 'selected' : '' ; %>>Elige una opción</option>
-                    <% generos.forEach(genero => { %> 
-                      <option value= "<%= genero.id %>" <%= locals.oldData && oldData.genero == 'genero.id' ? 'selected' : '' ; %>><%= genero.name %></option>
-                    <% }) %>
+                  <select name="genero" id="genero" class="selectRegister" required>
+                    <option disabled <%=!locals.oldData || !oldData.genero ? 'selected' : '' ; %>>Elige una opción
+                    </option>
+                    <% generos.forEach(genero=> { %>
+                      <option value="<%= genero.id %>" <%=locals.oldData && oldData.genero=='genero.id' ? 'selected'
+                        : '' ; %>><%= genero.name %>
+                      </option>
+                      <% }) %>
                   </select>
+                  <span class="asterisco" id="errorGenero"></span>
                   <% if(locals.errors && errors.genero) { %>
                     <div>
                       <span class="errorInput"> * <%= errors.genero.msg %> </span>
@@ -58,7 +66,9 @@
               </div>
               <div class="inputForm">
                 <label for="edad">Edad: </label><span class="asterisco">*</span>
-                <input type="number" name="edad" id="edad" placeholder="Tu edad" value="<%= locals.oldData ? oldData.edad : null %>"/>
+                <input type="number" name="edad" id="edad" placeholder="Tu edad" required
+                  value="<%= locals.oldData ? oldData.edad : null %>" />
+                  <span class="asterisco" id="errorEdad"></span>
                 <% if(locals.errors && errors.edad) { %>
                   <div>
                     <span class="errorInput"> * <%= errors.edad.msg %> </span>
@@ -67,12 +77,16 @@
               </div>
               <div class="inputForm">
                 <label for="actividad">Actividad preferida: </label><span class="asterisco">*</span>
-                <select name="actividad" id="actividad" class="selectRegister">
-                  <option disabled <%= !locals.oldData || !oldData.actividad ? 'selected' : '' ; %>>Elige una opción</option>
-                  <% actividades.forEach(actividad => { %> 
-                    <option value= "<%= actividad.id %>" <%= locals.oldData && oldData.actividad == 'actividad.id' ? 'selected' : '' ; %>><%= actividad.name %></option>
-                  <% }) %>
+                <select name="actividad" id="actividad" class="selectRegister" required>
+                  <option disabled <%=!locals.oldData || !oldData.actividad ? 'selected' : '' ; %>>Elige una opción
+                  </option>
+                  <% actividades.forEach(actividad=> { %>
+                    <option value="<%= actividad.id %>" <%=locals.oldData && oldData.actividad=='actividad.id'
+                      ? 'selected' : '' ; %>><%= actividad.name %>
+                    </option>
+                    <% }) %>
                 </select>
+                <span class="asterisco" id="errorActividad"></span>
                 <% if(locals.errors && errors.actividad) { %>
                   <div>
                     <span class="errorInput"> * <%= errors.actividad.msg %> </span>
@@ -83,7 +97,9 @@
 
             <div class="inputForm">
               <label for="email">Correo electrónico: </label><span class="asterisco">*</span>
-              <input type="email" name="email" id="email" placeholder="Tu email" value="<%= locals.oldData ? oldData.email : null %>"/>
+              <input type="email" name="email" id="email" placeholder="Tu email" required
+                value="<%= locals.oldData ? oldData.email : null %>" />
+                <span class="asterisco" id="errorEmail"></span>
               <% if(locals.errors && errors.email) { %>
                 <div>
                   <span class="errorInput"> * <%= errors.email.msg %> </span>
@@ -92,7 +108,9 @@
             </div>
             <div class="inputForm">
               <label for="contraseña">Contraseña: </label><span class="asterisco">*</span>
-              <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña" />
+              <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña" required
+                minlength="5" />
+                <span class="asterisco" id="errorPassword"></span>
               <% if(locals.errors && errors.password) { %>
                 <div>
                   <span class="errorInput"> * <%= errors.password.msg %> </span>
@@ -103,7 +121,9 @@
             <div class="inputForm">
               <label for="confirmarContraseña">Confirmar contraseña:
               </label><span class="asterisco">*</span>
-              <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirma tu contraseña"/>
+              <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirma tu contraseña"
+                required minlength="5" />
+                <span class="asterisco" id="errorPasswordConfirm"></span>
               <% if(locals.errors && errors.passwordConfirm) { %>
                 <div>
                   <span class="errorInput"> * <%= errors.passwordConfirm.msg %> </span>
@@ -122,6 +142,7 @@
               </div>
             </div>
             <div class="divBoton">
+              <span class="asterisco" id="errorRegistro"></span>
               <button class="btn" type="submit">
                 <i class="fa-solid fa-user-plus"></i> Registrarme
               </button>
@@ -129,5 +150,7 @@
           </form>
         </div>
       </main>
+
+      <script src="/js/registerScript.js"></script>
 
       <%- include('../partials/footer') %>

@@ -513,6 +513,7 @@ input[type=number] {
 .asterisco {
   color: red;
   font-weight: 700;
+  font-size: small;
 }
 
 .errorInput {
