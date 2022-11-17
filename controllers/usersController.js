@@ -14,6 +14,7 @@ let controller = {
   },
 
   processLogin: async (req, res) => {
+
     try {
       const validacionesResultado = validationResult(req);
 

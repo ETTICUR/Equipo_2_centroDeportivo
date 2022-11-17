@@ -6,6 +6,7 @@ const methodOverride = require("method-override");
 const expressSession = require("express-session");
 const cookieParser = require("cookie-parser");
 const loginCookie = require("./middlewares/users/loginCookie")
+const cartMiddleware = require("./middlewares/products/cartMiddleware")
 
 const mainRoutes = require("./router/mainRoutes");
 const productRoutes = require("./router/productRoutes");
@@ -33,6 +34,7 @@ app.use(
 app.use(cookieParser());
 
 app.use(loginCookie)
+app.use(cartMiddleware)
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
