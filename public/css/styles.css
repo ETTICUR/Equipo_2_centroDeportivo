@@ -731,6 +731,10 @@ textarea {
   padding-top: 3%;
 }
 
+.totalPriceMob{
+  font-weight: 600;
+}
+
 .finishButtonRow {
   text-align: center;
   border-top: 1px solid #fadba5;
@@ -758,7 +762,6 @@ textarea {
 
 .itemCountMobile {
   width: 10%;
-  border: 1px solid #fadba5;
   border-radius: 5px;
   padding: 0.3rem;
 }

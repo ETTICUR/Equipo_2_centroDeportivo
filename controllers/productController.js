@@ -15,6 +15,7 @@ let controller = {
     res.render("productCart", {
       title: "Carrito Compras",
       personaLogueada: req.session.usuarioLogueado,
+      cart: req.session.carrito
     });
   },
 
@@ -280,60 +281,60 @@ let controller = {
       }
 
 
-      res.redirect("/");
+      res.redirect("/producto/carrito");
     } catch (error) {
       console.log(error);
     }
   },
 
-  // deleteItemCart: async (req, res) => {
-  //   try {
-  //     let carrito = req.session.carrito;
-  //     let itemABorrar = req.params.id;
+  deleteItemCart: async (req, res) => {
+    try {
+      let carritoSession = req.session.carrito;
+      let itemABorrar = req.params.id;
 
-  //     let carritoActualizado = []
+      let carritoActualizado = []
 
-  //     for (let i = 0; i < carrito.length; i++) {
-  //       if(carrito[i].id != itemABorrar){
-  //         carritoActualizado.push(carrito[i])
-  //       }
-  //     }
+      for (let i = 0; i < carritoSession.length; i++) {
+        if(carritoSession[i].id != itemABorrar){
+          carritoActualizado.push(carritoSession[i])
+        }
+      }
 
-  //     req.session.carrito = carritoActualizado;
+      req.session.carrito = carritoActualizado;
 
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
+    } catch (error) {
+      console.log(error);
+    }
 
-  //   res.render("productCart", {
-  //     title: "Carrito Compras",
-  //     personaLogueada: req.session.usuarioLogueado,
-  //     cart: req.session.carrito
-  //   });
-  // },
+    res.render("productCart", {
+      title: "Carrito Compras",
+      personaLogueada: req.session.usuarioLogueado,
+      cart: req.session.carrito
+    });
+  },
 
-  // terminarCompra: async (req, res)=>{
-  //   try {
-  //     let carrito = req.session.carrito
+  terminarCompra: async (req, res)=>{
+    try {
+      let carritoSession = req.session.carrito
 
-  //     let jsonCart = {
-  //       carrito: JSON.stringify(carrito),
-  //     };
+      let jsonCart = {
+        carrito: JSON.stringify(carritoSession),
+      };
 
-  //     console.log(jsonCart);
+      console.log(jsonCart);
 
-  //     if(carrito.length > 0){
-  //       await db.ventas.create(jsonCart)
-  //     }
+      if(carritoSession.length > 0){
+        await db.ventas.create(jsonCart)
+      }
 
-  //     req.session.carrito = []
+      req.session.carrito = []
 
-  //     res.redirect("/")
+      res.redirect("/")
       
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 };
 
 module.exports = controller;

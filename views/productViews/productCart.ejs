@@ -1,171 +1,127 @@
-<%- include('../partials/head') %> 
+<%- include('../partials/head') %>
 
-<body class="body">
+  <body class="body">
 
-  <%- include('../partials/navbar') %> 
+    <%- include('../partials/navbar') %>
 
-    <main>
-      <h1 class="cartTitle">Tus productos</h1>
+      <main>
+        <h1 class="cartTitle">Tus productos</h1>
         <div class="cartTableContainer">
-          
-            <table class="cartTable desktopCart">
 
-              <thead class="cartTableHeader">
-                <th class="deleteBtnTableHeader"></th>
-                <th class="imgTableHeader"></th>
-                <th>Producto</th>
-                <th>Cantidad</td>
-                <th>Precio</th>
-              </thead>
-              
-              <tbody class="cartTableBody">
+          <table class="cartTable desktopCart">
+
+            <thead class="cartTableHeader">
+              <th class="deleteBtnTableHeader"></th>
+              <th class="imgTableHeader"></th>
+              <th>Producto</th>
+              <th>Cantidad</td>
+              <th>Precio</th>
+            </thead>
+
+            <tbody class="cartTableBody">
+              <% cart.forEach(e=> { %>
                 <tr>
-                  <td class="deleteBtnCart"><button>x</button></td>
-                  <td class="cartElement"><img src="/images/products/crossfit.png" alt=""></td>
-                  <td class="cartElement">Yoga</td>
-                  <td class="cartElement itemsCount">
-                    <div class="agregarDetail">
-                      <div class="numeroDetail">
-                          <p>1</p>
-                      </div>
-                      <div class="masMenosDetail">
-                          <button><i class="fa-solid fa-arrow-up"></i></button>
-                          <button><i class="fa-solid fa-arrow-down-long"></i></button>
-                      </div>
-                    </div>
+                  <td class="deleteBtnCart">
+                    <form action="/producto/carrito/borrarItem/<%= e.id %> " method="post">
+                      <button type="submit" class="borrar">x</button>
+                    </form>
                   </td>
-                  <td class="cartElement">$5000</td>
-                </tr>
-                <tr>
-                  <td class="deleteBtnCart"><button>x</button></td>
-                  <td class="cartElement"><img src="/images/products/crossfit.png" alt=""></td>
-                  <td class="cartElement">Yoga</td>
-                  <td class="cartElement itemsCount">
-                    <div class="agregarDetail">
-                      <div class="numeroDetail">
-                          <p>1</p>
-                      </div>
-                      <div class="masMenosDetail">
-                          <button><i class="fa-solid fa-arrow-up"></i></button>
-                          <button><i class="fa-solid fa-arrow-down-long"></i></button>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="cartElement">$5000</td>
-                </tr>
-                <tr>
-                  <td class="deleteBtnCart"><button>x</button></td>
-                  <td class="cartElement"><img src="/images/products/crossfit.png" alt=""></td>
-                  <td class="cartElement">Yoga</td>
-                  <td class="cartElement itemsCount">
-                    <div class="agregarDetail">
-                      <div class="numeroDetail">
-                          <p>1</p>
-                      </div>
-                      <div class="masMenosDetail">
-                          <button><i class="fa-solid fa-arrow-up"></i></button>
-                          <button><i class="fa-solid fa-arrow-down-long"></i></button>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="cartElement">$5000</td>
-                </tr>
-                <tr>
-                  <td class="deleteBtnCart"><button>x</button></td>
-                  <td class="cartElement"><img src="/images/products/crossfit.png" alt=""></td>
-                  <td class="cartElement">Yoga</td>
-                  <td class="cartElement itemsCount">
-                    <div class="agregarDetail">
-                      <div class="numeroDetail">
-                          <p>1</p>
-                      </div>
-                      <div class="masMenosDetail">
-                          <button><i class="fa-solid fa-arrow-up"></i></button>
-                          <button><i class="fa-solid fa-arrow-down-long"></i></button>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="cartElement">$5000</td>
-                </tr>
-
-                <tr>
-                  <td> </td>
-                  <td class="cartElement totalTitle">Total</td>
-                  <td> </td>
-                  <td> </td>
-                  <td class="cartElement totalPrice">$25000</td>
-                </tr>
-
-                <tr>
-                  <td> </td>
-                  <td></td>
-                  <td> </td>
-                  <td> </td>
-                  <td class="cartElement totalPrice"><button class="finishButton">Terminar compra</button></td>
-                </tr>
-                
-               
-              </tbody>
-
-            </table>
-
-            <table class="cartTable mobileCart">
-              <tbody>
-                <div>
-                <tr>
-                  <td class="deleteBtnCart"><button>x</button></td>
-                </tr>
-                <tr>
-                  <td class="cartElement"><img src="/images/crossfit.png" alt=""></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="cartElement mobileCartTitle">Producto</td>
-                  <td class="cartElement">Yoga</td>
-                </tr>
-                <tr>
-                  <td class="cartElement mobileCartTitle">Cantidad</td>
+                  <td class="cartElement"><img src="<%= e.image %>" alt=""></td>
                   <td class="cartElement">
-                   <input type="number" class="itemCountMobile">
+                    <%= e.name %>
                   </td>
-                </tr>
-                <tr>
-                  <td class="cartElement mobileCartTitle">Precio</td>
-                  <td class="cartElement">5000</td>
-                </tr>
-              </div>
-                <div>
-                <tr>
-                  <td class="deleteBtnCart"><button>x</button></td>
-                </tr>
-                <tr>
-                  <td class="cartElement"><img src="/images/crossfit.png" alt=""></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="cartElement mobileCartTitle">Producto</td>
-                  <td class="cartElement">Yoga</td>
-                </tr>
-                <tr>
-                  <td class="cartElement mobileCartTitle">Cantidad</td>
+                  <td class="cartElement itemsCount">
+                    <p>
+                      <%= e.qty %>
+                    </p>
+                  </td>
                   <td class="cartElement">
-                   <input type="number" class="itemCountMobile">
+                    <p class="price">
+                      <%= e.price %>
+                    </p>
                   </td>
                 </tr>
-                <tr>
-                  <td class="cartElement mobileCartTitle">Precio</td>
-                  <td class="cartElement">5000</td>
-                </tr>
-              </div>
-                
-              </tbody>
-              <tr >
+
+                <% }) %>
+
+                  <tr>
+                    <td> </td>
+                    <td class="cartElement totalTitle">Total</td>
+                    <td> </td>
+                    <td> </td>
+                    <td class="cartElement totalPrice"></td>
+                  </tr>
+
+                  <tr>
+                    <td> </td>
+                    <td></td>
+                    <td> </td>
+                    <td> </td>
+                    <form action="/producto/carrito/terminarCompra" method="post">
+                      <td class="cartElement totalPrice"><button type="submit" class="finishButton">Terminar
+                          compra</button></td>
+                    </form>
+                  </tr>
+
+
+            </tbody>
+
+          </table>
+
+          <table class="cartTable mobileCart">
+            <tbody>
+              <% cart.forEach(e=> { %>
+                <div>
+                  <tr>
+                    <td class="deleteBtnCart">
+                      <form action="/producto/carrito/borrarItem/<%= e.id %> " method="post">
+                        <button type="submit" class="borrar">x</button>
+                      </form>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="cartElement"><img src="<%= e.image %>" alt=""></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="cartElement mobileCartTitle">Producto</td>
+                    <td class="cartElement">
+                      <%= e.name %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="cartElement mobileCartTitle">Cantidad</td>
+                    <td class="cartElement">
+
+                      <span class="itemCountMobile">
+                        <%= e.qty %>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="cartElement mobileCartTitle">Precio</td>
+                    <td class="cartElement">
+                      <%= e.price %>
+                    </td>
+                  </tr>
+                </div>
+
+                <% }) %>
+            </tbody>
+            <tr>
+              <td class="cartElement totalTitle">Total</td>
+              <td class="cartElement totalPriceMob"></td>
+            </tr>
+            <tr>
+              <form action="/producto/carrito/terminarCompra" method="post">
                 <td colspan="2" class="finishButtonRow "><button class="finishButton">Terminar compra</button></td>
-              </tr>
-            </table>
+              </form>
+            </tr>
+          </table>
 
         </div>
 
-    </main>
+      </main>
 
-    <%- include('../partials/footer') %>
+      <script src="/js/cartScript.js"></script>
+      <%- include('../partials/footer') %>
