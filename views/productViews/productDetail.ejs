@@ -32,28 +32,32 @@
                                     <li><span>Turno Noche:</span> - <%= actividad.nigthShift %> -</li>
                                 </ul>
                             </div>
-                            <div class="agregarBoton">
-                                <div>
-                                    <div class="agregarDetail">
-                                        <div class="numeroDetail">
-                                            <p>1</p>
-                                        </div>
-                                        <div class="masMenosDetail">
-                                            <button><i class="fa-solid fa-arrow-up"></i></button>
-                                            <button><i class="fa-solid fa-arrow-down-long"></i></button>
+                            <form action="/producto/carrito/<%= actividad.id %> " method="post">
+                                <div class="agregarBoton">
+                                    <div>
+                                        <div class="agregarDetail">
+                                            <div class="numeroDetail">
+                                                <input type="number" id="contadorDetail" name="qty">
+                                            </div>
+                                            <div class="masMenosDetail">
+                                                <button id="flechaSumar" type="button"><i
+                                                        class="fa-solid fa-arrow-up"></i></button>
+                                                <button id="flechaRestar" type="button"><i
+                                                        class="fa-solid fa-arrow-down-long"></i></button>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="botonDetail">
+                                        <button type="submit" class="agregarACarrito"><i
+                                                class="fa-solid fa-basket-shopping"></i>AÑADIR AL CARRITO</button>
+                                    </div>
                                 </div>
-
-                                <div class="botonDetail">
-                                    <button><i class="fa-solid fa-basket-shopping"></i>AÑADIR AL CARRITO</button>
-                                </div>
-                            </div>
+                            </form>
                             <%if(personaLogueada==undefined || personaLogueada.nombre !="admin" ){ %>
                                 <div></div>
                                 <%}else if (personaLogueada.nombre="admin" ) { %>
                                     <div class="divBtnProductos">
-                                    
+
                                         <div>
                                             <form action="">
                                                 <button class="btnPlan"><i class="fa-solid fa-pen-to-square"></i><a
@@ -75,5 +79,5 @@
                         </div>
                     </div>
             </main>
-
+            <script src="/js/productDetailScript.js"></script>
             <%- include('../partials/footer') %>

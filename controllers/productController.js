@@ -11,7 +11,7 @@ let controller = {
    VIEWS
    ----------------------------------------------*/
 
-  cart: (req, res) => {
+  cartView: (req, res) => {
     res.render("productCart", {
       title: "Carrito Compras",
       personaLogueada: req.session.usuarioLogueado,
@@ -229,6 +229,111 @@ let controller = {
       console.log(error);
     }
   },
+
+  agregarItemACarrito: async (req, res) => {
+    try {
+      const itemAgregar = await db.productos.findOne({
+        where: {
+          id: req.params.id,
+        },
+        include: [
+          { association: "productoCategoria" },
+          { association: "morningShift" },
+          { association: "afternoonShift" },
+          { association: "nigthShift" },
+        ],
+        raw: true,
+      });
+
+      let itemReducido = {
+        id: itemAgregar.id,
+        name: itemAgregar.name,
+        qty: req.body.qty,
+        price: Number(itemAgregar.price) * Number(req.body.qty),
+        image: itemAgregar.image,
+      };
+
+      let carritoSession = req.session.carrito;
+
+      let pos = -1;
+
+      for (let i = 0; i < carritoSession.length; i++) {
+        if (carritoSession[i].id == itemReducido.id) {
+          pos = i;
+          break;
+        }
+      }
+
+      if (pos == -1) {
+        carritoSession.push(itemReducido);
+      } else {
+
+        let itemActualizado = {
+          id: carritoSession[pos].id,
+          name: carritoSession[pos].name,
+          qty: Number(carritoSession[pos].qty) + Number(req.body.qty),
+          price: Number(carritoSession[pos].price) + (Number(await itemAgregar.price) * Number(req.body.qty)),
+          image: carritoSession[pos].image,
+        };
+
+        carritoSession[pos] = itemActualizado;
+      }
+
+
+      res.redirect("/");
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  // deleteItemCart: async (req, res) => {
+  //   try {
+  //     let carrito = req.session.carrito;
+  //     let itemABorrar = req.params.id;
+
+  //     let carritoActualizado = []
+
+  //     for (let i = 0; i < carrito.length; i++) {
+  //       if(carrito[i].id != itemABorrar){
+  //         carritoActualizado.push(carrito[i])
+  //       }
+  //     }
+
+  //     req.session.carrito = carritoActualizado;
+
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+
+  //   res.render("productCart", {
+  //     title: "Carrito Compras",
+  //     personaLogueada: req.session.usuarioLogueado,
+  //     cart: req.session.carrito
+  //   });
+  // },
+
+  // terminarCompra: async (req, res)=>{
+  //   try {
+  //     let carrito = req.session.carrito
+
+  //     let jsonCart = {
+  //       carrito: JSON.stringify(carrito),
+  //     };
+
+  //     console.log(jsonCart);
+
+  //     if(carrito.length > 0){
+  //       await db.ventas.create(jsonCart)
+  //     }
+
+  //     req.session.carrito = []
+
+  //     res.redirect("/")
+      
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 };
 
 module.exports = controller;

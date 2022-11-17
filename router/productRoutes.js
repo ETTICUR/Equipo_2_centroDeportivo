@@ -11,7 +11,13 @@ const authAdmin = require("../middlewares/users/authAdmin");
 const authLogin = require("../middlewares/users/authLogin");
 
 //Rutas
-router.get("/carrito", authLogin, productController.cart);
+// router.get("/carrito", authLogin, productController.cart);
+router.get("/carrito", productController.cartView);
+// router.post("/carrito/terminarCompra", productController.terminarCompra)
+// router.post("/carrito/borrarItem/:id", productController.deleteItemCart)
+router.post("/carrito/:id", productController.agregarItemACarrito)
+
+
 
 router.get("/detalle/:id", productController.detail);
 router.delete("/detalle/:id", productController.delete);

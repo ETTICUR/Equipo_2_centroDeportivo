@@ -355,14 +355,14 @@ iframe {
   text-align: center;
 }
 
-.divBtnProductos{
+.divBtnProductos {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding-top: 50px;
 }
 
-.divBtnProductos div{
+.divBtnProductos div {
   padding: 0 10px;
   margin-top: 15px;
 }
@@ -377,10 +377,26 @@ iframe {
 .numeroDetail {
   border-right: 2px solid #ff8c00;
   padding: 4px 15px;
+  width: 8vw
 }
 
-.numeroDetail p {
+.numeroDetail input {
+
   font-size: 25px;
+  width: 5vw;
+  background-color: #ffaa4100;
+  border: none;
+  text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .masMenosDetail {
@@ -401,7 +417,7 @@ iframe {
   cursor: pointer;
 }
 
-.botonDetail button {
+.agregarACarrito {
   padding: 15px;
   background-color: #ffaa4152;
   border: 2px solid #ffa841;
@@ -412,20 +428,20 @@ iframe {
 }
 
 
-.botonDetail button:hover {
+.agregarACarrito:hover {
   border-color: #fa8a01;
   box-shadow: inset 14em 0 0 0 #fa8a01;
   transition: 0.7s;
   border: 2px solid white;
 }
 
-.botonDetail i {
+.agregarACarrito i {
   color: #fa8a01;
   transition: 0.7s;
   padding-right: 5px;
 }
 
-.botonDetail:hover i {
+.agregarACarrito:hover i {
   color: black;
   animation: rotarCesto 1s infinite;
 }
@@ -434,9 +450,11 @@ iframe {
   0% {
     transform: rotate(15deg);
   }
+
   50% {
     transform: rotate(-15deg);
   }
+
   100% {
     transform: rotate(15deg);
   }
@@ -488,7 +506,7 @@ iframe {
   font-weight: 700;
 }
 
-.inputForm img{
+.inputForm img {
   padding-left: 5px;
 }
 
@@ -497,7 +515,7 @@ iframe {
   font-weight: 700;
 }
 
-.errorInput{
+.errorInput {
   color: red;
 }
 
@@ -517,7 +535,7 @@ textarea,
   justify-content: center;
 }
 
-.divBoton button{
+.divBoton button {
   margin-left: 10px;
 }
 
@@ -760,18 +778,18 @@ textarea {
 /*****************************************************************************************************/
 
 
-.divProfile{
+.divProfile {
   text-align: center;
 }
 
-.imgPerfil img{
+.imgPerfil img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   margin: 10px;
 }
 
-.datosProfile{
+.datosProfile {
   margin-top: 20px;
   background-color: #ffaa41b6;
   border-radius: 10px;
@@ -779,17 +797,17 @@ textarea {
   text-align: start;
 }
 
-.datosProfile p{
+.datosProfile p {
   padding: 15px;
 }
 
-.datosProfile p i{
-  color:#fa8a01;
+.datosProfile p i {
+  color: #fa8a01;
   font-size: 15px;
 }
 
-.datosProfile p span{
-  font-weight:700;
+.datosProfile p span {
+  font-weight: 700;
   font-style: italic;
 }
 
@@ -810,6 +828,7 @@ textarea {
   flex-direction: row;
   margin-top: 50px;
 }
+
 .rowFoot {
   display: flex;
   justify-content: space-around;
@@ -817,6 +836,7 @@ textarea {
   flex-direction: column;
   align-items: center;
 }
+
 .columnaFoot {
   width: 100%;
   padding: 0 15px;
@@ -877,7 +897,7 @@ textarea {
   .menu {
     display: block;
   }
-  
+
   .plan img {
     width: 480px;
     height: 260px;
@@ -922,7 +942,7 @@ textarea {
   .plan i {
     padding: 0 5px;
   }
-  
+
   .plan img {
     width: 577px;
     height: 300px;
@@ -939,7 +959,7 @@ textarea {
     height: 400px;
   }
 
-  form {
+  .userForms {
     margin: -120px auto 0 auto;
   }
 
@@ -1001,13 +1021,13 @@ textarea {
     align-items: center;
   }
 
-  .divBtnProductos{
+  .divBtnProductos {
     margin-top: 130px;
   }
 
-   /* PRODUCTOS ELIMINADOS */
+  /* PRODUCTOS ELIMINADOS */
 
-  .recoverBoton{
+  .recoverBoton {
     margin-top: 150px;
   }
 
@@ -1019,16 +1039,16 @@ textarea {
 
   /* PROFILE */
 
-  .imgPerfil img{
+  .imgPerfil img {
     width: 350px;
     height: 350px;
   }
 
-  .tituloProfile{
+  .tituloProfile {
     font-size: 20px;
   }
 
-  .datosProfile{
+  .datosProfile {
     width: 50%;
     margin: auto;
     margin-top: 20px;
