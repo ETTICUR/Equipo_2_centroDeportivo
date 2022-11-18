@@ -36,7 +36,13 @@ window.addEventListener("load", () => {
       console.log(errores);
     } else {
       errorNombre.textContent = "";
-      errores = errores.filter(e=>{e!=1})
+      let erroresAct = [];
+      for (n of errores) {
+        if (n != 1) {
+          erroresAct.push(n);
+        }
+      }
+      errores = erroresAct;
     }
   });
 
@@ -46,7 +52,13 @@ window.addEventListener("load", () => {
       errores.push(2);
     } else {
       errorApellido.textContent = "";
-      let errores = errores.map(e =>{e == 2})
+      let erroresAct = [];
+      for (n of errores) {
+        if (n != 2) {
+          erroresAct.push(n);
+        }
+      }
+      errores = erroresAct;
     }
   });
 
@@ -56,7 +68,13 @@ window.addEventListener("load", () => {
       errores.push(3);
     } else {
       errorEdad.textContent = "";
-      errores = errores.filter(e=>{e!=3})
+      let erroresAct = [];
+      for (n of errores) {
+        if (n != 3) {
+          erroresAct.push(n);
+        }
+      }
+      errores = erroresAct;
     }
   });
 
@@ -69,7 +87,13 @@ window.addEventListener("load", () => {
       errores.push(4);
     } else {
       errorEmail.textContent = "";
-      errores = errores.filter(e=>{e!=4})
+      let erroresAct = [];
+      for (n of errores) {
+        if (n != 4) {
+          erroresAct.push(n);
+        }
+      }
+      errores = erroresAct;
     }
   });
   password.addEventListener("change", () => {
@@ -78,29 +102,39 @@ window.addEventListener("load", () => {
       errores.push(5);
     } else {
       errorPassword.textContent = "";
-      errores = errores.filter(e=>{e!=5})
+      let erroresAct = [];
+      for (n of errores) {
+        if (n != 5) {
+          erroresAct.push(n);
+        }
+      }
+      errores = erroresAct;
     }
   });
 
-  passwordConfirm.addEventListener("change", () => {
-    if (passwordConfirm.value.length < 8) {
-      errorPasswordConfirm.textContent = "Ingrese al menos 8 caracteres";
-      errores.push(6);
-    } else if (passwordConfirm.value != password.value) {
+  passwordConfirm.addEventListener("input", () => {
+    if (passwordConfirm.value != password.value) {
       errorPasswordConfirm.textContent = "Las contraseñas deben coincidir";
       errores.push(6);
     } else {
       errorPasswordConfirm.textContent = "";
-      errores = errores.filter(e=>{e!=6})
+      let erroresAct = [];
+      for (n of errores) {
+        if (n != 6) {
+          erroresAct.push(n);
+        }
+      }
+      errores = erroresAct;
     }
   });
 
-  form.addEventListener("submit", (e)=>{
-    
-    if(errores.length > 0){
-        e.preventDefault()
-        form.setAttribute("action", "")
-
+  form.addEventListener("submit", (e) => {
+    if (errores.length > 0) {
+      e.preventDefault();
+      form.setAttribute("action", "");
+      errorRegistro.textContent = "Revise que todos los campos esten correctos";
+    } else {
+      errorRegistro.textContent = "";
     }
-  })
+  });
 });
