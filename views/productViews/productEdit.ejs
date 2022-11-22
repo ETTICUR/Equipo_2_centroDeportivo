@@ -37,11 +37,9 @@
                 <label for="category">Categoria: </label><span class="asterisco">*</span>
                 <select name="category" id="category" class="selectRegister">
                   <option disabled>Elige una opción</option>
-                  <option value="1" <%=actividad.id_category=='1' ? 'selected' : '' ; %>>Aeróbico</option>
-                  <option value="4" <%=actividad.id_category=='4' ? 'selected' : '' ; %>>Fuerza</option>
-                  <option value="3" <%=actividad.id_category=='3' ? 'selected' : '' ; %>>Relax</option>
-                  <option value="6" <%=actividad.id_category=='6' ? 'selected' : '' ; %>>Recuperación</option>
-                  <option value="2" <%=actividad.id_category=='2' ? 'selected' : '' ; %>>Combinado</option>
+                  <% categorias.forEach(categoria => { %> 
+                    <option value=" <%= categoria.id %> " <%=actividad.id_category == ' categoria.id ' ? 'selected' : '' ; %>><%= categoria.name %></option>
+                  <% }) %>
                 </select>
               </div>
             </div>
@@ -51,16 +49,9 @@
                 <label for="morningShift">Horario Mañana: </label><span class="asterisco">*</span>
                 <select name="morningShift" id="morningShift" class="selectRegister">
                   <option disabled>Elige una opción</option>
-                  <option value="1" <%=actividad.id_morningShift=='1' ? 'selected' : '' ; %>>de 08:00Hs a 09:00Hs
-                  </option>
-                  <option value="2" <%=actividad.id_morningShift=='2' ? 'selected' : '' ; %>>de 09:00Hs a 10:00Hs
-                  </option>
-                  <option value="3" <%=actividad.id_morningShift=='3' ? 'selected' : '' ; %>>de 10:00Hs a 11:00Hs
-                  </option>
-                  <option value="4" <%=actividad.id_morningShift=='4' ? 'selected' : '' ; %>>de 11:00Hs a 12:00Hs
-                  </option>
-                  <option value="5" <%=actividad.id_morningShift=='5' ? 'selected' : '' ; %>>Sin turnos por la mañana
-                  </option>
+                  <% turnoManiana.forEach(turno => { %> 
+                    <option value=" <%= turno.id %> " <%=actividad.id_morningShift== ' turno.id ' ? 'selected' : '' ; %>><%= turno.horaTurno %></option>
+                  <% }) %>
                 </select>
               </div>
 
@@ -68,16 +59,9 @@
                 <label for="afternoonShift">Horario Tarde: </label><span class="asterisco">*</span>
                 <select name="afternoonShift" id="afternoonShift" class="selectRegister">
                   <option disabled>Elige una opción</option>
-                  <option value="1" <%=actividad.id_afternoonShift=='1' ? 'selected' : '' ; %>>de 14:00Hs a 15:00Hs
-                  </option>
-                  <option value="2" <%=actividad.id_afternoonShift=='2' ? 'selected' : '' ; %>>de 15:00Hs a 16:00Hs
-                  </option>
-                  <option value="3" <%=actividad.id_afternoonShift=='3' ? 'selected' : '' ; %>>de 16:00Hs a 17:00Hs
-                  </option>
-                  <option value="4" <%=actividad.id_afternoonShift=='4' ? 'selected' : '' ; %>>de 17:00Hs a 18:00Hs
-                  </option>
-                  <option value="5" <%=actividad.id_afternoonShift=='5' ? 'selected' : '' ; %>>Sin turnos por la tarde
-                  </option>
+                  <% turnoTarde.forEach(turno => { %> 
+                    <option value=" <%= turno.id %> " <%=actividad.id_afternoonShift== ' turno.id ' ? 'selected' : '' ; %>><%= turno.horaTurno %></option>
+                  <% }) %>
                 </select>
               </div>
 
@@ -85,12 +69,9 @@
                 <label for="nigthShift">Horario Noche: </label><span class="asterisco">*</span>
                 <select name="nigthShift" id="nigthShift" class="selectRegister">
                   <option disabled>Elige una opción</option>
-                  <option value="1" <%=actividad.id_nigthShift=='1' ? 'selected' : '' ; %>>de 18:00Hs a 19:00Hs</option>
-                  <option value="2" <%=actividad.id_nigthShift=='2' ? 'selected' : '' ; %>>de 19:00Hs a 20:00Hs</option>
-                  <option value="3" <%=actividad.id_nigthShift=='3' ? 'selected' : '' ; %>>de 20:00Hs a 21:00Hs</option>
-                  <option value="4" <%=actividad.id_nigthShift=='4' ? 'selected' : '' ; %>>de 21:00Hs a 22:00Hs</option>
-                  <option value="5" <%=actividad.id_nigthShift=='5' ? 'selected' : '' ; %>>Sin turnos por la noche
-                  </option>
+                  <% turnoNoche.forEach(turno => { %> 
+                    <option value=" <%= turno.id %> " <%=actividad.id_nigthShift== ' turno.id ' ? 'selected' : '' ; %>><%= turno.horaTurno %></option>
+                  <% }) %>
                 </select>
               </div>
             </div>
@@ -103,6 +84,9 @@
             <div class="divBoton">
               <button class="btn" type="submit">
                 <i class="fas fa-check"></i> Editar
+              </button>
+              <button class="btn" type="button">
+                <i class="fa-solid fa-xmark"></i> <a href="/#actividades"> Cancelar</a> 
               </button>
             </div>
           </form>

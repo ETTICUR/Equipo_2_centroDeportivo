@@ -31,7 +31,7 @@ window.addEventListener("load", () => {
 
   nombre.addEventListener("change", () => {
     if (nombre.value.length < 2) {
-      errorNombre.textContent = "Ingrese mas de 2 caracteres";
+      errorNombre.textContent = "* Ingrese mas de 2 caracteres";
       errores.push(1);
       console.log(errores);
     } else {
@@ -48,7 +48,7 @@ window.addEventListener("load", () => {
 
   apellido.addEventListener("change", () => {
     if (apellido.value.length < 2) {
-      errorApellido.textContent = "Ingrese mas de 2 caracteres";
+      errorApellido.textContent = "* Ingrese mas de 2 caracteres";
       errores.push(2);
     } else {
       errorApellido.textContent = "";
@@ -64,7 +64,7 @@ window.addEventListener("load", () => {
 
   edad.addEventListener("change", () => {
     if (edad.value < 16) {
-      errorEdad.textContent = "Debe ser mayor de 16 años";
+      errorEdad.textContent = "* Debe ser mayor de 16 años";
       errores.push(3);
     } else {
       errorEdad.textContent = "";
@@ -83,7 +83,7 @@ window.addEventListener("load", () => {
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
     if (!re.test(email.value)) {
-      errorEmail.textContent = "Email invalido";
+      errorEmail.textContent = "* Email invalido";
       errores.push(4);
     } else {
       errorEmail.textContent = "";
@@ -98,7 +98,7 @@ window.addEventListener("load", () => {
   });
   password.addEventListener("change", () => {
     if (password.value.length < 8) {
-      errorPassword.textContent = "Ingrese al menos 8 caracteres";
+      errorPassword.textContent = "* Ingrese al menos 8 caracteres";
       errores.push(5);
     } else {
       errorPassword.textContent = "";
@@ -114,7 +114,7 @@ window.addEventListener("load", () => {
 
   passwordConfirm.addEventListener("input", () => {
     if (passwordConfirm.value != password.value) {
-      errorPasswordConfirm.textContent = "Las contraseñas deben coincidir";
+      errorPasswordConfirm.textContent = "* Las contraseñas deben coincidir";
       errores.push(6);
     } else {
       errorPasswordConfirm.textContent = "";
@@ -132,7 +132,7 @@ window.addEventListener("load", () => {
     if (errores.length > 0) {
       e.preventDefault();
       form.setAttribute("action", "");
-      errorRegistro.textContent = "Revise que todos los campos esten correctos";
+      errorRegistro.textContent = "* Revise que todos los campos esten correctos";
     } else {
       errorRegistro.textContent = "";
     }

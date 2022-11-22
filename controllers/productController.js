@@ -51,17 +51,37 @@ let controller = {
     }
   },
 
-  create: (req, res) => {
-    res.render("productCreate", {
-      title: "Crear Actividad",
-      personaLogueada: req.session.usuarioLogueado,
-    });
+  create: async (req, res) => {
+    try {
+      
+      const categorias = await db.productoCategoria.findAll({ raw: true });
+      const turnoManiana = await db.morningShift.findAll({ raw: true });
+      const turnoTarde = await db.afternoonShift.findAll({ raw: true });
+      const turnoNoche = await db.nigthShift.findAll({ raw: true });
+
+      res.render("productCreate", {
+        title: "Crear Actividad",
+        categorias: categorias,
+        turnoManiana: turnoManiana,
+        turnoTarde: turnoTarde,
+        turnoNoche: turnoNoche,
+        personaLogueada: req.session.usuarioLogueado,
+      });
+    } catch (error) {
+      console.log(error)
+    }
   },
 
   editView: async (req, res) => {
     let idActividad = Number(req.params.id);
 
     try {
+
+      const categorias = await db.productoCategoria.findAll({ raw: true });
+      const turnoManiana = await db.morningShift.findAll({ raw: true });
+      const turnoTarde = await db.afternoonShift.findAll({ raw: true });
+      const turnoNoche = await db.nigthShift.findAll({ raw: true });
+
       const actividadSeleccionada = await db.productos.findOne({
         where: {
           id: idActividad,
@@ -85,6 +105,10 @@ let controller = {
       res.render("productEdit", {
         title: "Editar Actividad",
         actividad: actividadSeleccionada,
+        categorias: categorias,
+        turnoManiana: turnoManiana,
+        turnoTarde: turnoTarde,
+        turnoNoche: turnoNoche,
         personaLogueada: req.session.usuarioLogueado,
       });
     } catch (error) {
