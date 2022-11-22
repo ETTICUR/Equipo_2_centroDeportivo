@@ -6,13 +6,14 @@
       <h1>Crear Actividad</h1>
       <main class="mainCreateEdit">
         <div class="divCreateEdit">
-          <form class="formCreateEdit" action="/producto/crear" method="POST" enctype="multipart/form-data">
+          <form id="form" class="formCreateEdit" action="/producto/crear" method="POST" enctype="multipart/form-data">
             <p>Completar los campos de la Actividad:</p>
             <div class="flex">
               <div class="inputForm ancho">
                 <label for="name">Nombre de la Actividad: </label><span class="asterisco">*</span>
                 <input type="text" name="name" id="name" placeholder="Nombre de Actividad"
-                  value="<%= locals.oldData ? oldData.name : null %>" />
+                  value="<%= locals.oldData ? oldData.name : null %>" required/>
+                <span id="errorNombre"></span>
                 <% if(locals.errors && errors.name) { %>
                   <div>
                     <span class="errorInput"> * <%= errors.name.msg %> </span>
@@ -22,7 +23,8 @@
 
               <div class="inputForm ancho">
                 <label for="image">Imágen: </label><span class="asterisco">*</span>
-                <input type="file" id="image" name="image" />
+                <input type="file" id="image" name="image" required/>
+                <span id="errorImagen"></span>
                 <% if(locals.errors && errors.image) { %>
                   <div>
                     <span class="errorInput"> * <%= errors.image.msg %> </span>
@@ -35,7 +37,7 @@
               <div class="inputForm ancho">
                 <label for="price">Precio: </label><span class="asterisco">*</span>
                 <input type="text" name="price" id="price" placeholder="Precio Producto"
-                  value="<%= locals.oldData ? oldData.price : null %>" />
+                  value="<%= locals.oldData ? oldData.price : null %>" required/>
                 <% if(locals.errors && errors.price) { %>
                   <div>
                     <span class="errorInput"> * <%= errors.price.msg %> </span>
@@ -45,7 +47,7 @@
 
               <div class="inputForm ancho">
                 <label for="category">Categoria: </label><span class="asterisco">*</span>
-                <select name="category" id="category" class="selectRegister">
+                <select name="category" id="category" class="selectRegister" required>
                   <option disabled <%=!locals.oldData || !oldData.category ? 'selected' : '' ; %>>Elige una opción</option>
                   <% categorias.forEach(categoria => { %> 
                     <option value=" <%= categoria.id %> " <%=locals.oldData && oldData.category =='categoria.id' ? 'selected' : '' ; %>><%= categoria.name %></option>
@@ -62,7 +64,7 @@
             <div class="flex">
               <div class="inputForm ancho">
                 <label for="morningShift">Horario Mañana: </label><span class="asterisco">*</span>
-                <select name="morningShift" id="morningShift" class="selectRegister">
+                <select name="morningShift" id="morningShift" class="selectRegister" required>
                   <option disabled <%=!locals.oldData || !oldData.morningShift ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% turnoManiana.forEach(turno => { %> 
@@ -78,7 +80,7 @@
 
               <div class="inputForm ancho">
                 <label for="afternoonShift">Horario Tarde: </label><span class="asterisco">*</span>
-                <select name="afternoonShift" id="afternoonShift" class="selectRegister">
+                <select name="afternoonShift" id="afternoonShift" class="selectRegister" required>
                   <option disabled <%=!locals.oldData || !oldData.afternoonShift ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% turnoTarde.forEach(turno => { %> 
@@ -94,7 +96,7 @@
 
               <div class="inputForm ancho">
                 <label for="nigthShift">Horario Noche: </label><span class="asterisco">*</span>
-                <select name="nigthShift" id="nigthShift" class="selectRegister">
+                <select name="nigthShift" id="nigthShift" class="selectRegister" required>
                   <option disabled <%=!locals.oldData || !oldData.nigthShift ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% turnoNoche.forEach(turno => { %> 
@@ -112,7 +114,8 @@
             <div class="inputForm">
               <label for="description">Descripción: </label><span class="asterisco">*</span>
               <textarea type="text" name="description" id="description" placeholder="Descripción Actividad"
-                value="<%= locals.oldData ? oldData.description : null %>"></textarea>
+                value="<%= locals.oldData ? oldData.description : null %>" required></textarea>
+              <span id="errorDescription"></span>
               <% if(locals.errors && errors.description) { %>
                 <div>
                   <span class="errorInput"> * <%= errors.description.msg %> </span>
@@ -120,6 +123,7 @@
                 <% } %>
             </div>
 
+            <span id="errorSubmit"></span>
             <div class="divBoton">
               <button class="btn" type="submit">
                 <i class="fas fa-check"></i> Crear
@@ -131,5 +135,7 @@
           </form>
         </div>
       </main>
+
+      <script src="/js/productCreateScript.js"></script>
 
       <%- include('../partials/footer') %>

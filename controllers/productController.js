@@ -146,10 +146,19 @@ let controller = {
     try {
       const resultadoValidaciones = validationResult(req);
 
+      const categorias = await db.productoCategoria.findAll({ raw: true });
+      const turnoManiana = await db.morningShift.findAll({ raw: true });
+      const turnoTarde = await db.afternoonShift.findAll({ raw: true });
+      const turnoNoche = await db.nigthShift.findAll({ raw: true });
+
       if (resultadoValidaciones.errors.length > 0) {
         res.render("productCreate", {
           title: "Crear Actividad",
           errors: resultadoValidaciones.mapped(),
+          categorias: categorias,
+          turnoManiana: turnoManiana,
+          turnoTarde: turnoTarde,
+          turnoNoche: turnoNoche,
           oldData: req.body,
           personaLogueada: req.session.usuarioLogueado,
         });
