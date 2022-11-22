@@ -7,19 +7,21 @@
       </h1>
       <main class="mainCreateEdit">
         <div class="divCreateEdit">
-          <form class="formCreateEdit" action="/producto/<%= actividad.id %> /editar?_method=PUT" method="POST"
+          <form id="form" class="formCreateEdit" action="/producto/<%= actividad.id %> /editar?_method=PUT" method="POST"
             enctype="multipart/form-data">
             <p>Modifica los campos deseados:</p>
             <div class="flex">
               <div class="inputForm ancho">
                 <label for="name">Nombre de la Actividad: </label><span class="asterisco">*</span>
                 <input type="text" name="name" id="name" value=" <%= actividad.name %> " />
+                <span id="errorNombre"></span>
               </div>
 
               <div class="inputForm ancho flex">
                 <div>
                   <label for="image">Imágen: </label>
                   <input type="file" id="image" name="image" />
+                  <span id="errorImagen"></span>
                 </div>
                 <div>
                   <img src="<%= actividad.image %>" width="120" alt="">
@@ -79,8 +81,10 @@
             <div class="inputForm">
               <label for="description">Descripción: </label><span class="asterisco">*</span>
               <textarea type="text" name="description" id="description"><%= actividad.description %></textarea>
+              <span id="errorDescripcion"></span>
             </div>
 
+            <span id="errorSubmit"></span>
             <div class="divBoton">
               <button class="btn" type="submit">
                 <i class="fas fa-check"></i> Editar
@@ -93,4 +97,5 @@
         </div>
       </main>
 
+      <script src="/js/productEditScript.js"></script>
       <%- include('../partials/footer') %>
