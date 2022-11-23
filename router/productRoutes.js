@@ -34,8 +34,9 @@ router.post(
 router.get("/:id/editar", authAdmin, productController.editView);
 router.put(
   "/:id/editar",
-  authAdmin,
+  [authAdmin,
   uploadFile.single("image"),
+  validacionesProducts],
   productController.editProduct
 );
 
