@@ -23,7 +23,7 @@
 
               <div class="inputForm ancho">
                 <label for="image">Imágen: </label><span class="asterisco">*</span>
-                <input type="file" id="image" name="image" required/>
+                <input type="file" id="image" name="image"/>
                 <span id="errorImagen"></span>
                 <% if(locals.errors && errors.image) { %>
                   <div>
@@ -37,7 +37,7 @@
               <div class="inputForm ancho">
                 <label for="price">Precio: </label><span class="asterisco">*</span>
                 <input type="text" name="price" id="price" placeholder="Precio Producto"
-                  value="<%= locals.oldData ? oldData.price : null %>" required/>
+                  value="<%= locals.oldData ? oldData.price : null %>"/>
                 <% if(locals.errors && errors.price) { %>
                   <div>
                     <span class="errorInput"> * <%= errors.price.msg %> </span>
@@ -47,7 +47,7 @@
 
               <div class="inputForm ancho">
                 <label for="category">Categoria: </label><span class="asterisco">*</span>
-                <select name="category" id="category" class="selectRegister" required>
+                <select name="category" id="category" class="selectRegister" >
                   <option disabled <%=!locals.oldData || !oldData.category ? 'selected' : '' ; %>>Elige una opción</option>
                   <% categorias.forEach(categoria => { %> 
                     <option value=" <%= categoria.id %> " <%=locals.oldData && oldData.category =='categoria.id' ? 'selected' : '' ; %>><%= categoria.name %></option>
@@ -64,7 +64,7 @@
             <div class="flex">
               <div class="inputForm ancho">
                 <label for="morningShift">Horario Mañana: </label><span class="asterisco">*</span>
-                <select name="morningShift" id="morningShift" class="selectRegister" required>
+                <select name="morningShift" id="morningShift" class="selectRegister" >
                   <option disabled <%=!locals.oldData || !oldData.morningShift ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% turnoManiana.forEach(turno => { %> 
@@ -80,7 +80,7 @@
 
               <div class="inputForm ancho">
                 <label for="afternoonShift">Horario Tarde: </label><span class="asterisco">*</span>
-                <select name="afternoonShift" id="afternoonShift" class="selectRegister" required>
+                <select name="afternoonShift" id="afternoonShift" class="selectRegister" >
                   <option disabled <%=!locals.oldData || !oldData.afternoonShift ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% turnoTarde.forEach(turno => { %> 
@@ -96,7 +96,7 @@
 
               <div class="inputForm ancho">
                 <label for="nigthShift">Horario Noche: </label><span class="asterisco">*</span>
-                <select name="nigthShift" id="nigthShift" class="selectRegister" required>
+                <select name="nigthShift" id="nigthShift" class="selectRegister">
                   <option disabled <%=!locals.oldData || !oldData.nigthShift ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% turnoNoche.forEach(turno => { %> 
@@ -114,7 +114,7 @@
             <div class="inputForm">
               <label for="description">Descripción: </label><span class="asterisco">*</span>
               <textarea type="text" name="description" id="description" placeholder="Descripción Actividad"
-                value="<%= locals.oldData ? oldData.description : null %>" required></textarea>
+                value="<%= locals.oldData ? oldData.description : null %>"></textarea>
               <span id="errorDescription"></span>
               <% if(locals.errors && errors.description) { %>
                 <div>
