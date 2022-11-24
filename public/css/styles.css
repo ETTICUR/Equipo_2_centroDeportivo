@@ -359,7 +359,6 @@ iframe {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-top: 50px;
 }
 
 .divBtnProductos div {
@@ -387,16 +386,6 @@ iframe {
   background-color: #ffaa4100;
   border: none;
   text-align: center;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 .masMenosDetail {
@@ -1026,7 +1015,7 @@ textarea {
   }
 
   .divBtnProductos {
-    margin-top: 130px;
+    margin-top: 50px;
   }
 
   /* PRODUCTOS ELIMINADOS */
