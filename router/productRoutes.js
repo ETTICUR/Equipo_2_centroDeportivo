@@ -27,7 +27,7 @@ router.post("/recuperar/:id", authAdmin, productController.productRecovery);
 router.get("/crear", authAdmin, productController.create);
 router.post(
   "/crear",
-  [uploadFile.single("image"), validacionesProducts, authAdmin],
+  [uploadFile.single("image"), validacionesProducts.newUser, authAdmin],
   productController.processCreate
 );
 
@@ -36,7 +36,7 @@ router.put(
   "/:id/editar",
   [authAdmin,
   uploadFile.single("image"),
-  validacionesProducts],
+  validacionesProducts.editUser],
   productController.editProduct
 );
 

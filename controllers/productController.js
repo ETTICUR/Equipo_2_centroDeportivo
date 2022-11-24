@@ -185,37 +185,81 @@ let controller = {
 
   editProduct: async (req, res) => {
     try {
-      let idSeleccionado = Number(req.params.id);
 
-      let actividadAEditar = await db.productos.findByPk(idSeleccionado, {
-        raw: true,
-      });
+      const resultadoValidaciones = validationResult(req);
 
-      let imageActividadEditada;
-      if (req.file == undefined) {
-        imageActividadEditada = actividadAEditar.image;
-      } else {
-        imageActividadEditada = "/images/products/" + req.file.filename;
-      }
-      await db.productos.update(
-        {
-          name: req.body.name,
-          id_category: req.body.category,
-          price: req.body.price,
-          image: imageActividadEditada,
-          description: req.body.description,
-          id_morningShift: req.body.morningShift,
-          id_afternoonShift: req.body.afternoonShift,
-          id_nigthShift: req.body.nigthShift,
-        },
-        {
+      if(resultadoValidaciones.errors.length > 0){
+        let idActividad = Number(req.params.id);
+
+        const categorias = await db.productoCategoria.findAll({ raw: true });
+        const turnoManiana = await db.morningShift.findAll({ raw: true });
+        const turnoTarde = await db.afternoonShift.findAll({ raw: true });
+        const turnoNoche = await db.nigthShift.findAll({ raw: true });
+  
+        const actividadSeleccionada = await db.productos.findOne({
           where: {
-            id: idSeleccionado,
+            id: idActividad,
           },
-        }
-      );
+          include: [
+            { association: "productoCategoria" },
+            { association: "morningShift" },
+            { association: "afternoonShift" },
+            { association: "nigthShift" },
+          ],
+          raw: true,
+        });
+  
+        actividadSeleccionada.morningShift =
+          actividadSeleccionada["morningShift.horaTurno"];
+        actividadSeleccionada.afternoonShift =
+          actividadSeleccionada["afternoonShift.horaTurno"];
+        actividadSeleccionada.nigthShift =
+          actividadSeleccionada["nigthShift.horaTurno"];
+  
+        res.render("productEdit", {
+          title: "Editar Actividad",
+          actividad: actividadSeleccionada,
+          errors: resultadoValidaciones.mapped(),
+          categorias: categorias,
+          turnoManiana: turnoManiana,
+          turnoTarde: turnoTarde,
+          turnoNoche: turnoNoche,
+          personaLogueada: req.session.usuarioLogueado,
+        });
+      } else {
+        let idSeleccionado = Number(req.params.id);
 
-      res.redirect(`/producto/detalle/${actividadAEditar.id}`);
+        let actividadAEditar = await db.productos.findByPk(idSeleccionado, {
+          raw: true,
+        });
+  
+        let imageActividadEditada;
+        if (req.file == undefined) {
+          imageActividadEditada = actividadAEditar.image;
+        } else {
+          imageActividadEditada = "/images/products/" + req.file.filename;
+        }
+        await db.productos.update(
+          {
+            name: req.body.name,
+            id_category: req.body.category,
+            price: req.body.price,
+            image: imageActividadEditada,
+            description: req.body.description,
+            id_morningShift: req.body.morningShift,
+            id_afternoonShift: req.body.afternoonShift,
+            id_nigthShift: req.body.nigthShift,
+          },
+          {
+            where: {
+              id: idSeleccionado,
+            },
+          }
+        );
+  
+        res.redirect(`/producto/detalle/${actividadAEditar.id}`);
+      }
+      
     } catch (error) {
       console.log(error);
     }
