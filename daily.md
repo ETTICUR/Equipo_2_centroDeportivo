@@ -1,31 +1,16 @@
-## ** Daily 19/10
+## ** Daily 25/11
 
 ###### * * Tareas: 
 
-○Script de estructura (archivo structure.sql completo)
-○ Creación de carpeta (database)
-    ●   Los archivos de configuración para que Sequelize se conecte a la base de datos.
-    ● Los archivos de modelos para representar las tablas de:
-            ○ Usuarios.
-            ○ Productos.
-            ○ Tablas secundarias (categorías, marcas, colores, talles, etc).
-○ CRUD de la base de datos
-        Para ACTIVIDADES:
-                ○ Crear
-                ○ Editar
-                ○ Eliminar
-                ○ Listar
-                ○ Ver el detalle
-                ○ Buscar
-
-         Para usuarios:
-                ○ Crear
-                ○ Editar
-                ○ Ver el detalle
+○ Validación de creación y edición de productos
+    ● Nombre con 5 caracteres.
+    ● Descripción de al menos 20 caracteres.
+    ● Imagen con formato jpg,jpeg,png,gif
 
 ###### * * Implementadas: 
-○ Diagrama de base de datos
-○ Actualizar retro
+○ Validación para registro de usuarios en front
+○ Validación para login en front
+○ Validación del backend
 ○ Actualizar el tablero de trabajo
 ○ Actualizar daily.md
 
