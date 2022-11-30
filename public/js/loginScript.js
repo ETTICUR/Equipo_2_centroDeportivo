@@ -5,7 +5,7 @@ window.addEventListener('load', () =>{
     let password = document.getElementById('password')
     let errorEmail = document.getElementById("errorEmail");
     let errorPassword = document.getElementById("errorPassword");
-    let error = []
+    let errores = []
 
     email.addEventListener('change', (e)=>{
         const re=  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -15,7 +15,15 @@ window.addEventListener('load', () =>{
             
         }else {
             errorEmail.innerText=" ";
-        }
+            let erroresAct = [];
+            for (n of errores) {
+              if (n != 4) {
+                erroresAct.push(n);
+              }
+            }
+            errores = erroresAct;
+          }
+        
     });
 
 
@@ -23,8 +31,17 @@ window.addEventListener('load', () =>{
         const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
         if(!re.test(password.value)){
             errorPassword.innerText = '* Ingrese al menos 8 caracteres'
+            errores.push(5);
         }else{
             errorPassword.innerText="";
+            let erroresActuales = [];
+            errores.forEach(error => {
+                if(error !== 5) {
+                    erroresActuales.push(error);
+                }
+            })
+
+            errores = erroresActuales;
         }
     });
     
@@ -35,6 +52,7 @@ window.addEventListener('load', () =>{
           errorRegistro.textContent = "* Revise que todos los campos esten correctos";
         } else {
           errorRegistro.textContent = "";
+          form.setAttribute("action", "/register")
         }
       });
     

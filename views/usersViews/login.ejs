@@ -1,56 +1,57 @@
-<%- include('../partials/head') %> 
+<%- include('../partials/head') %>
 
-<body class="bodyLogin">
+    <body class="bodyLogin">
 
-    <%- include('../partials/navbar') %> 
+        <%- include('../partials/navbar') %>
 
-    <main class="mainLogin">
-        <h1 class="tituloLogin">Ingresá a tu cuenta</h1>
-        <div class="loginBox">
-            <div class="imagenLogin">
-                <img src="/images/Logo Centro Deportivo Blanco.png" alt="Logo Centro Deportivo">
-            </div>
-
-            <form class="formLogin userForms" id="loginForm" method="post" action="/login" enctype="multipart/form-data">
-                <div class="inputForm">
-                    <label for="email">Correo Electrónico:</label><span class="asterisco">*</span>
-                    <input type="text" placeholder="Ingresar Correo Electrónico" id="email" name="email" required value="<%= locals.oldData ? oldData.email : null %>">
-                    <span class="asterisco" id="errorEmail"></span>
-                    <% if(locals.errors && errors.email) { %>
-                        <div>
-                          <span class="errorInput"> * <%= errors.email.msg %> </span>
-                        </div>
-                        <% } %>
-                </div>
-
-                <div class="inputForm">
-                    <label for="password">Contraseña:</label><span class="asterisco">*</span>
-                    <input type = "password" name = "password" id="password" placeholder= "Ingresa tu contraseña" required
-                    minlength="5"/>
-                    <span class="asterisco" id="errorPassword"</span>
-                        <% if(locals.errors && errors.password) { %>
-                        <div>
-                          <span class="errorInput"> * <%= errors.password.msg %> </span>
-                        </div>
-                        <% } %>
-                </div>
-
-                <div class="divBoton">
-                    <button class="btn" type="submit"><i class="fas fa-right-to-bracket"></i> Ingresar</button>
-                </div>
-
-                <div class="recuerdameRecupero">
-                    <div class="recuerdame">
-                        <input type="checkbox" name="recuerdame" id="recuerdame">
-                        <label for="recuerdame">Recuérdame</label>
+            <main class="mainLogin">
+                <h1 class="tituloLogin">Ingresá a tu cuenta</h1>
+                <div class="loginBox">
+                    <div class="imagenLogin">
+                        <img src="/images/Logo Centro Deportivo Blanco.png" alt="Logo Centro Deportivo">
                     </div>
-    
-                    <div class="recuperar">
-                        <a href="#">Recuperar Contraseña</a>
-                    </div>
-                </div>
 
-            </form>
-    </main>
-    <script src="/js/loginScript.js"></script>
-    <%- include('../partials/footer') %>
+                    <form class="formLogin userForms" id="loginForm" method="post" action="/login">
+                        <div class="inputForm">
+                            <label for="email">Correo Electrónico:</label><span class="asterisco">*</span>
+                            <input type="text" placeholder="Ingresar Correo Electrónico" id="email" name="email"
+                                required value="<%= locals.oldData ? oldData.email : null %>">
+                            <span class="asterisco" id="errorEmail"></span>
+                            <% if(locals.errors && errors.email) { %>
+                                <div>
+                                    <span class="errorInput"> * <%= errors.email.msg %> </span>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div class="inputForm">
+                            <label for="password">Contraseña:</label><span class="asterisco">*</span>
+                            <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña"
+                                required minlength="5" />
+                            <span class="asterisco" id="errorPassword" </span>
+                                <% if(locals.errors && errors.password) { %>
+                                    <div>
+                                        <span class="errorInput"> * <%= errors.password.msg %> </span>
+                                    </div>
+                                    <% } %>
+                        </div>
+
+                        <div class="divBoton">
+                            <button class="btn" type="submit"><i class="fas fa-right-to-bracket"></i> Ingresar</button>
+                        </div>
+
+                        <div class="recuerdameRecupero">
+                            <div class="recuerdame">
+                                <input type="checkbox" name="recuerdame" id="recuerdame">
+                                <label for="recuerdame">Recuérdame</label>
+                            </div>
+
+                            <div class="recuperar">
+                                <a href="#">Recuperar Contraseña</a>
+                            </div>
+                        </div>
+
+                    </form>
+            </main>
+            <script src="/js/loginScript.js"></script>
+            <%- include('../partials/footer') %>

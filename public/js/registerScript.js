@@ -76,7 +76,9 @@ window.addEventListener("load", () => {
       }
       errores = erroresAct;
     }
+
   });
+
 
   email.addEventListener("change", () => {
     const re =
@@ -135,6 +137,7 @@ window.addEventListener("load", () => {
       errorRegistro.textContent = "* Revise que todos los campos esten correctos";
     } else {
       errorRegistro.textContent = "";
+      form.setAttribute("action", "/register")
     }
   });
 });
