@@ -49,6 +49,9 @@ app.use("/producto", productRoutes);
 
 app.use(usersRoutes);
 
+app.use('/api/users', apiUsersRoutes);
+app.use('/api/products', apiProductsRoutes);
+
 app.listen(process.env.PORT || 5000, () => {
   console.log("Servidor abierto en puerto " + process.env.PORT);
 });
