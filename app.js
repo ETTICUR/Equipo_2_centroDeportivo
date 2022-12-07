@@ -11,6 +11,8 @@ const cartMiddleware = require("./middlewares/products/cartMiddleware")
 const mainRoutes = require("./router/mainRoutes");
 const productRoutes = require("./router/productRoutes");
 const usersRoutes = require("./router/usersRoutes");
+const apiUsersRoutes = require('./router/api/apiUserRoutes');
+const apiProductsRoutes = require('./router/api/apiProductsRoutes');
 
 const app = express();
 
