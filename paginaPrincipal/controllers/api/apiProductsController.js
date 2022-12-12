@@ -55,7 +55,8 @@ const apiProductsControllers = {
                     id: producto.id,
                     name: producto.name,
                     description: producto.description,
-                    detail: `/api/products/${producto.id}`
+                    detail: `/api/products/${producto.id}`,
+                    image: producto.image
                 })
             });
     
