@@ -125,7 +125,7 @@ h2 {
   text-align: center;
   background-color: rgba(255, 209, 129, 0.664);
   padding: 20px;
-  border-radius: 10%;
+  border-radius: 20px;
 }
 
 .fraseBannerNegrita {
@@ -206,7 +206,7 @@ h2 {
   width: 100%;
   color: white;
   font-weight: bolder;
-  border-radius: 2%;
+  border-radius: 10px;
 }
 
 .plan img {
@@ -214,6 +214,7 @@ h2 {
   width: 430px;
   height: 240px;
   transition: all 0.5s ease-in-out;
+  border-radius: 10px;
 }
 
 .plan i {
@@ -677,7 +678,7 @@ textarea {
   width: 90vw;
   margin: 10vh auto;
   background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 5%;
+  border-radius: 15px;
 }
 
 .cartTable {
@@ -731,10 +732,10 @@ textarea {
 }
 
 .finishButton {
-  width: 80%;
+  width: 60%;
   padding: 15px;
   border: 2px solid #fa8a01;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #ffffff;
   font-weight: bold;
   font-size: 1rem;
@@ -744,10 +745,11 @@ textarea {
   cursor: pointer;
 }
 
-.finishButton:focus {
-  background-color: #fa8a01;
+.finishButton:hover {
+  border-color: #fa8a01;
+  box-shadow: inset 20em 0 0 0 #fa8a01;
+  transition: 0.7s;
   color: white;
-  border: #fadba5;
 }
 
 .itemCountMobile {
@@ -1074,7 +1076,7 @@ textarea {
 
   .finishButton:hover {
     border-color: #fa8a01;
-    box-shadow: inset 10em 0 0 0 #fa8a01;
+    box-shadow: inset 15em 0 0 0 #fa8a01;
     transition: 0.7s;
     color: white;
   }
