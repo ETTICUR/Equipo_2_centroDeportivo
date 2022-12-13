@@ -27,9 +27,8 @@ window.addEventListener('load', () =>{
     });
 
 
-    password.addEventListener('change', (e)=>{
-        const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
-        if(!re.test(password.value)){
+    password.addEventListener('change', ()=>{
+        if(password.value.length < 8){
             errorPassword.innerText = '* Ingrese al menos 8 caracteres'
             errores.push(5);
         }else{
