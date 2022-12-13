@@ -52,7 +52,7 @@ let controller = {
 
             if (req.body.recuerdame != undefined) {
               res.cookie("recuerdame", req.session.usuarioLogueado, {
-                maxAge: 6000 * 30,
+                maxAge: 1000 * 60 * 60 * 24,
               });
             }
 
