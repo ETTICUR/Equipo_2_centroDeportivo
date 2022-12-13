@@ -8,6 +8,7 @@ function GenresInDb() {
     fetch(`/api/products`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
         setCategorias(data.countByCategory);
       })
       .catch((error) => {
@@ -21,7 +22,7 @@ function GenresInDb() {
       <div className="card shadow mb-4">
         <div className="card-header py-3">
           <h5 className="m-0 font-weight-bold text-gray-800">
-            Categorias
+            Actividades por Categoría
           </h5>
         </div>
         <div className="card-body">

@@ -5,7 +5,7 @@ function TarjetaCategoria(props) {
   <div className="col-lg-6 mb-4">
     <div className="card bg-dark text-white shadow">
       <div className="card-body">
-        {props.Nombre}
+        {props.Nombre} : {props.Cantidad}
       </div>
     </div>
   </div>

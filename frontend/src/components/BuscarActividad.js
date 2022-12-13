@@ -12,20 +12,16 @@ function SearchMovies(){
 	
 	const apiKey = 'c53f759';
 		
-	useEffect(async ()=>{
+	useEffect(()=>{
 
-		
-
-			let response = await fetch(`/api/products`)
-			let data = await response.json()
+			let response =  fetch(`/api/products`)
+			let data =  response.json()
 
 			if(data.products){
 				setMovies(data.products)
 			}else{
 				setMovies([])
 			}
-		
-		
 	}, [keyword])
 
 	const handleSubmit = (e)=>{

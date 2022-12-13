@@ -19,29 +19,31 @@ function Chart (){
 
     return (
         <div className="card shadow mb-4">
+            <div className="card-header py-3" >
+                <h5 className="m-0 font-weight-bold text-gray-800">Actividades en Base de Datos</h5>
+            </div>
             <div className="card-body">
                 <div className="table-responsive">
-                    <h1>Lista de actividades</h1>
                     <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
-                                <th>Descripcion</th>
+                                <th>Descripción</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                            actividades.map( ( row , i) => {
-                                return <FilaTablaActividades { ...row} key={i}/>
-                            })
+                                actividades.map( ( row , i) => {
+                                    return <FilaTablaActividades { ...row} key={i}/>
+                                })
                             }
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
-                                <th>Descripcion</th>
+                                <th>Descripción</th>
                             </tr>
                         </tfoot>
                     </table>

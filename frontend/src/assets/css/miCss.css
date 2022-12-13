@@ -1,0 +1,21 @@
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+.contentLogo{
+    padding: 10px;
+}
+
+.cardActividades{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+}
