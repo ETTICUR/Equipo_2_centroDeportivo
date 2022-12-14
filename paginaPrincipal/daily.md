@@ -1,12 +1,17 @@
-## ** Daily 12/12
+## ** Daily 14/12
 
 ###### * * Tareas: 
 
-○ Edición de dashboard
-○ Ajustes de Apis (user y product)
+○ Actualización daily
+○ Diagrama de estrella
+○ Linea de tiempo
 
 ###### * * Implementadas: 
-○ Ordenar github con dash y proyecto en el mismo linck
+○ Ordenar github con dash y proyecto en el mismo linck.
+○ Chequear sprint y actividades realizadas.
+○ Bocetear la presentación final.
 
 ###### * * Soluciones propuestas:
-Generar cronograma de trabajo utilizando el tiempo de clase prácticas.
+Generar cronograma de trabajo utilizando el tiempo de clase práctica.
+Establecer diseño de como presentaremos.
+Práctica de la presentación final

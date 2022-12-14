@@ -1,10 +1,11 @@
 ## ** RETROEXPECTIVA DE ESTRELLA
 
 ###### * * Start Doing: 
-Predisposicción a coordinar por whatsapp u slack cuando no es posible el meeting semanal.
+Balance de como se trabajo y que mejorariamos en un entorno laboral real. 
 Flexibilidad hacia nuevos modos de trabajo, división de tareas o encuentros grupales segun las coordinaciones horarias.
 
 ###### * * More of: 
+Aumentar las instancias de reflexión grupal sobre las mejoras de tiempos y formas de trabajo.
 Considerar viajes programados y otras obligaciones externas al curso, para anticiparnos y flexibilizarnos en las disponibilidades.
 Alertar y pedir ayuda cuando se nos crashea el proyecto.
 
@@ -17,6 +18,9 @@ Mantener los tiempos de reuniones en sincrónicas en no más de 40/60 minutos.
 
 ###### * * Less of: 
 Planificación sin los horarios de las aplicaciones prácticas, considerarlos como tiempos para desarrollo de proyecto.
+Establecer comunicación más fluida y concreta.
+Evitar temer a indicarle a los demas compañeros inconvenientes o demoras si hicimos división de tareas.
+Aumentar la comprension y flexibilidad respecto a los tiempos diferentes de cada uno, mientras se logre cumplir con los plazos. 
 
 ###### * * Stop Doing: 
 Avisos de último momento cuando hacemos división de tarea individual, de que tuvimos inconvenientes.
