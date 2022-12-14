@@ -1,21 +1,12 @@
-## ** Daily 25/11
+## ** Daily 12/12
 
 ###### * * Tareas: 
 
-○ Validación de creación y edición de productos
-    ● Nombre con 5 caracteres.
-    ● Descripción de al menos 20 caracteres.
-    ● Imagen con formato jpg,jpeg,png,gif
+○ Edición de dashboard
+○ Ajustes de Apis (user y product)
 
 ###### * * Implementadas: 
-○ Validación para registro de usuarios en front
-○ Validación para login en front
-○ Validación del backend
-○ Actualizar el tablero de trabajo
-○ Actualizar daily.md
-
+○ Ordenar github con dash y proyecto en el mismo linck
 
 ###### * * Soluciones propuestas:
-Generar cronograma de trabajo.
-Notificaciones automaticas de TRELLO
-Hacer subgrupos de whatsapp de acuerdo a la distribución de tareas, y sólo al fin de esos objetivos, al cumplirlos eliminiamos ese grupo.
+Generar cronograma de trabajo utilizando el tiempo de clase prácticas.
