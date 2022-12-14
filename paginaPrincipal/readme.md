@@ -40,5 +40,6 @@ Dentro de la carpeta 'extras/sql' se encuentra el archivo 'centrodeportivo.sql' 
 
 - https://trello.com/b/hckivyZn/equipo2centrodeportivo
 
+#### Link Línea de tiempo:
 
-
+- https://jamboard.google.com/d/11EMDdxaIYvQCyu-XQfQzu-tUw_jRyOIQS_SQVj8rv00/viewer
