@@ -4,7 +4,6 @@ import ContentWrapper from './ContentWrapper';
 import Categorias from './Categorias';
 //import UltimaActividad from './UltimaActividad';
 import TarjetasResumen from './TarjetasResumen';
-import BuscarActividad from './BuscarActividad';
 import ResumenActividades from './ResumenActividades';
 import '../assets/css/miCss.css';
 import NotFound from './NotFound';
@@ -62,11 +61,6 @@ function SideBar(){
                         <span>Resúmen</span>
                     </Link>
                 </li>
-                <li className="nav-item nav-link">
-                    <Link className="nav-link" to="/buscarActividad">
-                        <span>Buscar Actividad</span>
-                    </Link>
-                </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
@@ -87,9 +81,6 @@ function SideBar(){
                 </Route>
                 <Route path="/tarjetasResumen">
                     <TarjetasResumen />
-                </Route>
-                <Route path="/buscarActividad">
-                    <BuscarActividad />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
