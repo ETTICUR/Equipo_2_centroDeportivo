@@ -6,11 +6,17 @@ const { send } = require("process");
 const db = require("../database/models");
 
 let controller = {
-  login: (req, res) => {
-    res.render("login", {
-      title: "Login",
-      personaLogueada: req.session.usuarioLogueado,
-    });
+  login: async (req, res) => {
+
+    try{
+      res.render("login", {
+        title: "Login",
+        personaLogueada: await req.session.usuarioLogueado,
+      });
+    }
+    catch (error){
+      console.log(error);
+    }
   },
 
   processLogin: async (req, res) => {
@@ -90,12 +96,16 @@ let controller = {
     }
   },
 
-  profileView: (req, res) => {
-    res.render("profile", {
-      title: "Perfil",
-      personaLogueada: req.session.usuarioLogueado,
-      user: req.session.usuarioLogueado,
-    });
+  profileView: async (req, res) => {
+    try{
+      res.render("profile", {
+        title: "Perfil",
+        personaLogueada: await req.session.usuarioLogueado,
+        user: await req.session.usuarioLogueado,
+      });
+    } catch(error){
+      console.log(error)
+    }
   },
 
   register: async (req, res) => {

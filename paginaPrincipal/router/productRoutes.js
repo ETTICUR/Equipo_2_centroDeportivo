@@ -25,9 +25,7 @@ router.get("/recuperar", authAdmin, productController.deletedProducts);
 router.post("/recuperar/:id", authAdmin, productController.productRecovery);
 
 router.get("/crear", authAdmin, productController.create);
-router.post(
-  "/crear",
-  [uploadFile.single("image"), validacionesProducts.newUser, authAdmin],
+router.post("/crear",[uploadFile.single("image"), validacionesProducts.newUser, authAdmin],
   productController.processCreate
 );
 
