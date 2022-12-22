@@ -215,7 +215,6 @@ h2 {
   width: 430px;
   height: 240px;
   transition: all 0.5s ease-in-out;
-  border-radius: 10px;
   object-fit: cover;
 }
 
@@ -226,9 +225,9 @@ h2 {
 
 .plan img:hover {
   filter: grayscale(1);
-  /* transform: scale(1.1); */
+  transform: scale(1.1);
   cursor: pointer;
-  /* box-shadow: 10px 10px 10px rgb(170, 170, 170); */
+  box-shadow: 10px 10px 10px rgb(170, 170, 170);
 }
 
 .btnPlan {
