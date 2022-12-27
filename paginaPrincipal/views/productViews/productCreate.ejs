@@ -50,7 +50,7 @@
                 <select name="category" id="category" class="selectRegister" >
                   <option disabled <%=!locals.oldData || !oldData.category ? 'selected' : '' ; %>>Elige una opción</option>
                   <% categorias.forEach(categoria => { %> 
-                    <option value=" <%= categoria.id %> " <%=locals.oldData && oldData.category =='categoria.id' ? 'selected' : '' ; %>><%= categoria.name %></option>
+                    <option value=" <%= categoria.id %> " <%=locals.oldData && oldData.category == categoria.id ? 'selected' : '' ; %>><%= categoria.name %></option>
                   <% }) %>
                 </select>
                 <% if(locals.errors && errors.category) { %>
@@ -68,7 +68,7 @@
                   <option disabled <%=!locals.oldData || !oldData.morningShift ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% turnoManiana.forEach(turno => { %> 
-                    <option value=" <%= turno.id %> " <%=locals.oldData && oldData.morningShift =='turno.id' ? 'selected' : '' ; %>><%= turno.horaTurno %></option>
+                    <option value=" <%= turno.id %> " <%=locals.oldData && oldData.morningShift ==turno.id ? 'selected' : '' ; %>><%= turno.horaTurno %></option>
                   <% }) %>
                 </select>
                 <% if(locals.errors && errors.morningShift) { %>
@@ -84,7 +84,7 @@
                   <option disabled <%=!locals.oldData || !oldData.afternoonShift ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% turnoTarde.forEach(turno => { %> 
-                    <option value=" <%= turno.id %> " <%=locals.oldData && oldData.morningShift =='turno.id' ? 'selected' : '' ; %>><%= turno.horaTurno %></option>
+                    <option value=" <%= turno.id %> " <%=locals.oldData && oldData.afternoonShift ==turno.id ? 'selected' : '' ; %>><%= turno.horaTurno %></option>
                   <% }) %>
                 </select>
                 <% if(locals.errors && errors.afternoonShift) { %>
@@ -100,7 +100,7 @@
                   <option disabled <%=!locals.oldData || !oldData.nigthShift ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% turnoNoche.forEach(turno => { %> 
-                    <option value=" <%= turno.id %> " <%=locals.oldData && oldData.morningShift =='turno.id' ? 'selected' : '' ; %>><%= turno.horaTurno %></option>
+                    <option value=" <%= turno.id %> " <%=locals.oldData && oldData.morningShift ==turno.id ? 'selected' : '' ; %>><%= turno.horaTurno %></option>
                   <% }) %>
                 </select>
                 <% if(locals.errors && errors.nigthShift) { %>

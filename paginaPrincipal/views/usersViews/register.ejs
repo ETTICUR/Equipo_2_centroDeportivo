@@ -51,7 +51,7 @@
                     <option disabled <%=!locals.oldData || !oldData.genero ? 'selected' : '' ; %>>Elige una opción
                     </option>
                     <% generos.forEach(genero=> { %>
-                      <option value="<%= genero.id %>" <%=locals.oldData && oldData.genero=='genero.id' ? 'selected'
+                      <option value="<%= genero.id %>" <%=locals.oldData && oldData.genero==genero.id ? 'selected'
                         : '' ; %>><%= genero.name %>
                       </option>
                       <% }) %>
@@ -81,7 +81,7 @@
                   <option disabled <%=!locals.oldData || !oldData.actividad ? 'selected' : '' ; %>>Elige una opción
                   </option>
                   <% actividades.forEach(actividad=> { %>
-                    <option value="<%= actividad.id %>" <%=locals.oldData && oldData.actividad=='actividad.id'
+                    <option value="<%= actividad.id %>" <%=locals.oldData && oldData.actividad==actividad.id
                       ? 'selected' : '' ; %>><%= actividad.name %>
                     </option>
                     <% }) %>
